@@ -2,10 +2,33 @@ VBox {
     -fx-background-color: #1d1d1d;
 }
 
-.table-view{
-    -fx-text-fill: black;
-    -fx-font-size: 14;
-    -fx-font-weight: bold;
+AnchorPane {
+    -fx-background-color: #313131;
+}
+
+.titled-pane > .title
+{
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(183, 183, 183), rgb(82, 82, 82));
+    -fx-border-radius: 3;
+    -fx-border-color: white;
+}
+
+#tp_money > .title
+{
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(255, 110, 20), rgb(210, 95, 0));
+    -fx-border-radius: 3;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+#btn_attack {
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(255, 138, 20), rgb(192, 112, 29));
+    -fx-text-fill: white;
+}
+
+#btn_skip {
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(154, 255, 231), rgb(125, 189, 197));
+    -fx-text-fill: white;
 }
 
 .label {
