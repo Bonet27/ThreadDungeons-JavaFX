@@ -32,96 +32,156 @@
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Text>
                   <ImageView fitHeight="220.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../player.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="50.0" left="10.0" right="10.0" top="50.0" />
+                        <Insets bottom="30.0" left="10.0" right="10.0" top="50.0" />
                      </VBox.margin>
                      <effect>
                         <DropShadow />
                      </effect>
                   </ImageView>
-                  <Label text="VIDA:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="VIDA:   ">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderHealth" prefHeight="25.0" prefWidth="250.0" progress="1.0">
+                  <ProgressBar fx:id="sliderHealth" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="1.0">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
-                  <Label text="MANA:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="MANA:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderMana" prefHeight="25.0" prefWidth="250.0" progress="0.8">
+                  <ProgressBar fx:id="sliderMana" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.8">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
-                  <Label text="DEFENSA:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="DEFENSA:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderDefense" prefHeight="25.0" prefWidth="250.0" progress="0.6">
+                  <ProgressBar fx:id="sliderDefense" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.6">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
-                  <Label text="DAÑO:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="DAÑO:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderAttack" layoutX="84.0" layoutY="539.0" prefHeight="25.0" prefWidth="250.0" progress="0.5">
+                  <ProgressBar fx:id="sliderAttack" layoutX="84.0" layoutY="539.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.5">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
-                  <Label text="VELOCIDAD:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="VELOCIDAD:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderSpeed" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                  <ProgressBar fx:id="sliderSpeed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.4">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
-                  <Label text="AGILIDAD:">
+                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="AGILIDAD:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </Label>
-                  <ProgressBar fx:id="sliderAgility" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                  <ProgressBar fx:id="sliderAgility" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.4">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
                   </ProgressBar>
+                  <Label text="   CIFP Carlos III - Pablo A. Bonet Jimenez" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../carlosIII-logo.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="70.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
@@ -138,13 +198,13 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
                      </BorderPane.margin>
                      <children>
-                        <Accordion HBox.hgrow="ALWAYS">
+                        <Accordion fx:id="accordion1" HBox.hgrow="ALWAYS">
                            <panes>
-                              <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 5 - (??)" textFill="WHITE">
+                              <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 5 - BOSS" textFill="WHITE">
                                 <content>
                                   <AnchorPane fx:id="nivel5content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -153,6 +213,14 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Label fx:id="enemy5HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="14.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                             <graphic>
+                                                <ProgressBar fx:id="enemyHealth5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
+                                             </graphic>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -160,11 +228,11 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
-                              <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 4 - (?)" textAlignment="CENTER" textFill="WHITE">
+                              <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 4 - ELITE" textAlignment="CENTER" textFill="WHITE">
                                 <content>
                                   <AnchorPane fx:id="nivel4content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -173,6 +241,14 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Label fx:id="enemy4HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="14.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                             <graphic>
+                                                <ProgressBar fx:id="enemyHealth4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
+                                             </graphic>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -180,11 +256,11 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
-                              <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 3 - (?)" textAlignment="CENTER" textFill="WHITE">
+                              <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 3 - NORMAL" textAlignment="CENTER" textFill="WHITE">
                                 <content>
                                   <AnchorPane fx:id="nivel3content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -193,6 +269,14 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Label fx:id="enemy3HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="22.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                             <graphic>
+                                                <ProgressBar fx:id="enemyHealth3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
+                                             </graphic>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -200,11 +284,11 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
-                              <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 2 - (?)" textAlignment="CENTER" textFill="WHITE">
+                              <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 2 - ELITE" textAlignment="CENTER" textFill="WHITE">
                                 <content>
                                   <AnchorPane fx:id="nivel2content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -219,6 +303,14 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Label fx:id="enemy2HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="31.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                             <graphic>
+                                                <ProgressBar fx:id="enemyHealth2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
+                                             </graphic>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -230,7 +322,7 @@
                                 <content>
                                   <AnchorPane fx:id="nivel1content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -245,6 +337,14 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Label fx:id="enemy1HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="252.0" layoutY="38.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                             <graphic>
+                                                <ProgressBar fx:id="enemyHealth1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
+                                             </graphic>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -257,7 +357,7 @@
                               <InnerShadow choke="0.2" />
                            </effect>
                         </Accordion>
-                        <Accordion layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                        <Accordion fx:id="accordion2" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefWidth="250.0" HBox.hgrow="ALWAYS">
                            <panes>
                               <TitledPane fx:id="botin5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="Botín" textFill="WHITE">
                                 <content>

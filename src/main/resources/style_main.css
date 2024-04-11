@@ -9,8 +9,8 @@ VBox {
 }
 
 AnchorPane {
-    -fx-background-color: radial-gradient(center 50% 90%, radius 150%, rgb(232, 194, 0), rgb(255, 110, 20), rgb(255, 84, 10));
-
+    -fx-background-color: radial-gradient(center 50% 30%, radius 80%, rgb(255, 166, 94), rgb(131, 78, 43), rgb(58, 25, 4));
+    -fx-content-display: flex;
 }
 
 .titled-pane > .title
@@ -20,6 +20,7 @@ AnchorPane {
     -fx-border-color: white;
 }
 
+
 .slider .track {
     -fx-padding: 6;
 }
@@ -28,21 +29,14 @@ AnchorPane {
     -fx-padding: 5;
 }
 
-#tp_money > .title
-{
-    -fx-background-color: radial-gradient(center 50% 90%, radius 150%, rgb(255, 60, 0), rgb(0, 0, 0));
-    -fx-border-radius: 3;
-    -fx-border-color: white;
-    -fx-text-fill: white;
-}
 
 #btn_attack {
-    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(255, 138, 20), rgb(192, 112, 29));
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
     -fx-text-fill: white;
 }
 
 #btn_skip {
-    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(154, 255, 231), rgb(125, 189, 197));
+    -fx-background-color: radial-gradient(center 50% 20%, radius 150%, rgb(172, 182, 201), rgb(89, 187, 168), rgb(25, 197, 229));
     -fx-text-fill: white;
 }
 
@@ -51,7 +45,7 @@ AnchorPane {
     -fx-fill: white;
 }
 
-#sliderHealth {
+#sliderHealth, #enemyHealth1, #enemyHealth2, #enemyHealth3, #enemyHealth4, #enemyHealth5 {
     -fx-accent: red;
 }
 
