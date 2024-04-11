@@ -3,31 +3,25 @@ package com.bonet.threaddungeons;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
 public class MainController {
     @FXML
     private Button btn_attack;
-
     @FXML
     private Button btn_skip;
-
     @FXML
     private TitledPane nivel1pane;
-
     @FXML
     private TitledPane nivel2pane;
-
     @FXML
     private TitledPane nivel3pane;
-
     @FXML
     private TitledPane nivel4pane;
-
     @FXML
     private TitledPane nivel5pane;
-
     @FXML
     private TitledPane tp_money;
     @FXML

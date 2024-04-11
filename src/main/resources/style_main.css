@@ -13,6 +13,14 @@ AnchorPane {
     -fx-border-color: white;
 }
 
+.slider .track {
+    -fx-padding: 6;
+}
+
+.slider .thumb {
+    -fx-padding: 5;
+}
+
 #tp_money > .title
 {
     -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(255, 110, 20), rgb(210, 95, 0));
@@ -35,3 +43,31 @@ AnchorPane {
     -fx-text-fill: white;
     -fx-fill: white;
 }
+
+#sliderHealth {
+    -fx-accent: red;
+}
+
+#sliderMana {
+    -fx-accent: lightblue;
+}
+
+#sliderAttack {
+    -fx-accent: orange;
+}
+
+#sliderSpeed {
+    -fx-accent: yellow;
+}
+
+#sliderDefense {
+    -fx-accent: brown;
+}
+
+#sliderAgility {
+    -fx-accent: green;
+}
+
+
+
+
