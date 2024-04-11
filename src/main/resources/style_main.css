@@ -2,8 +2,15 @@ VBox {
     -fx-background-color: #1d1d1d;
 }
 
-AnchorPane {
+#nivel1content, #nivel2content, #nivel3content, #nivel4content, #nivel5content  {
     -fx-background-color: #313131;
+    -fx-background-image: url("background1.png");
+    -fx-background-size: stretch;
+}
+
+AnchorPane {
+    -fx-background-color: radial-gradient(center 50% 90%, radius 150%, rgb(232, 194, 0), rgb(255, 110, 20), rgb(255, 84, 10));
+
 }
 
 .titled-pane > .title
@@ -23,7 +30,7 @@ AnchorPane {
 
 #tp_money > .title
 {
-    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(255, 110, 20), rgb(210, 95, 0));
+    -fx-background-color: radial-gradient(center 50% 90%, radius 150%, rgb(255, 60, 0), rgb(0, 0, 0));
     -fx-border-radius: 3;
     -fx-border-color: white;
     -fx-text-fill: white;

@@ -38,7 +38,7 @@
                         <Image url="@../../../player.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="30.0" left="10.0" right="10.0" top="30.0" />
+                        <Insets bottom="50.0" left="10.0" right="10.0" top="50.0" />
                      </VBox.margin>
                      <effect>
                         <DropShadow />
@@ -52,7 +52,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderHealth" prefHeight="25.0" prefWidth="200.0" progress="1.0" />
+                  <ProgressBar fx:id="sliderHealth" prefHeight="25.0" prefWidth="250.0" progress="1.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                   <Label text="MANA:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -61,7 +65,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderMana" prefHeight="25.0" prefWidth="200.0" progress="0.8" />
+                  <ProgressBar fx:id="sliderMana" prefHeight="25.0" prefWidth="250.0" progress="0.8">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                   <Label text="DEFENSA:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -70,7 +78,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderDefense" prefHeight="25.0" prefWidth="200.0" progress="0.6" />
+                  <ProgressBar fx:id="sliderDefense" prefHeight="25.0" prefWidth="250.0" progress="0.6">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                   <Label text="DAÑO:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -79,7 +91,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderAttack" layoutX="84.0" layoutY="539.0" prefHeight="25.0" prefWidth="200.0" progress="0.5" />
+                  <ProgressBar fx:id="sliderAttack" layoutX="84.0" layoutY="539.0" prefHeight="25.0" prefWidth="250.0" progress="0.5">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                   <Label text="VELOCIDAD:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -88,7 +104,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderSpeed" prefHeight="25.0" prefWidth="200.0" progress="0.4" />
+                  <ProgressBar fx:id="sliderSpeed" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                   <Label text="AGILIDAD:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -97,7 +117,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="sliderAgility" prefHeight="25.0" prefWidth="200.0" progress="0.4" />
+                  <ProgressBar fx:id="sliderAgility" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
                </children>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
@@ -118,7 +142,7 @@
                            <panes>
                               <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 5 - (??)" textFill="WHITE">
                                 <content>
-                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefWidth="500.0">
+                                  <AnchorPane fx:id="nivel5content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefWidth="500.0">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                              <children>
@@ -133,12 +157,12 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 4 - (?)" textAlignment="CENTER" textFill="WHITE">
                                 <content>
-                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="nivel4content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                              <children>
@@ -153,12 +177,12 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 3 - (?)" textAlignment="CENTER" textFill="WHITE">
                                 <content>
-                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="nivel3content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                              <children>
@@ -173,12 +197,12 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 2 - (?)" textAlignment="CENTER" textFill="WHITE">
                                 <content>
-                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="nivel2content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                              <children>
@@ -199,14 +223,14 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="nivel1pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" text="Nivel 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
                                 <content>
                                   <AnchorPane fx:id="nivel1content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                          <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -225,7 +249,7 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                            </panes>
@@ -252,7 +276,7 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="botin4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="Botín" textFill="WHITE">
@@ -272,7 +296,7 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="botin3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="Botín" textFill="WHITE">
@@ -292,50 +316,64 @@
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="botin2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="Botín" textFill="WHITE">
                                 <content>
                                   <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../gold.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                   <graphic>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../gold.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </HBox>
                                        </children>
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                               <TitledPane fx:id="botin1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="Botín" textFill="WHITE">
                                 <content>
                                   <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="40.0" layoutY="43.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                          <HBox alignment="CENTER" layoutX="40.0" layoutY="43.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../gold.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </ImageView>
+                                                <Label alignment="CENTER" contentDisplay="BOTTOM" text="+25 ORO    ">
+                                                   <graphic>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../gold.png" />
+                                                         </image>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </HBox>
                                        </children>
                                     </AnchorPane>
                                 </content>
                                  <font>
-                                    <Font name="System Bold" size="24.0" />
+                                    <Font name="System Bold" size="22.0" />
                                  </font>
                               </TitledPane>
                            </panes>
@@ -395,11 +433,11 @@
                            <content>
                               <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                                  <children>
-                                    <HBox layoutX="18.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <HBox alignment="CENTER_LEFT" layoutX="18.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                        <children>
                                           <Label text="Gold: 50">
                                              <graphic>
-                                                <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../../gold.png" />
                                                    </image>
@@ -408,6 +446,9 @@
                                                    </effect>
                                                 </ImageView>
                                              </graphic>
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
                                           </Label>
                                        </children>
                                     </HBox>
