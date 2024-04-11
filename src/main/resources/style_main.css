@@ -1,0 +1,14 @@
+VBox {
+    -fx-background-color: #1d1d1d;
+}
+
+.table-view{
+    -fx-text-fill: black;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
