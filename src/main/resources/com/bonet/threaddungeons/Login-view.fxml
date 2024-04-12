@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,35 +15,44 @@
 <?import javafx.scene.text.Text?>
 
 <VBox fx:id="vBox" alignment="CENTER" prefHeight="1050.0" prefWidth="1680.0" spacing="25.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
-   <Text fill="#ffa616" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+   <Text fill="#ffa616" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
       <font>
-         <Font name="MV Boli" size="96.0" />
+         <Font name="Arial Black" size="96.0" />
       </font>
       <VBox.margin>
-         <Insets top="20.0" />
+         <Insets />
       </VBox.margin>
    </Text>
 
-    <Label fx:id="welcomeText" text="INICIO DE SESIÓN">
+    <Label fx:id="welcomeText" text="INICIO DE SESIÓN" VBox.vgrow="ALWAYS">
         <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="50.0" />
         </font>
       <VBox.margin>
          <Insets top="100.0" />
       </VBox.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </Label>
-    <TextField fx:id="inputUsuario" maxWidth="300.0" prefHeight="35.0" promptText="Usuario">
+    <TextField fx:id="inputUsuario" maxWidth="325.0" prefHeight="40.0" promptText="Usuario">
       <font>
          <Font name="System Bold" size="18.0" />
-      </font></TextField>
-    <PasswordField fx:id="inputPassword" maxWidth="300.0" prefHeight="35.0" promptText="Contraseña">
+      </font>
+      <VBox.margin>
+         <Insets top="30.0" />
+      </VBox.margin></TextField>
+    <PasswordField fx:id="inputPassword" maxWidth="325.0" prefHeight="40.0" promptText="Contraseña">
       <font>
          <Font name="System Bold" size="18.0" />
       </font></PasswordField>
-    <Button fx:id="btn_login" defaultButton="true" minHeight="30.0" minWidth="120.0" text="Iniciar Sesión">
+    <Button fx:id="btn_login" defaultButton="true" minHeight="50.0" minWidth="180.0" text="INICIAR SESIÓN">
       <font>
          <Font name="System Bold" size="18.0" />
-      </font></Button>
+      </font>
+      <VBox.margin>
+         <Insets top="20.0" />
+      </VBox.margin></Button>
    <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../carlosIII-logo.png" />
@@ -54,10 +64,10 @@
          <Reflection />
       </effect>
       <VBox.margin>
-         <Insets top="100.0" />
+         <Insets top="80.0" />
       </VBox.margin>
    </ImageView>
    <padding>
-      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+      <Insets bottom="50.0" left="50.0" right="50.0" top="30.0" />
    </padding>
 </VBox>

@@ -46,6 +46,5 @@ public class LoginController {
                 // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
             }
         });
-
     }
 }

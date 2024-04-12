@@ -2,10 +2,14 @@ package com.bonet.threaddungeons;
 
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
+import java.io.IOException;
 
 public class MainController {
     @FXML
@@ -48,11 +52,28 @@ public class MainController {
     private Label enemy4HpLabel;
     @FXML
     private Label enemy5HpLabel;
+    @FXML
+    private Button btn_menu;
 
     @FXML
     private void initialize() {
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
+
+        // Agregar evento de clic al botón utilizando una función lambda
+        btn_menu.setOnAction(event -> {
+            try {
+                // Cargar la nueva escena desde el archivo FXML
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
+                Parent root = fxmlLoader.load();
+
+                MainApp.getStage().getScene().setRoot(root);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
+            }
+        });
 
         // Agregar listeners para el evento de expansión/cierre de los TitledPane
         nivel1pane.expandedProperty().addListener((observable, oldValue, newValue) -> {

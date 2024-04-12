@@ -5,6 +5,11 @@ VBox {
     -fx-opacity: 1;
 }
 
+#btn_login {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
+    -fx-text-fill: white;
+}
+
 .label {
     -fx-text-fill: white;
     -fx-fill: white;
