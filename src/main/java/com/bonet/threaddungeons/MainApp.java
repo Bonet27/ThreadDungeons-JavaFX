@@ -63,18 +63,6 @@ public class MainApp extends Application {
 
                 System.out.print(mensaje);
                 //System.out.println(flujo_entrada.readUTF());
-
-                if (!mensaje.contains("Partida terminada")) {
-                    Scanner scanner = new Scanner(System.in);
-                    String respuesta = scanner.next();
-
-                    // Inicializa la salida de datos y envía la fila y columna.
-                    OutputStream out = sCliente.getOutputStream();
-                    DataOutputStream flujo_salida = new DataOutputStream(out);
-                    flujo_salida.writeUTF(respuesta);
-                } else {
-                    partidaAcabada = true;
-                }
             }
             sCliente.close();
         } catch (Exception e) {
