@@ -9,7 +9,7 @@ VBox {
 }
 
 AnchorPane {
-    -fx-background-color: radial-gradient(center 50% 30%, radius 80%, rgb(255, 166, 94), rgb(131, 78, 43), rgb(58, 25, 4));
+    -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(255, 160, 90), rgb(131, 78, 43), rgb(114, 48, 9));
     -fx-content-display: flex;
 }
 

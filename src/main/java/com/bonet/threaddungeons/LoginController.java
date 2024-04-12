@@ -39,16 +39,8 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Main-view.fxml"));
                 Parent root = fxmlLoader.load();
 
-                // Obtener el Stage actual desde el botón
-                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                MainApp.getStage().getScene().setRoot(root);
 
-                // Crear una nueva escena con la raíz cargada del archivo FXML
-                Scene scene = new Scene(root);
-
-                stage.setMaximized(true);
-                // Establecer la nueva escena en el Stage
-                stage.setScene(scene);
-                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
                 // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena

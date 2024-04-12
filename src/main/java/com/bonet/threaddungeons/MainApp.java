@@ -16,10 +16,10 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         MainApp.stage = stage;
-        stage.setMaximized(true);
         stage.setTitle("Thread Dungeons");
         stage.setScene(scene);
         stage.show();
+        stage.setMaximized(true);
     }
 
     public static Stage getStage() {

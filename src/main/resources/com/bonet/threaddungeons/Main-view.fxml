@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="TOP_CENTER" prefHeight="1050.0" prefWidth="1680.0" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
+<HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1680.0" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
    <children>
       <SplitPane prefHeight="200.0" prefWidth="420.0">
          <items>
