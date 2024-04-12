@@ -1,9 +1,6 @@
 package com.bonet.threaddungeons;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,7 +8,14 @@ public class ClienteTCP {
     static final String HOST = "localhost";
     static final int Puerto = 2000;
 
+    static DataOutputStream flujo_salida;
+
     public static void main(String[] args) {
+        createClientTCP();
+    }
+
+    public static void createClientTCP()
+    {
         try {
             // Crea un socket cliente en un host y puerto predefinidos.
             Socket sCliente = new Socket(HOST, Puerto);
@@ -52,4 +56,8 @@ public class ClienteTCP {
             System.out.println(e.getMessage());
         }
     }
+
+
 }
+
+

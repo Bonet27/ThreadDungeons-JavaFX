@@ -5,11 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.IOException;
+
+import static com.bonet.threaddungeons.MainApp.enviarMensajeAlServidor;
 
 public class MainController {
     @FXML
@@ -59,6 +59,8 @@ public class MainController {
     private void initialize() {
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
+
+        btn_attack.setOnAction(event -> enviarMensajeAlServidor("1"));
 
         // Agregar evento de clic al botón utilizando una función lambda
         btn_menu.setOnAction(event -> {
