@@ -13,9 +13,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         MainApp.stage = stage;
+        stage.setMaximized(true);
         stage.setTitle("Thread Dungeons");
         stage.setScene(scene);
         stage.show();

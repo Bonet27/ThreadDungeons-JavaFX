@@ -1,0 +1,74 @@
+VBox {
+    -fx-background-color: #1d1d1d;
+}
+
+#nivel1content, #nivel2content, #nivel3content, #nivel4content, #nivel5content  {
+    -fx-background-color: #313131;
+    -fx-background-image: url("background1.png");
+    -fx-background-size: stretch;
+}
+
+AnchorPane {
+    -fx-background-color: radial-gradient(center 50% 30%, radius 80%, rgb(255, 166, 94), rgb(131, 78, 43), rgb(58, 25, 4));
+    -fx-content-display: flex;
+}
+
+.titled-pane > .title
+{
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(183, 183, 183), rgb(82, 82, 82));
+    -fx-border-radius: 3;
+    -fx-border-color: white;
+}
+
+
+.slider .track {
+    -fx-padding: 6;
+}
+
+.slider .thumb {
+    -fx-padding: 5;
+}
+
+
+#btn_attack {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
+    -fx-text-fill: white;
+}
+
+#btn_skip {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 150%, rgb(172, 182, 201), rgb(89, 187, 168), rgb(25, 197, 229));
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
+#sliderHealth, #enemyHealth1, #enemyHealth2, #enemyHealth3, #enemyHealth4, #enemyHealth5 {
+    -fx-accent: red;
+}
+
+#sliderMana {
+    -fx-accent: lightblue;
+}
+
+#sliderAttack {
+    -fx-accent: orange;
+}
+
+#sliderSpeed {
+    -fx-accent: yellow;
+}
+
+#sliderDefense {
+    -fx-accent: brown;
+}
+
+#sliderAgility {
+    -fx-accent: green;
+}
+
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vBox" alignment="CENTER" prefHeight="1050.0" prefWidth="1680.0" spacing="25.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
+   <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+      <effect>
+         <Reflection />
+      </effect>
+      <VBox.margin>
+         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+      </VBox.margin>
+      <image>
+         <Image url="@../../../carlosIII-logo.png" />
+      </image>
+   </ImageView>
+
+    <Label fx:id="welcomeText" text="INICIO DE SESIÓN">
+        <font>
+            <Font name="System Bold" size="36.0" />
+        </font>
+    </Label>
+    <TextField fx:id="inputUsuario" maxWidth="300.0" prefHeight="35.0" promptText="Usuario">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font></TextField>
+    <PasswordField fx:id="inputPassword" maxWidth="300.0" prefHeight="35.0" promptText="Contraseña">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font></PasswordField>
+    <Button fx:id="btn_login" defaultButton="true" minHeight="30.0" minWidth="120.0" text="Iniciar Sesión">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font></Button>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+</VBox>
