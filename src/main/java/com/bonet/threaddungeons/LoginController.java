@@ -36,11 +36,6 @@ public class LoginController {
     @FXML
     private void initialize() {
 
-        FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), vBox);
-        fadeInTransition.setFromValue(0.0);
-        fadeInTransition.setToValue(1.0);
-        fadeInTransition.play();
-
         btn_login.setOnAction(actionEvent -> {
             try {
                 // Cargar la nueva escena desde el archivo FXML
