@@ -6,6 +6,11 @@ import java.io.IOException;
 public class Tablero extends Etapa {
     private int clientID = 0;
     public boolean partidaAcabada = false;
+
+    public int getCasillaActual() {
+        return casillaActual;
+    }
+
     public int casillaActual = 0;
     private int etapaActual = 0;
     private final int numEtapas = 4;

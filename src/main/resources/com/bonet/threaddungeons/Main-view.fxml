@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -161,26 +162,24 @@
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                      </effect>
                   </ProgressBar>
-                  <Label text="   CIFP Carlos III - Pablo A. Bonet Jimenez" textAlignment="CENTER">
+                  <Label contentDisplay="BOTTOM" text="CONSOLA:">
                      <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../carlosIII-logo.png" />
-                           </image>
-                           <viewport>
-                              <Rectangle2D />
-                           </viewport>
-                        </ImageView>
+                        <TextArea fx:id="textAreaConsole" editable="false" prefHeight="200.0" prefWidth="380.0" promptText="Example..." style="overflow: hidden;">
+                           <effect>
+                              <InnerShadow choke="0.5">
+                                 <input>
+                                    <DropShadow />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                        </TextArea>
                      </graphic>
-                     <VBox.margin>
-                        <Insets top="70.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
                   </Label>
                </children>
                <padding>
@@ -583,7 +582,7 @@
                         </HBox>
                         <Button fx:id="btn_menu" alignment="CENTER" layoutX="1012.0" layoutY="19.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" text="SALIR" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <effect>
-                              <InnerShadow choke="0.5" height="32.5" radius="15.125" width="30.0" />
+                              <InnerShadow choke="0.5" height="30.04" radius="14.51" width="30.0" />
                            </effect>
                            <font>
                               <Font name="System Bold" size="36.0" />
