@@ -11,48 +11,19 @@ import java.io.*;
 import java.net.Socket;
 
 public class MainController {
+
     @FXML
-    private Button btn_attack;
+    private Button btn_attack, btn_skip, btn_menu;
     @FXML
-    private Button btn_skip;
-    @FXML
-    private TitledPane nivel1pane;
-    @FXML
-    private TitledPane nivel2pane;
-    @FXML
-    private TitledPane nivel3pane;
-    @FXML
-    private TitledPane nivel4pane;
-    @FXML
-    private TitledPane nivel5pane;
+    private TitledPane nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane;
     @FXML
     private TitledPane tp_money;
     @FXML
-    private TitledPane botin1pane;
+    private TitledPane botin1pane, botin2pane, botin3pane, botin4pane, botin5pane;
     @FXML
-    private TitledPane botin2pane;
+    private Accordion accordion1, accordion2;
     @FXML
-    private TitledPane botin3pane;
-    @FXML
-    private TitledPane botin4pane;
-    @FXML
-    private TitledPane botin5pane;
-    @FXML
-    private Accordion accordion1;
-    @FXML
-    private Accordion accordion2;
-    @FXML
-    private Label enemy1HpLabel;
-    @FXML
-    private Label enemy2HpLabel;
-    @FXML
-    private Label enemy3HpLabel;
-    @FXML
-    private Label enemy4HpLabel;
-    @FXML
-    private Label enemy5HpLabel;
-    @FXML
-    private Button btn_menu;
+    private Label enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel;
     @FXML
     private TextArea textAreaConsole;
     private int i = 0;
@@ -100,7 +71,6 @@ public class MainController {
             }
         });
 
-        // Agregar evento de clic al botón utilizando una función lambda
         btn_menu.setOnAction(event -> {
             try {
                 // Cargar la nueva escena desde el archivo FXML
@@ -111,7 +81,6 @@ public class MainController {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
             }
         });
 
@@ -172,19 +141,7 @@ public class MainController {
                 System.out.print(mensaje);
                 //System.out.println(flujo_entrada.readUTF());
             }
-
             sCliente.close();
-
-            // Volver a la escena de login
-            try {
-                // Cargar la nueva escena desde el archivo FXML
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
-                Parent root = fxmlLoader.load();
-                MainApp.getStage().getScene().setRoot(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
-            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -6,16 +6,11 @@ import java.io.IOException;
 public class Tablero extends Etapa {
     private int clientID = 0;
     public boolean partidaAcabada = false;
-
-    public int getCasillaActual() {
-        return casillaActual;
-    }
-
     public int casillaActual = 0;
     private int etapaActual = 0;
     private final int numEtapas = 4;
     Etapa[] etapas = new Etapa[numEtapas];
-    Jugador jugador = new Jugador(100f, 100f, 100f, 100f);
+    Jugador jugador = new Jugador(100f, 100f, 100f, 100f, 100f);
 
     public Tablero(Integer clientID) {
         for (int i = 0; i < etapas.length; i++) {
@@ -66,12 +61,17 @@ public class Tablero extends Etapa {
 
     public void atacar() {
         System.out.println("Cliente " + clientID + ": ¡Cliente ataca!");
+
+        jugadorRecibeDaño();
+    }
+
+    public void jugadorRecibeDaño()
+    {
         jugador.HP -= etapas[etapaActual].casillas[casillaActual].damage;
         if (jugador.HP <= 0.0f) {
             jugador.isAlive = false;
         }
     }
-
 
     public void resetJuego() {
         casillaActual = 0;

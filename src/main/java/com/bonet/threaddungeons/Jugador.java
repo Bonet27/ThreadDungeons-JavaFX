@@ -6,16 +6,19 @@ public class Jugador {
     protected float DMG = 100f%.2f;
     protected float SPEED = 100f%.2f;
     protected float DEF = 100f%.2f;
+    protected float AGI = 100f%.2f;
 
-    public Jugador(float HP, float DMG, float SPEED, float DEF) {
+
+    public Jugador(float HP, float DMG, float SPEED, float DEF, float AGI) {
         this.HP = HP;
         this.DMG = DMG;
         this.SPEED = SPEED;
         this.DEF = DEF;
+        this.AGI = AGI;
     }
 
     @Override
     public String toString() {
-        return "STATS [" + "HP: " + HP + " DMG: " + DMG + " SPEED: " + SPEED + " DEF: " + DEF + "]";
+        return "STATS [" + "HP: " + HP + " DMG: " + DMG + " SPEED: " + SPEED + " DEF: " + DEF + " AGI: " + DEF + "]";
     }
 }
