@@ -6,14 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.net.Socket;
+import java.util.Objects;
 
 public class MainApp extends Application {
     private static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login-view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login-view.fxml")));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Thread Dungeons");
         primaryStage.setScene(scene);

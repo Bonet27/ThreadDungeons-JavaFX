@@ -66,6 +66,8 @@ public class MainController {
 
     private static String mensaje;
 
+    private DataInputStream flujo_entrada;
+
     @FXML
     private void initialize() {
         // Inicia el hilo de red
@@ -88,7 +90,6 @@ public class MainController {
                 accordion2.setExpandedPane(botinPanes[0]);
                 i = 0; // Reinicia el índice
             }
-            textAreaConsole.setText(getMensaje());
         });
 
         btn_skip.setOnAction(event -> {
@@ -236,7 +237,7 @@ public class MainController {
             while (!partidaAcabada) {
                 // Guarda el mensaje de texto de entrada.
                 mensaje = flujo_entrada.readUTF();
-
+                textAreaConsole.setText(mensaje);
                 System.out.print(mensaje);
                 //System.out.println(flujo_entrada.readUTF());
             }
