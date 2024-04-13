@@ -42,12 +42,14 @@ public class MainController {
         TitledPane[] botines = {botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
         Label[] enemyHpLabels = {enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
 
+        // Abrir por defecto el primer panel y el primer botín del acordeón
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
 
+        // Si pulsa el boton de ataque, manda un '1' al servidor, la respuesta que espera...
         btn_attack.setOnAction(event -> {
             enviarMensajeAlServidor("1");
-            if(niveles[i].isExpanded() && i < 4) {
+            if(i < 4) {
                 accordion1.setExpandedPane(niveles[i+1]);
                 accordion2.setExpandedPane(botines[i+1]);
                 i++;
@@ -58,9 +60,10 @@ public class MainController {
             }
         });
 
+        // Si pulsa el boton de saltar, manda un '2' al servidor, la respuesta que espera...
         btn_skip.setOnAction(event -> {
             enviarMensajeAlServidor("2");
-            if(niveles[i].isExpanded() && i < 4) {
+            if(i < 4) {
                 accordion1.setExpandedPane(niveles[i+1]);
                 accordion2.setExpandedPane(botines[i+1]);
                 i++;
