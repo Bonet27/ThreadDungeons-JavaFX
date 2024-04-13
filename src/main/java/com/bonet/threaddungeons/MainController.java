@@ -56,25 +56,20 @@ public class MainController {
     @FXML
     private TextArea textAreaConsole;
     private int i = 0;
-    static Socket sCliente;
-    static final String HOST = "localhost";
-    static final int Puerto = 2000;
-
-    public static String getMensaje() {
-        return mensaje;
-    }
-
+    private static Socket sCliente;
+    private static final String HOST = "localhost";
+    private static final int Puerto = 2000;
     private static String mensaje;
-
-    private DataInputStream flujo_entrada;
 
     @FXML
     private void initialize() {
         // Inicia el hilo de red
         new Thread(this::connectToServer).start();
 
+        // Cargar niveles, botines y vidas de enemigos en arrays para su manipulación
         TitledPane[] niveles = {nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
         TitledPane[] botines = {botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
+        Label[] enemyHpLabels = {enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
 
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
@@ -120,8 +115,6 @@ public class MainController {
             }
         });
 
-        Label[] enemyHpLabels = {enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
-
         // Iterar sobre los niveles y agregar el listener
         for (int i = 0; i < niveles.length; i++) {
             int index = i; // Variable final para usar dentro del lambda
@@ -143,13 +136,15 @@ public class MainController {
         }
     }
 
-    public static void enviarMensajeAlServidor(String mensaje) {
+    public void enviarMensajeAlServidor(String mensaje) {
         try {
             OutputStream out = sCliente.getOutputStream();
             DataOutputStream flujo_salida = new DataOutputStream(out);
             flujo_salida.writeUTF(mensaje);
         } catch (IOException e) {
-            System.out.println("Error al enviar mensaje al servidor: " + e.getMessage());
+            String errorMessage = "Error al enviar mensaje al servidor: " + e.getMessage();
+            System.out.println(errorMessage);
+            textAreaConsole.setText(errorMessage);
         }
     }
 
