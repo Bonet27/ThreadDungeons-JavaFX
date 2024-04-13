@@ -73,41 +73,36 @@ public class MainController {
         // Inicia el hilo de red
         new Thread(this::connectToServer).start();
 
-        TitledPane[] titledPanes = {nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
-        TitledPane[] botinPanes = {botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
+        TitledPane[] niveles = {nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
+        TitledPane[] botines = {botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
 
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
 
         btn_attack.setOnAction(event -> {
             enviarMensajeAlServidor("1");
-            if(titledPanes[i].isExpanded() && i < 4) {
-                accordion1.setExpandedPane(titledPanes[i+1]);
-                accordion2.setExpandedPane(botinPanes[i+1]);
+            if(niveles[i].isExpanded() && i < 4) {
+                accordion1.setExpandedPane(niveles[i+1]);
+                accordion2.setExpandedPane(botines[i+1]);
                 i++;
             } else if (i == 4) {
-                accordion1.setExpandedPane(titledPanes[0]); // Abre la primera TitledPane
-                accordion2.setExpandedPane(botinPanes[0]);
+                accordion1.setExpandedPane(niveles[0]); // Abre la primera TitledPane
+                accordion2.setExpandedPane(botines[0]);
                 i = 0; // Reinicia el índice
             }
         });
 
         btn_skip.setOnAction(event -> {
             enviarMensajeAlServidor("2");
-            if(titledPanes[i].isExpanded() && i < 5)
-            {
-                titledPanes[i].setExpanded(false);
-                botinPanes[i].setExpanded(false);
-                titledPanes[i+1].setExpanded(true);
-                botinPanes[i+1].setExpanded(true);
+            if(niveles[i].isExpanded() && i < 4) {
+                accordion1.setExpandedPane(niveles[i+1]);
+                accordion2.setExpandedPane(botines[i+1]);
                 i++;
+            } else if (i == 4) {
+                accordion1.setExpandedPane(niveles[0]); // Abre la primera TitledPane
+                accordion2.setExpandedPane(botines[0]);
+                i = 0; // Reinicia el índice
             }
-            else{
-                i = 0;
-                accordion1.setExpandedPane(titledPanes[i]);
-                accordion2.setExpandedPane(botinPanes[i]);
-            }
-            textAreaConsole.setText(getMensaje());
         });
 
         // Agregar evento de clic al botón utilizando una función lambda
@@ -125,86 +120,27 @@ public class MainController {
             }
         });
 
-        // Agregar listeners para el evento de expansión/cierre de los TitledPane
-        nivel1pane.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                botin1pane.setExpanded(true);
-                FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemy1HpLabel);
-                fadeInTransition.setFromValue(0.0);
-                fadeInTransition.setToValue(1.0);
-                fadeInTransition.play();
-            } else {
-                botin1pane.setExpanded(false);
-                FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemy1HpLabel);
-                fadeOutTransition.setFromValue(1.0);
-                fadeOutTransition.setToValue(0.0);
-                fadeOutTransition.play();
-            }
-        });
+        Label[] enemyHpLabels = {enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
 
-        nivel2pane.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                botin2pane.setExpanded(true);
-                FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemy2HpLabel);
-                fadeInTransition.setFromValue(0.0);
-                fadeInTransition.setToValue(1.0);
-                fadeInTransition.play();
-            } else {
-                botin2pane.setExpanded(false);
-                FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemy2HpLabel);
-                fadeOutTransition.setFromValue(1.0);
-                fadeOutTransition.setToValue(0.0);
-                fadeOutTransition.play();
-            }
-        });
-
-        nivel3pane.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                botin3pane.setExpanded(true);
-                FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemy3HpLabel);
-                fadeInTransition.setFromValue(0.0);
-                fadeInTransition.setToValue(1.0);
-                fadeInTransition.play();
-            } else {
-                botin3pane.setExpanded(false);
-                FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemy3HpLabel);
-                fadeOutTransition.setFromValue(1.0);
-                fadeOutTransition.setToValue(0.0);
-                fadeOutTransition.play();
-            }
-        });
-
-        nivel4pane.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                botin4pane.setExpanded(true);
-                FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemy4HpLabel);
-                fadeInTransition.setFromValue(0.0);
-                fadeInTransition.setToValue(1.0);
-                fadeInTransition.play();
-            } else {
-                botin4pane.setExpanded(false);
-                FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemy4HpLabel);
-                fadeOutTransition.setFromValue(1.0);
-                fadeOutTransition.setToValue(0.0);
-                fadeOutTransition.play();
-            }
-        });
-
-        nivel5pane.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                botin5pane.setExpanded(true);
-                FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemy5HpLabel);
-                fadeInTransition.setFromValue(0.0);
-                fadeInTransition.setToValue(1.0);
-                fadeInTransition.play();
-            } else {
-                botin5pane.setExpanded(false);
-                FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemy5HpLabel);
-                fadeOutTransition.setFromValue(1.0);
-                fadeOutTransition.setToValue(0.0);
-                fadeOutTransition.play();
-            }
-        });
+        // Iterar sobre los niveles y agregar el listener
+        for (int i = 0; i < niveles.length; i++) {
+            int index = i; // Variable final para usar dentro del lambda
+            niveles[i].expandedProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue) {
+                    botines[index].setExpanded(true);
+                    FadeTransition fadeInTransition = new FadeTransition(Duration.millis(500), enemyHpLabels[index]);
+                    fadeInTransition.setFromValue(0.0);
+                    fadeInTransition.setToValue(1.0);
+                    fadeInTransition.play();
+                } else {
+                    botines[index].setExpanded(false);
+                    FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(500), enemyHpLabels[index]);
+                    fadeOutTransition.setFromValue(1.0);
+                    fadeOutTransition.setToValue(0.0);
+                    fadeOutTransition.play();
+                }
+            });
+        }
     }
 
     public static void enviarMensajeAlServidor(String mensaje) {
@@ -263,5 +199,4 @@ public class MainController {
                 textAreaConsole.setText("Lost connection with the server...");
         }
     }
-
 }
