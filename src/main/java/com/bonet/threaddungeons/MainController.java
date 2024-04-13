@@ -244,19 +244,23 @@ public class MainController {
 
             sCliente.close();
 
+            // Volver a la escena de login
             try {
                 // Cargar la nueva escena desde el archivo FXML
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
                 Parent root = fxmlLoader.load();
-
                 MainApp.getStage().getScene().setRoot(root);
-
             } catch (IOException e) {
                 e.printStackTrace();
                 // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
             }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            if(e.getMessage() != null)
+                textAreaConsole.setText("Lost connection with the server: " + e.getMessage());
+            else
+                textAreaConsole.setText("Lost connection with the server...");
         }
     }
 
