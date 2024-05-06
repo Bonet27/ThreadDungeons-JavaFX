@@ -49,42 +49,17 @@ public class MainController {
         // Si pulsa el boton de ataque, manda un '1' al servidor, la respuesta que espera...
         btn_attack.setOnAction(event -> {
             enviarMensajeAlServidor("1");
-            if(i < 4) {
-                accordion1.setExpandedPane(niveles[i+1]);
-                accordion2.setExpandedPane(botines[i+1]);
-                i++;
-            } else if (i == 4) {
-                accordion1.setExpandedPane(niveles[0]); // Abre la primera TitledPane
-                accordion2.setExpandedPane(botines[0]);
-                i = 0; // Reinicia el índice
-            }
+            openActualTitledPane(niveles, botines);
         });
 
         // Si pulsa el boton de saltar, manda un '2' al servidor, la respuesta que espera...
         btn_skip.setOnAction(event -> {
             enviarMensajeAlServidor("2");
-            if(i < 4) {
-                accordion1.setExpandedPane(niveles[i+1]);
-                accordion2.setExpandedPane(botines[i+1]);
-                i++;
-            } else if (i == 4) {
-                accordion1.setExpandedPane(niveles[0]); // Abre la primera TitledPane
-                accordion2.setExpandedPane(botines[0]);
-                i = 0; // Reinicia el índice
-            }
+            openActualTitledPane(niveles, botines);
         });
 
         btn_menu.setOnAction(event -> {
-            try {
-                // Cargar la nueva escena desde el archivo FXML
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
-                Parent root = fxmlLoader.load();
-
-                MainApp.getStage().getScene().setRoot(root);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            openScene("Login-view.fxml");
         });
 
         // Iterar sobre los niveles y agregar el listener
@@ -109,14 +84,43 @@ public class MainController {
     }
 
     public void enviarMensajeAlServidor(String mensaje) {
+        if (sCliente == null) {
+            textAreaConsole.setText("ERROR: Servidor no disponible");
+            return;
+        }
+
         try {
             OutputStream out = sCliente.getOutputStream();
             DataOutputStream flujo_salida = new DataOutputStream(out);
             flujo_salida.writeUTF(mensaje);
         } catch (IOException e) {
-            String errorMessage = "Error al enviar mensaje al servidor: " + e.getMessage();
+            String errorMessage = "ERROR: Al enviar mensaje al servidor: " + e.getMessage();
             System.out.println(errorMessage);
             textAreaConsole.setText(errorMessage);
+        }
+    }
+
+    private void openActualTitledPane(TitledPane[] niveles, TitledPane[] botines) {
+        if (i < 4) {
+            accordion1.setExpandedPane(niveles[i + 1]);
+            accordion2.setExpandedPane(botines[i + 1]);
+            i++;
+        } else if (i == 4) {
+            accordion1.setExpandedPane(niveles[0]); // Abre la primera TitledPane
+            accordion2.setExpandedPane(botines[0]);
+            i = 0; // Reinicia el índice
+        }
+    }
+
+    private void openScene(String scene) {
+        try {
+            // Cargar la nueva escena desde el archivo FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(scene));
+            Parent root = fxmlLoader.load();
+            MainApp.getStage().getScene().setRoot(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -142,16 +146,13 @@ public class MainController {
                 mensaje = flujo_entrada.readUTF();
                 textAreaConsole.setText(mensaje);
                 System.out.print(mensaje);
-                //System.out.println(flujo_entrada.readUTF());
             }
             sCliente.close();
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            if(e.getMessage() != null)
-                textAreaConsole.setText("Lost connection with the server: " + e.getMessage());
-            else
-                textAreaConsole.setText("Lost connection with the server...");
+            if (e.getMessage() != null)
+                textAreaConsole.setText("ERROR: Conexión perdida con el servidor: " + e.getMessage());
+            else textAreaConsole.setText("ERROR: Conexión perdida con el servidor... ");
         }
     }
 }

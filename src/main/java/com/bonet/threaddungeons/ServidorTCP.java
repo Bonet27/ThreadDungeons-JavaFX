@@ -21,7 +21,6 @@ public class ServidorTCP {
             "R = Mazmorra aleatoria (pelea contra jefe o mercader).";
 
     public static void main(String[] args) {
-        int numCliente = 0;
         try (ServerSocket skServidor = new ServerSocket(Puerto)) {
             System.out.println("Iniciando [Console Dungeons] - Esperando jugadores...");
 
@@ -30,7 +29,6 @@ public class ServidorTCP {
                 try {
                     sCliente = skServidor.accept();
                     System.out.println("Cliente " + counter.incrementAndGet() + ": ¡Se ha conectado un nuevo jugador!");
-
                     try {
                         InputStream in = sCliente.getInputStream();
                         DataInputStream flujo_entrada = new DataInputStream(in);
@@ -42,7 +40,7 @@ public class ServidorTCP {
                         Hilo hilo = new Hilo(sCliente, flujo_entrada, flujo_salida, counter.get());
                         hilo.start();
                     } catch (IOException e) {
-                        System.out.println("Cliente " + counter.incrementAndGet() + ": + Error en la comunicación con el cliente | Error:" + e.getMessage());
+                        System.out.println("Cliente " + counter.incrementAndGet() + ": + Error en la comunicación con el cliente | ERROR:" + e.getMessage());
                     }
                 } catch (IOException e) {
                     System.out.println("Error aceptando el cliente " + counter.get() + ": " + e.getMessage());

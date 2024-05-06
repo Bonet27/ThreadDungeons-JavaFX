@@ -9,27 +9,30 @@ public class Casilla {
     protected enum modeEnum {NORMAL, REWARD, RANDOM}
 
     protected modeEnum mode = modeEnum.NORMAL;
-
+    protected float health = 100f;
     protected float damage = 4.5f;
 
-    public Casilla() {}
+    public Casilla() {
+    }
 
     public Casilla(modeEnum mode) {
         this.mode = mode;
-        if (this.mode == modeEnum.NORMAL)
+        if (this.mode == modeEnum.NORMAL) {
             this.icon = 'O';
-        else if (this.mode == modeEnum.REWARD)
+        } else if (this.mode == modeEnum.REWARD) {
             this.icon = 'Ô';
-        else
+            this.health = 150f;
+        } else {
             this.icon = 'R';
+            this.health = 250f;
+        }
 
         Random rnd = new Random();
-        this.damage = rnd.nextInt(1,5);
+        this.damage = rnd.nextInt(1, 5);
     }
 
     @Override
     public String toString() {
         return icon + " ";
-        //return "\nCasilla:" + " Icon: " + icon + " - isAlive:" + isAlive + " - mode:" + mode;
     }
 }

@@ -22,17 +22,6 @@ public class Tablero extends Etapa {
     public void avanzar() {
         System.out.println("Cliente " + clientID + ": ¡Cliente avanza!");
         if (casillaActual < casillas.length && etapaActual < etapas.length) {
-            etapas[etapaActual].casillas[casillaActual].isAlive = false;
-            etapas[etapaActual].casillas[casillaActual].icon = '-';
-            casillaActual++;
-            if (casillaActual == casillas.length && etapaActual <= etapas.length) {
-                etapaActual++;
-                casillaActual = 0;
-                if (etapaActual == etapas.length) {
-                    System.out.println("Partida acabada.");
-                    partidaAcabada = true;
-                }
-            }
             if (!partidaAcabada)
                 atacar();
         }
@@ -42,31 +31,29 @@ public class Tablero extends Etapa {
     public void saltar() {
         System.out.println("Cliente " + clientID + ": ¡Cliente salta!");
         if (casillaActual < casillas.length && etapaActual < etapas.length) {
-            etapas[etapaActual].casillas[casillaActual].isAlive = false;
-            etapas[etapaActual].casillas[casillaActual].icon = '-';
-            casillaActual++;
-            if (casillaActual == casillas.length && etapaActual <= etapas.length) {
-                etapaActual++;
-                casillaActual = 0;
-                if (etapaActual == etapas.length) {
-                    System.out.println("Partida acabada.");
-                    partidaAcabada = true;
-                }
-            }
             if (!partidaAcabada)
                 atacar();
+
+            if (!etapas[etapaActual].casillas[casillaActual].isAlive) {
+                etapas[etapaActual].casillas[casillaActual].icon = '-';
+                casillaActual++;
+            }
         }
         System.out.printf("Cliente " + clientID + " - Jugada actual:\n" + this);
     }
 
     public void atacar() {
         System.out.println("Cliente " + clientID + ": ¡Cliente ataca!");
-
-        jugadorRecibeDaño();
+        etapas[etapaActual].casillas[casillaActual].health -= jugador.DMG;
+        if(etapas[etapaActual].casillas[casillaActual].health <= 0){
+            etapas[etapaActual].casillas[casillaActual].isAlive = false;
+            etapas[etapaActual].casillas[casillaActual].icon = '-';
+            casillaActual++;
+        }
+        jugadorRecibeDano();
     }
 
-    public void jugadorRecibeDaño()
-    {
+    public void jugadorRecibeDano() {
         jugador.HP -= etapas[etapaActual].casillas[casillaActual].damage;
         if (jugador.HP <= 0.0f) {
             jugador.isAlive = false;

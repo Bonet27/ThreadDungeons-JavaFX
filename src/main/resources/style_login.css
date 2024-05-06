@@ -1,18 +1,22 @@
 VBox {
-    -fx-background-image: url("background_menu.jpg");
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: radial-gradient(center 50% 20%, radius 55%, rgb(54, 55, 56), rgb(41, 42, 42), rgb(26, 25, 25));
     -fx-background-size: stretch;
     -fx-opacity: 1;
 }
 
 #btn_login {
-    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
+    -fx-background-color: radial-gradient(center 50% 20%, radius 55%, rgb(189, 195, 199), rgb(149, 165, 166), rgb(108, 122, 137));
+    -fx-text-fill: white;
+}
+
+#btn_register {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 55%, rgb(189, 195, 199), rgb(149, 165, 166), rgb(108, 122, 137));
     -fx-text-fill: white;
 }
 
 .label {
-    -fx-text-fill: white;
-    -fx-fill: white;
+    -fx-text-fill: #e8ecf1;
+
 }
 
 

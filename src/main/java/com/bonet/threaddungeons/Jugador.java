@@ -8,7 +8,6 @@ public class Jugador {
     protected float DEF = 100f%.2f;
     protected float AGI = 100f%.2f;
 
-
     public Jugador(float HP, float DMG, float SPEED, float DEF, float AGI) {
         this.HP = HP;
         this.DMG = DMG;

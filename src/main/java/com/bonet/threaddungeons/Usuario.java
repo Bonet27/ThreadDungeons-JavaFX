@@ -7,8 +7,7 @@ public class Usuario {
     private String nombre;
     private String imagen;
 
-    public Usuario() {
-    }
+    public Usuario() {}
 
     public Usuario(String login, String password, String nombre, String imagen){
         this.login = login;

@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+import java.net.Socket;
 
 import java.io.IOException;
 
@@ -29,20 +32,23 @@ public class LoginController {
     private Label welcomeText;
 
     @FXML
+    private Text errorMsg;
+
+    @FXML
     private void initialize() {
-
         btn_login.setOnAction(actionEvent -> {
-            try {
-                // Cargar la nueva escena desde el archivo FXML
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Main-view.fxml"));
-                Parent root = fxmlLoader.load();
-
-                MainApp.getStage().getScene().setRoot(root);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Manejar cualquier excepción que pueda ocurrir al cargar la nueva escena
-            }
+            openScene("Main-view.fxml");
         });
+    }
+
+    private void openScene(String scene) {
+        try {
+            // Cargar la nueva escena desde el archivo FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(scene));
+            Parent root = fxmlLoader.load();
+            MainApp.getStage().getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
