@@ -2,18 +2,15 @@ VBox {
     -fx-background-color: #1d1d1d;
 }
 
-#mainHBox1 {
-    -fx-background-image: url("background3.jpg");
-}
 
 #nivel1content, #nivel2content, #nivel3content, #nivel4content, #nivel5content  {
     -fx-background-color: #313131;
-    -fx-background-image: url("background6.jpg");
+    -fx-background-image: url("background9.jpg");
     -fx-background-size: stretch;
 }
 
-#anchorPaneTop {
-
+#topHbox {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 120%, rgb(255, 177, 66), rgb(208, 89, 1), rgba(0, 0, 0, 0.17));
     -fx-border-color: white;
 }
 
@@ -26,7 +23,8 @@ VBox {
 }
 
 #playerVbox {
-    -fx-background-color: radial-gradient(center 70% 120%, radius 120%, rgb(0, 0, 0), rgb(45, 45, 45), rgb(9, 9, 9));
+    -fx-background-image: url("background8.jpg");
+    -fx-background-size: stretch;
 }
 
 
