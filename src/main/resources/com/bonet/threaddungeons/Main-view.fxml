@@ -20,13 +20,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="mainHBox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
+<HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
    <children>
       <SplitPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="420.0">
          <items>
             <VBox fx:id="playerVbox" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="550.0">
                <children>
-                  <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET - LVL 1" textAlignment="CENTER">
+                  <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -37,15 +37,15 @@
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                      </effect>
                   </Text>
-                  <ImageView fitHeight="220.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../player.png" />
+                        <Image url="@../../../hero.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                        <Insets bottom="40.0" left="10.0" right="10.0" top="40.0" />
                      </VBox.margin>
                      <effect>
-                        <DropShadow />
+                        <DropShadow spread="0.75" />
                      </effect>
                   </ImageView>
                   <Label contentDisplay="RIGHT" prefWidth="250.0" text="VIDA:   ">
@@ -60,25 +60,6 @@
                      </effect>
                   </Label>
                   <ProgressBar fx:id="sliderHealth" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="1.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </ProgressBar>
-                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="MANA:">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </Label>
-                  <ProgressBar fx:id="sliderMana" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.8">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -176,12 +157,15 @@
                                 <content>
                                   <AnchorPane fx:id="nivel5content">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                          <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../../boss2.png" />
                                                    </image>
+                                                   <effect>
+                                                      <DropShadow spread="0.75" />
+                                                   </effect>
                                                 </ImageView>
                                              </children>
                                           </HBox>
@@ -204,12 +188,15 @@
                                 <content>
                                   <AnchorPane fx:id="nivel4content">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                          <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../../enemy4.png" />
                                                    </image>
+                                                   <effect>
+                                                      <DropShadow spread="0.75" />
+                                                   </effect>
                                                 </ImageView>
                                              </children>
                                           </HBox>
@@ -232,12 +219,15 @@
                                 <content>
                                   <AnchorPane fx:id="nivel3content">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                          <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../../enemy3.png" />
                                                    </image>
+                                                   <effect>
+                                                      <DropShadow spread="0.75" />
+                                                   </effect>
                                                 </ImageView>
                                              </children>
                                           </HBox>
@@ -260,7 +250,7 @@
                                 <content>
                                   <AnchorPane fx:id="nivel2content">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                          <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
                                                 <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -270,7 +260,7 @@
                                                       <Rectangle2D />
                                                    </viewport>
                                                    <effect>
-                                                      <DropShadow />
+                                                      <DropShadow spread="0.75" />
                                                    </effect>
                                                 </ImageView>
                                              </children>
@@ -304,7 +294,7 @@
                                                       <Rectangle2D />
                                                    </viewport>
                                                    <effect>
-                                                      <DropShadow />
+                                                      <DropShadow spread="0.75" />
                                                    </effect>
                                                 </ImageView>
                                              </children>

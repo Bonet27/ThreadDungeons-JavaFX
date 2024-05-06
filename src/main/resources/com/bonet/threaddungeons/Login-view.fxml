@@ -13,8 +13,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" alignment="CENTER_LEFT" spacing="25.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
-   <Text fill="WHITE" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="INSIDE" strokeWidth="2.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+<VBox fx:id="vBox" alignment="CENTER" spacing="20.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
+   <Text fill="WHITE" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
       <font>
          <Font name="Cormorant Infant Medium" size="132.0" />
       </font>
@@ -34,13 +34,16 @@
       </effect>
    </Text>
 
-    <Label fx:id="welcomeText" maxWidth="1.7976931348623157E308" text="INICIO DE SESIÓN" VBox.vgrow="ALWAYS">
+    <Label fx:id="welcomeText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="INICIO DE SESIÓN" VBox.vgrow="ALWAYS">
         <font>
             <Font name="Cormorant Infant SemiBold" size="40.0" />
         </font>
       <VBox.margin>
          <Insets top="100.0" />
       </VBox.margin>
+      <effect>
+         <DropShadow spread="0.5" />
+      </effect>
     </Label>
     <TextField fx:id="inputUsuario" maxWidth="330.0" prefHeight="40.0" promptText="Usuario">
       <font>
@@ -50,32 +53,24 @@
          <Insets top="30.0" />
       </VBox.margin>
       <effect>
-         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0">
-            <color>
-               <Color red="1.0" green="0.824999988079071" blue="0.4166666567325592" />
-            </color>
-         </DropShadow>
+         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
       </effect></TextField>
     <PasswordField fx:id="inputPassword" maxWidth="330.0" prefHeight="40.0" promptText="Contraseña">
       <font>
          <Font name="System Bold" size="18.0" />
       </font>
       <effect>
-         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0">
-            <color>
-               <Color red="1.0" green="0.824999988079071" blue="0.4166666567325592" />
-            </color>
-         </DropShadow>
+         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
       </effect></PasswordField>
    <Text fx:id="errorMsg" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR: Server refused connection" visible="false" VBox.vgrow="ALWAYS">
       <VBox.margin>
-         <Insets top="30.0" />
+         <Insets top="10.0" />
       </VBox.margin>
       <font>
          <Font name="System Bold" size="18.0" />
       </font>
    </Text>
-   <HBox alignment="CENTER_LEFT" spacing="20.0" VBox.vgrow="ALWAYS">
+   <HBox alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
       <children>
           <Button fx:id="btn_login" defaultButton="true" minHeight="40.0" minWidth="130.0" text="INICIAR SESIÓN">
             <font>
@@ -84,11 +79,7 @@
             <effect>
                <InnerShadow height="20.0" radius="9.5" width="20.0">
                   <input>
-                     <DropShadow height="20.0" radius="9.5" spread="0.8" width="20.0">
-                        <color>
-                           <Color red="1.0" green="1.0" blue="1.0" />
-                        </color>
-                     </DropShadow>
+                     <DropShadow height="20.0" radius="9.5" spread="0.8" width="20.0" />
                   </input>
                </InnerShadow>
             </effect>
@@ -100,11 +91,7 @@
             <effect>
                <InnerShadow height="20.0" radius="9.5" width="20.0">
                   <input>
-                     <DropShadow height="20.0" radius="9.5" spread="0.8" width="20.0">
-                        <color>
-                           <Color red="1.0" green="1.0" blue="1.0" />
-                        </color>
-                     </DropShadow>
+                     <DropShadow height="20.0" radius="9.5" spread="0.8" width="20.0" />
                   </input>
                </InnerShadow>
             </effect>

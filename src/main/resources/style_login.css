@@ -1,6 +1,7 @@
 VBox {
     -fx-background-color: radial-gradient(center 50% 20%, radius 55%, rgb(54, 55, 56), rgb(41, 42, 42), rgb(26, 25, 25));
     -fx-background-size: stretch;
+    -fx-background-image: url("background3.jpg");
     -fx-opacity: 1;
 }
 

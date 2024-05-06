@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 import java.io.*;
@@ -26,6 +27,8 @@ public class MainController {
     private Label enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel;
     @FXML
     private TextArea textAreaConsole;
+    @FXML
+    private HBox mainHBox1;
     private int i = 0;
     private static Socket sCliente;
     private static final String HOST = "localhost";

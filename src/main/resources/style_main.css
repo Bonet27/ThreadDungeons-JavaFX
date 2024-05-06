@@ -2,8 +2,8 @@ VBox {
     -fx-background-color: #1d1d1d;
 }
 
-.mainHBox {
-    -fx-background-image: url("background5.jpg");
+#mainHBox1 {
+    -fx-background-image: url("background3.jpg");
 }
 
 #nivel1content, #nivel2content, #nivel3content, #nivel4content, #nivel5content  {
@@ -90,10 +90,6 @@ VBox {
     -fx-accent: red;
 }
 
-#sliderMana {
-    -fx-accent: lightblue;
-}
-
 #sliderAttack {
     -fx-accent: orange;
 }
@@ -102,10 +98,3 @@ VBox {
     -fx-accent: yellow;
 }
 
-#sliderDefense {
-    -fx-accent: brown;
-}
-
-#sliderAgility {
-    -fx-accent: green;
-}
