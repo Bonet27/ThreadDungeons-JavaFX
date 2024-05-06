@@ -26,9 +26,9 @@ public class MainController {
     @FXML
     private Label enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel;
     @FXML
-    private TextArea textAreaConsole;
+    private ProgressBar enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5;
     @FXML
-    private HBox mainHBox1;
+    private TextArea textAreaConsole;
     private int i = 0;
     private static Socket sCliente;
     private static final String HOST = "localhost";

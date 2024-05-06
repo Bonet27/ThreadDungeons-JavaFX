@@ -9,7 +9,7 @@ public class Tablero extends Etapa {
     public int casillaActual = 0;
     private int etapaActual = 0;
     private final int numEtapas = 4;
-    Etapa[] etapas = new Etapa[numEtapas];
+    private Etapa[] etapas = new Etapa[numEtapas];
     Jugador jugador = new Jugador(100f, 100f, 100f, 100f, 100f);
 
     public Tablero(Integer clientID) {
@@ -67,6 +67,16 @@ public class Tablero extends Etapa {
             etapas[i] = new Etapa();
         }
         partidaAcabada = false;
+    }
+
+    public void actualizarProgresoJuego() {
+        for (Etapa etapa : etapas) {
+            for (Casilla casilla : etapa.getCasillas()) {
+                if (casilla != null) {
+                    Casilla enemigo = (Casilla) casilla;
+                }
+            }
+        }
     }
 
     @Override

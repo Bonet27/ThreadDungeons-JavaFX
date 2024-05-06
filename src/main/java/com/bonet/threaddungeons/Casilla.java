@@ -9,6 +9,11 @@ public class Casilla {
     protected enum modeEnum {NORMAL, REWARD, RANDOM}
 
     protected modeEnum mode = modeEnum.NORMAL;
+
+    public float getHealth() {
+        return health;
+    }
+
     protected float health = 100f;
     protected float damage = 4.5f;
 

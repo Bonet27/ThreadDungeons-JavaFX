@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -26,31 +27,28 @@
          <items>
             <VBox fx:id="playerVbox" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="550.0">
                <children>
+                  <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="350.0" text="SALIR">
+                     <effect>
+                        <InnerShadow choke="0.5" height="30.04" radius="14.51" width="30.0" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
                   <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="50.0" />
+                        <Insets bottom="50.0" top="75.0" />
                      </VBox.margin>
                      <effect>
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                      </effect>
                   </Text>
-                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
-                     <image>
-                        <Image url="@../../../hero4.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow spread="0.75" />
-                     </effect>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
                   <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -67,7 +65,24 @@
                            </effect>
                         </ProgressBar>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
+                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../hero4.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow spread="0.75" />
+                     </effect>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
                   <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
@@ -78,37 +93,41 @@
                               <Image url="@../../../sword.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="15.0" right="30.0" />
+                              <Insets left="15.0" right="15.0" />
                            </HBox.margin>
                         </ImageView>
-                        <ProgressBar fx:id="sliderAttack" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.5">
+                        <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
                            <effect>
                               <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                            </effect>
-                        </ProgressBar>
+                        </Text>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../lightning.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="50.0" right="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                           </effect>
+                        </Text>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../lightning.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" right="20.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ProgressBar fx:id="sliderSpeed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.4">
-                           <effect>
-                              <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                           </effect>
-                        </ProgressBar>
-                     </children>
                   </HBox>
-                  <Label contentDisplay="BOTTOM" text="CONSOLA:">
+                  <Label contentDisplay="BOTTOM" opacity="0.6" text="CONSOLA:">
                      <graphic>
                         <TextArea fx:id="textAreaConsole" editable="false" prefHeight="120.0" prefWidth="350.0" promptText="Example..." style="overflow: hidden;">
                            <effect>
@@ -130,17 +149,6 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" text="SALIR">
-                     <effect>
-                        <InnerShadow choke="0.5" height="30.04" radius="14.51" width="30.0" />
-                     </effect>
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
-                     </VBox.margin>
-                  </Button>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -288,7 +296,7 @@
                               </TitledPane>
                               <TitledPane fx:id="nivel1pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="nivel1content">
+                                  <AnchorPane fx:id="nivel1content" prefHeight="100.0">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                                              <children>
@@ -570,4 +578,11 @@
          </center>
       </BorderPane>
    </children>
+   <effect>
+      <InnerShadow choke="1.0">
+         <color>
+            <Color opacity="0.5" />
+         </color>
+      </InnerShadow>
+   </effect>
 </HBox>

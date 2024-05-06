@@ -10,7 +10,7 @@ VBox {
 }
 
 #topHbox {
-    -fx-background-color: radial-gradient(center 50% 50%, radius 120%, rgb(143, 68, 20), rgb(66, 42, 17), rgb(114, 44, 8));
+    -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(112, 17, 17), rgb(52, 12, 16), rgb(72, 10, 10));
     -fx-border-color: white;
 }
 

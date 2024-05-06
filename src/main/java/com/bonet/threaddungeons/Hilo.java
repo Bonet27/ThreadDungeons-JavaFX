@@ -30,8 +30,10 @@ public class Hilo extends Thread {
                     Integer respuesta = Integer.parseInt(flujo_entrada.readUTF());
                     if (respuesta == 1) {
                         tablero.avanzar();
+                        actualizarProgresoJuego(tablero);
                     } else if (respuesta == 2) {
                         tablero.saltar();
+                        actualizarProgresoJuego(tablero);
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Cliente " + clientID + ": ! Error en la respuesta recibida | Error: " + e.getMessage());
@@ -56,4 +58,9 @@ public class Hilo extends Thread {
             }
         }
     }
+
+    private void actualizarProgresoJuego(Tablero tablero) {
+        tablero.actualizarProgresoJuego();
+    }
+
 }
