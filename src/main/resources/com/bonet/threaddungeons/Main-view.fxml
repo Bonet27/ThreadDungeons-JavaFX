@@ -24,9 +24,9 @@
    <children>
       <SplitPane fx:id="splitPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="420.0">
          <items>
-            <VBox fx:id="playerVbox" alignment="TOP_CENTER">
+            <VBox fx:id="playerVbox" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="550.0">
                <children>
-                  <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER">
+                  <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -37,74 +37,77 @@
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                      </effect>
                   </Text>
-                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
                      <image>
                         <Image url="@../../../hero4.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="40.0" left="10.0" right="10.0" top="40.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
                      <effect>
                         <DropShadow spread="0.75" />
                      </effect>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
                   </ImageView>
-                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="VIDA:   ">
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../heart.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ProgressBar fx:id="sliderHealth" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="1.0">
+                           <effect>
+                              <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                           </effect>
+                        </ProgressBar>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </Label>
-                  <ProgressBar fx:id="sliderHealth" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="1.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </ProgressBar>
-                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="DAÑO:">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </Label>
-                  <ProgressBar fx:id="sliderAttack" layoutX="84.0" layoutY="539.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.5">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </ProgressBar>
-                  <Label contentDisplay="RIGHT" prefWidth="250.0" text="VELOCIDAD:">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </Label>
-                  <ProgressBar fx:id="sliderSpeed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../sword.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="15.0" right="30.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ProgressBar fx:id="sliderAttack" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.5">
+                           <effect>
+                              <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                           </effect>
+                        </ProgressBar>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
-                     <effect>
-                        <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
-                     </effect>
-                  </ProgressBar>
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../lightning.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ProgressBar fx:id="sliderSpeed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" progress="0.4">
+                           <effect>
+                              <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
+                           </effect>
+                        </ProgressBar>
+                     </children>
+                  </HBox>
                   <Label contentDisplay="BOTTOM" text="CONSOLA:">
                      <graphic>
                         <TextArea fx:id="textAreaConsole" editable="false" prefHeight="120.0" prefWidth="350.0" promptText="Example..." style="overflow: hidden;">
@@ -121,8 +124,11 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </Label>
                   <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" text="SALIR">
                      <effect>
@@ -132,26 +138,26 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
                </children>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
-               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
          </items>
       </SplitPane>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+      <BorderPane HBox.hgrow="ALWAYS">
          <center>
-            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #1d1d1d; -fx-border-color: white;" BorderPane.alignment="CENTER">
+            <BorderPane style="-fx-background-color: #1d1d1d; -fx-border-color: white;" BorderPane.alignment="CENTER">
                <center>
                   <HBox fx:id="mainHbox" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets />
                      </BorderPane.margin>
                      <children>
-                        <Accordion fx:id="accordion1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                        <Accordion fx:id="accordion1" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                            <panes>
                               <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 5 - BOSS" textFill="WHITE">
                                 <content>
@@ -326,7 +332,7 @@
                            <panes>
                               <TitledPane fx:id="botin5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="anchorPaneBotin5" maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="anchorPaneBotin5" maxHeight="1.7976931348623157E308">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="49.0" layoutY="45.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
                                           <Label contentDisplay="BOTTOM" layoutX="105.0" layoutY="75.0" text="+30 ORO   ">
@@ -335,6 +341,9 @@
                                                    <image>
                                                       <Image url="@../../../chest.png" />
                                                    </image>
+                                                   <effect>
+                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                   </effect>
                                                 </ImageView>
                                              </graphic>
                                              <font>
@@ -350,7 +359,7 @@
                               </TitledPane>
                               <TitledPane fx:id="botin4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="anchorPaneBotin4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="anchorPaneBotin4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
                                           <Label contentDisplay="BOTTOM" layoutX="107.0" layoutY="88.0" text="+30 ORO   ">
@@ -359,6 +368,9 @@
                                                    <image>
                                                       <Image url="@../../../chest.png" />
                                                    </image>
+                                                   <effect>
+                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                   </effect>
                                                 </ImageView>
                                              </graphic>
                                              <font>
@@ -374,7 +386,7 @@
                               </TitledPane>
                               <TitledPane fx:id="botin3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="anchorPaneBotin3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="anchorPaneBotin3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
                                           <Label contentDisplay="BOTTOM" layoutX="108.0" layoutY="75.0" text="+30 ORO   ">
@@ -383,6 +395,9 @@
                                                    <image>
                                                       <Image url="@../../../chest.png" />
                                                    </image>
+                                                   <effect>
+                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                   </effect>
                                                 </ImageView>
                                              </graphic>
                                              <font>
@@ -398,7 +413,7 @@
                               </TitledPane>
                               <TitledPane fx:id="botin2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="anchorPaneBotin2" maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="anchorPaneBotin2" maxHeight="1.7976931348623157E308">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
                                           <Label contentDisplay="BOTTOM" layoutX="108.0" layoutY="74.0" text="+30 ORO   ">
@@ -407,6 +422,9 @@
                                                    <image>
                                                       <Image url="@../../../chest.png" />
                                                    </image>
+                                                   <effect>
+                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                   </effect>
                                                 </ImageView>
                                              </graphic>
                                              <font>
@@ -422,7 +440,7 @@
                               </TitledPane>
                               <TitledPane fx:id="botin1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
                                 <content>
-                                  <AnchorPane fx:id="anchorPaneBotin1" maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                  <AnchorPane fx:id="anchorPaneBotin1" maxHeight="1.7976931348623157E308">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="40.0" layoutY="43.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
                                           <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="106.0" layoutY="82.0" text="+25 ORO    ">
@@ -432,7 +450,7 @@
                                                       <Image url="@../../../chest.png" />
                                                    </image>
                                                    <effect>
-                                                      <DropShadow />
+                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
                                                    </effect>
                                                 </ImageView>
                                              </graphic>
@@ -529,7 +547,7 @@
                   <Insets />
                </BorderPane.margin>
                <top>
-                  <HBox fx:id="topHbox" alignment="CENTER" BorderPane.alignment="CENTER">
+                  <HBox fx:id="topHbox" alignment="CENTER" minHeight="-Infinity" prefHeight="150.0" BorderPane.alignment="CENTER">
                      <children>
                         <Text fill="WHITE" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ETAPA 1 DE 5" textAlignment="CENTER">
                            <font>
