@@ -5,99 +5,112 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" alignment="CENTER" focusTraversable="true" spacing="20.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
-   <Text fill="WHITE" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-      <font>
-         <Font name="Cormorant Infant Medium" size="132.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="80.0" />
-      </VBox.margin>
-   </Text>
-
-    <Label fx:id="welcomeText" alignment="CENTER" text="INICIO DE SESIÓN" VBox.vgrow="ALWAYS">
+<VBox fx:id="vBox" alignment="TOP_CENTER" cache="true" cacheHint="SCALE" cacheShape="false" centerShape="false" prefHeight="720.0" prefWidth="1080.0" spacing="5.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
+    <Text fx:id="gameTitle" boundsType="LOGICAL_VERTICAL_CENTER" fill="WHITE" focusTraversable="true" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
         <font>
-            <Font name="Cormorant Infant SemiBold" size="40.0" />
+            <Font name="System Bold" size="96.0" />
         </font>
-      <VBox.margin>
-         <Insets top="200.0" />
-      </VBox.margin>
-      <effect>
-         <DropShadow spread="0.5" />
-      </effect>
-    </Label>
-    <TextField fx:id="inputUsuario" maxWidth="330.0" promptText="Usuario" VBox.vgrow="ALWAYS">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-      <VBox.margin>
-         <Insets top="30.0" />
-      </VBox.margin>
-      <effect>
-         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
-      </effect></TextField>
-    <PasswordField fx:id="inputPassword" maxWidth="330.0" promptText="Contraseña" VBox.vgrow="ALWAYS">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-      <effect>
-         <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
-      </effect></PasswordField>
-   <Text fx:id="errorMsg" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR: Server refused connection" visible="false" VBox.vgrow="ALWAYS">
-      <VBox.margin>
-         <Insets top="10.0" />
-      </VBox.margin>
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <HBox alignment="CENTER" fillHeight="false" spacing="20.0" VBox.vgrow="ALWAYS">
-      <children>
-          <Button fx:id="btn_login" defaultButton="true" minHeight="-Infinity" minWidth="-Infinity" text="INICIAR SESIÓN" HBox.hgrow="ALWAYS">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-            <effect>
-               <InnerShadow height="20.0" radius="9.5" width="20.0">
-                  <input>
-                     <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
-                  </input>
-               </InnerShadow>
-            </effect>
-         </Button>
-         <Button fx:id="btn_register" defaultButton="true" minHeight="40.0" minWidth="130.0" text="REGISTRO" HBox.hgrow="ALWAYS">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-            <effect>
-               <InnerShadow height="20.0" radius="9.5" width="20.0">
-                  <input>
-                     <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
-                  </input>
-               </InnerShadow>
-            </effect>
-         </Button>
-      </children>
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-   </HBox>
-   <padding>
-      <Insets bottom="50.0" left="50.0" right="50.0" top="30.0" />
-   </padding>
-   <effect>
-      <InnerShadow choke="1.0">
-         <color>
-            <Color opacity="0.5" />
-         </color>
-      </InnerShadow>
-   </effect>
+        <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+        </VBox.margin>
+    </Text>
+    <VBox alignment="CENTER" maxWidth="800.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+        <children>
+            <Label fx:id="welcomeText" alignment="CENTER" text="INICIO DE SESIÓN" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="40.0" />
+                </font>
+                <effect>
+                    <DropShadow spread="0.5" />
+                </effect>
+            </Label>
+            <TextField fx:id="inputUsuario" promptText="Usuario" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+                <effect>
+                    <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
+                </effect>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="inputPassword" promptText="Contraseña" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+                <effect>
+                    <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
+                </effect>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </PasswordField>
+            <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Text>
+        </children>
+        <VBox.margin>
+            <Insets bottom="10.0" />
+        </VBox.margin>
+    </VBox>
+    <HBox alignment="TOP_CENTER" maxWidth="800.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+        <children>
+            <Button fx:id="btn_login" defaultButton="true" maxWidth="1.7976931348623157E308" text="INICIAR SESIÓN" textFill="WHITE" HBox.hgrow="ALWAYS" onAction="#handleLoginButtonAction">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <effect>
+                    <InnerShadow height="20.0" radius="9.5" width="20.0">
+                        <input>
+                            <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
+                        </input>
+                    </InnerShadow>
+                </effect>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button fx:id="btn_register" defaultButton="true" maxWidth="1.7976931348623157E308" text="REGISTRO" textFill="WHITE" HBox.hgrow="ALWAYS" onAction="#handleRegisterButtonAction">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <effect>
+                    <InnerShadow height="20.0" radius="9.5" width="20.0">
+                        <input>
+                            <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
+                        </input>
+                    </InnerShadow>
+                </effect>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+        </children>
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+    </HBox>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+    <padding>
+        <Insets bottom="10.0" left="100.0" right="100.0" top="10.0" />
+    </padding>
+    <effect>
+        <ColorAdjust contrast="0.05" />
+    </effect>
 </VBox>

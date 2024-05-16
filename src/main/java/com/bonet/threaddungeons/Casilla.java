@@ -1,39 +1,61 @@
 package com.bonet.threaddungeons;
 
-import java.util.Random;
-
 public class Casilla {
-    protected char icon;
+    protected String icon;
     protected boolean isAlive = true;
+    protected enum Mode {NORMAL, REWARD, RANDOM}
+    protected Mode mode = Mode.NORMAL;
+    protected float health = 100f;
+    protected float dificultMultiplier = 1f;
+    protected float damage = 10f;
+    private int reward;
+    protected float speed = 12f;
 
-    protected enum modeEnum {NORMAL, REWARD, RANDOM}
+    public Casilla() {
+    }
 
-    protected modeEnum mode = modeEnum.NORMAL;
+    public Casilla(Mode mode) {
+        this.mode = mode;
+        switch (this.mode) {
+            case NORMAL:
+                this.icon = "enemy1.png";
+                this.damage *= dificultMultiplier;
+                this.speed *= dificultMultiplier;
+                break;
+            case REWARD:
+                this.icon = "enemy2.png";
+                this.damage *= dificultMultiplier;
+                this.health = 150f * dificultMultiplier;
+                this.speed *= dificultMultiplier;
+                break;
+            case RANDOM:
+                this.icon = "enemy3.png";
+                this.damage *= dificultMultiplier;
+                this.health = 250f * dificultMultiplier;
+                this.speed *= dificultMultiplier;
+                break;
+        }
+        this.reward = calculateReward();
+    }
+
+    private int calculateReward() {
+        // Lógica para calcular la recompensa basada en el tipo de casilla y otros factores
+        return (int) (100 * dificultMultiplier);
+    }
 
     public float getHealth() {
         return health;
     }
 
-    protected float health = 100f;
-    protected float damage = 4.5f;
-
-    public Casilla() {
+    public void takeDamage(float damage) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            this.isAlive = false;
+        }
     }
 
-    public Casilla(modeEnum mode) {
-        this.mode = mode;
-        if (this.mode == modeEnum.NORMAL) {
-            this.icon = 'O';
-        } else if (this.mode == modeEnum.REWARD) {
-            this.icon = 'Ô';
-            this.health = 150f;
-        } else {
-            this.icon = 'R';
-            this.health = 250f;
-        }
-
-        Random rnd = new Random();
-        this.damage = rnd.nextInt(1, 5);
+    public int getReward() {
+        return reward;
     }
 
     @Override

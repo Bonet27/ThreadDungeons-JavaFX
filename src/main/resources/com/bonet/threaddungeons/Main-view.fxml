@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,17 +16,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="mainHBox1" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
+<HBox fx:id="mainHBox1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
    <children>
-      <SplitPane fx:id="splitPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="420.0">
+      <SplitPane fx:id="splitPane" dividerPositions="0.2" HBox.hgrow="ALWAYS">
          <items>
-            <VBox fx:id="playerVbox" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="550.0">
+            <VBox fx:id="playerVbox" alignment="TOP_CENTER" spacing="10.0" SplitPane.resizableWithParent="false">
                <children>
                   <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="350.0" text="SALIR">
                      <effect>
@@ -35,21 +37,21 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Text fx:id="playerName" fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="BONET" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="50.0" top="75.0" />
+                        <Insets />
                      </VBox.margin>
                      <effect>
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                      </effect>
                   </Text>
-                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="healthHbox" alignment="CENTER" VBox.vgrow="ALWAYS">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,15 +68,15 @@
                         </ProgressBar>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
-                  <ImageView fitHeight="300.0" fitWidth="400.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
+                  <ImageView fx:id="playerImage" fitHeight="250.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
                      <image>
                         <Image url="@../../../hero4.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets />
                      </VBox.margin>
                      <effect>
                         <DropShadow spread="0.75" />
@@ -83,12 +85,12 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="statsHbox" alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="attackIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../sword.png" />
                            </image>
@@ -96,7 +98,7 @@
                               <Insets left="15.0" right="15.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
+                        <Text fx:id="attackValue" fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -104,7 +106,7 @@
                               <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
                            </effect>
                         </Text>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="speedIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../lightning.png" />
                            </image>
@@ -112,7 +114,7 @@
                               <Insets left="50.0" right="15.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Text fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
+                        <Text fx:id="speedValue" fill="#ff9d00" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="24" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -122,14 +124,9 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Label contentDisplay="BOTTOM" opacity="0.6" text="CONSOLA:">
+                  <Label fx:id="consoleLabel" contentDisplay="BOTTOM" graphicTextGap="0.0" opacity="0.6" text="CONSOLA:">
                      <graphic>
-                        <TextArea fx:id="textAreaConsole" editable="false" prefHeight="120.0" prefWidth="350.0" promptText="Example..." style="overflow: hidden;">
+                        <TextArea fx:id="textAreaConsole" editable="false" prefWidth="350.0" promptText="Example..." style="overflow: hidden;">
                            <effect>
                               <InnerShadow choke="0.5">
                                  <input>
@@ -143,440 +140,467 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
                   </Label>
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </VBox>
+            <BorderPane>
+               <center>
+                  <BorderPane style="-fx-background-color: #1d1d1d; -fx-border-color: white;" BorderPane.alignment="TOP_LEFT">
+                     <center>
+                        <HBox fx:id="mainHbox" BorderPane.alignment="TOP_LEFT">
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                           <children>
+                              <Accordion fx:id="accordion1" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                 <panes>
+                                    <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 5 - BOSS" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane fx:id="nivel5content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <ImageView fx:id="enemy5Image" fitHeight="200.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../enemy7.png" />
+                                                         </image>
+                                                         <viewport>
+                                                            <Rectangle2D />
+                                                         </viewport>
+                                                         <effect>
+                                                            <DropShadow spread="0.75" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Label fx:id="enemy5HpLabel" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" text="HP:">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ProgressBar fx:id="enemyHealth5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="150.0" progress="1.0" rotate="270.0" />
+                                                         </graphic>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 4 - ELITE" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane fx:id="nivel4content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <ImageView fx:id="enemy4Image" fitHeight="200.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../enemy7.png" />
+                                                         </image>
+                                                         <viewport>
+                                                            <Rectangle2D />
+                                                         </viewport>
+                                                         <effect>
+                                                            <DropShadow spread="0.75" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Label fx:id="enemy4HpLabel" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" text="HP:">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ProgressBar fx:id="enemyHealth4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="150.0" progress="1.0" rotate="270.0" />
+                                                         </graphic>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 3 - NORMAL" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane fx:id="nivel3content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <ImageView fx:id="enemy3Image" fitHeight="200.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../enemy7.png" />
+                                                         </image>
+                                                         <viewport>
+                                                            <Rectangle2D />
+                                                         </viewport>
+                                                         <effect>
+                                                            <DropShadow spread="0.75" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Label fx:id="enemy3HpLabel" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" text="HP:">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ProgressBar fx:id="enemyHealth3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="150.0" progress="1.0" rotate="270.0" />
+                                                         </graphic>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 2 - ELITE" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane fx:id="nivel2content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <ImageView fx:id="enemy2Image" fitHeight="200.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../enemy7.png" />
+                                                         </image>
+                                                         <viewport>
+                                                            <Rectangle2D />
+                                                         </viewport>
+                                                         <effect>
+                                                            <DropShadow spread="0.75" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Label fx:id="enemy2HpLabel" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" text="HP:">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ProgressBar fx:id="enemyHealth2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="150.0" progress="1.0" rotate="270.0" />
+                                                         </graphic>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="nivel1pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane fx:id="nivel1content" alignment="CENTER" columnHalignment="CENTER">
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <ImageView fx:id="enemy1Image" fitHeight="200.0" fitWidth="219.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../enemy7.png" />
+                                                         </image>
+                                                         <viewport>
+                                                            <Rectangle2D />
+                                                         </viewport>
+                                                         <effect>
+                                                            <DropShadow spread="0.75" />
+                                                         </effect>
+                                                      </ImageView>
+                                                      <Label fx:id="enemy1HpLabel" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" text="HP:">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ProgressBar fx:id="enemyHealth1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="150.0" progress="1.0" rotate="270.0" />
+                                                         </graphic>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <cursor>
+                                                <Cursor fx:constant="CROSSHAIR" />
+                                             </cursor>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                 </panes>
+                                 <effect>
+                                    <InnerShadow choke="0.2" />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="5.0" top="20.0" />
+                                 </HBox.margin>
+                              </Accordion>
+                              <Accordion fx:id="accordion2" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                 <panes>
+                                    <TitledPane fx:id="botin5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                         <graphic>
+                                                            <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../chest.png" />
+                                                               </image>
+                                                               <effect>
+                                                                  <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                               </effect>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="botin4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                         <graphic>
+                                                            <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../chest.png" />
+                                                               </image>
+                                                               <effect>
+                                                                  <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                               </effect>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="botin3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                         <graphic>
+                                                            <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../chest.png" />
+                                                               </image>
+                                                               <effect>
+                                                                  <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                               </effect>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="botin2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                         <graphic>
+                                                            <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../chest.png" />
+                                                               </image>
+                                                               <effect>
+                                                                  <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                               </effect>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="botin1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <content>
+                                          <FlowPane>
+                                             <children>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                         <graphic>
+                                                            <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../chest.png" />
+                                                               </image>
+                                                               <effect>
+                                                                  <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
+                                                               </effect>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </FlowPane>
+                                       </content>
+                                    </TitledPane>
+                                 </panes>
+                                 <effect>
+                                    <InnerShadow choke="0.2" />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="5.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Accordion>
+                           </children>
+                        </HBox>
+                     </center>
+                     <bottom>
+                        <HBox fx:id="lowHbox" alignment="CENTER" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <Button fx:id="btn_attack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="180.0" prefWidth="300.0" text="ATACAR" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="5.0" top="20.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow choke="0.5" />
+                                 </effect>
+                              </Button>
+                              <Button fx:id="btn_skip" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="180.0" prefWidth="300.0" text="SALTAR" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="10.0" top="20.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow choke="0.5" />
+                                 </effect>
+                              </Button>
+                              <TitledPane fx:id="tp_money" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="350.0" prefWidth="350.0" text="MONEDERO" textFill="WHITE">
+                                 <content>
+                                    <AnchorPane fx:id="anchorPaneMonedero" maxHeight="1.7976931348623157E308">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="Oro: 50" HBox.hgrow="ALWAYS">
+                                                   <graphic>
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../gold.png" />
+                                                         </image>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="10.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <InnerShadow choke="0.2" />
+                                 </effect>
+                              </TitledPane>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                        </HBox>
+                     </bottom>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <top>
+                        <HBox fx:id="topHbox" alignment="CENTER" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <Text fill="WHITE" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ETAPA 1 DE 5" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </center>
+            </BorderPane>
          </items>
       </SplitPane>
-      <BorderPane HBox.hgrow="ALWAYS">
-         <center>
-            <BorderPane style="-fx-background-color: #1d1d1d; -fx-border-color: white;" BorderPane.alignment="CENTER">
-               <center>
-                  <HBox fx:id="mainHbox" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
-                     <children>
-                        <Accordion fx:id="accordion1" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
-                           <panes>
-                              <TitledPane fx:id="nivel5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 5 - BOSS" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="nivel5content">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="369.0" layoutY="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../boss3.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <DropShadow spread="0.75" />
-                                                   </effect>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <Label fx:id="enemy5HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="14.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ProgressBar fx:id="enemyHealth5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
-                                             </graphic>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 4 - ELITE" textAlignment="CENTER" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="nivel4content">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="337.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../enemy6.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <DropShadow spread="0.75" />
-                                                   </effect>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <Label fx:id="enemy4HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="14.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ProgressBar fx:id="enemyHealth4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
-                                             </graphic>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 3 - NORMAL" textAlignment="CENTER" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="nivel3content">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="342.0" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../enemy7.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <DropShadow spread="0.75" />
-                                                   </effect>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <Label fx:id="enemy3HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="22.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ProgressBar fx:id="enemyHealth3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
-                                             </graphic>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 2 - ELITE" textAlignment="CENTER" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="nivel2content">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="262.0" layoutY="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../enemy8.png" />
-                                                   </image>
-                                                   <viewport>
-                                                      <Rectangle2D />
-                                                   </viewport>
-                                                   <effect>
-                                                      <DropShadow spread="0.75" />
-                                                   </effect>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <Label fx:id="enemy2HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="261.0" layoutY="31.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ProgressBar fx:id="enemyHealth2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
-                                             </graphic>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="nivel1pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="nivel1content" prefHeight="100.0">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="253.0" layoutY="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-                                             <children>
-                                                <ImageView fitHeight="200.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../enemy7.png" />
-                                                   </image>
-                                                   <viewport>
-                                                      <Rectangle2D />
-                                                   </viewport>
-                                                   <effect>
-                                                      <DropShadow spread="0.75" />
-                                                   </effect>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <Label fx:id="enemy1HpLabel" alignment="CENTER" contentDisplay="RIGHT" layoutX="252.0" layoutY="38.0" text="HP:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <graphic>
-                                                <ProgressBar fx:id="enemyHealth1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="250.0" progress="1.0" />
-                                             </graphic>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                           </panes>
-                           <effect>
-                              <InnerShadow choke="0.2" />
-                           </effect>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="5.0" top="20.0" />
-                           </HBox.margin>
-                        </Accordion>
-                        <Accordion fx:id="accordion2" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefWidth="350.0" HBox.hgrow="ALWAYS">
-                           <panes>
-                              <TitledPane fx:id="botin5pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="anchorPaneBotin5" maxHeight="1.7976931348623157E308">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="45.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
-                                          <Label contentDisplay="BOTTOM" layoutX="105.0" layoutY="75.0" text="+30 ORO   ">
-                                             <graphic>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../chest.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="botin4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="anchorPaneBotin4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
-                                          <Label contentDisplay="BOTTOM" layoutX="107.0" layoutY="88.0" text="+30 ORO   ">
-                                             <graphic>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../chest.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="botin3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="anchorPaneBotin3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                                          <Label contentDisplay="BOTTOM" layoutX="108.0" layoutY="75.0" text="+30 ORO   ">
-                                             <graphic>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../chest.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="botin2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="anchorPaneBotin2" maxHeight="1.7976931348623157E308">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="49.0" layoutY="59.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
-                                          <Label contentDisplay="BOTTOM" layoutX="108.0" layoutY="74.0" text="+30 ORO   ">
-                                             <graphic>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../chest.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                              <TitledPane fx:id="botin1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
-                                <content>
-                                  <AnchorPane fx:id="anchorPaneBotin1" maxHeight="1.7976931348623157E308">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutX="40.0" layoutY="43.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
-                                          <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="106.0" layoutY="82.0" text="+25 ORO    ">
-                                             <graphic>
-                                                <ImageView fitHeight="200.0" fitWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../chest.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <InnerShadow choke="0.25" height="30.02" offsetY="0.25" radius="14.504999999999999" width="30.0" />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </TitledPane>
-                           </panes>
-                           <effect>
-                              <InnerShadow choke="0.2" />
-                           </effect>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="5.0" right="20.0" top="20.0" />
-                           </HBox.margin>
-                        </Accordion>
-                     </children>
-                  </HBox>
-               </center>
-               <bottom>
-                  <HBox fx:id="lowHbox" alignment="CENTER" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btn_attack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="180.0" prefWidth="300.0" text="ATACAR" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="5.0" top="20.0" />
-                           </HBox.margin>
-                           <effect>
-                              <InnerShadow choke="0.5" />
-                           </effect>
-                        </Button>
-                        <Button fx:id="btn_skip" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="180.0" prefWidth="300.0" text="SALTAR" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="10.0" top="20.0" />
-                           </HBox.margin>
-                           <effect>
-                              <InnerShadow choke="0.5" />
-                           </effect>
-                        </Button>
-                        <TitledPane fx:id="tp_money" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="350.0" prefWidth="350.0" text="MONEDERO" textFill="WHITE">
-                           <content>
-                              <AnchorPane fx:id="anchorPaneMonedero" maxHeight="1.7976931348623157E308">
-                                 <children>
-                                    <HBox alignment="CENTER" layoutX="18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Label text="Oro: 50" HBox.hgrow="ALWAYS">
-                                             <graphic>
-                                                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../gold.png" />
-                                                   </image>
-                                                   <effect>
-                                                      <DropShadow />
-                                                   </effect>
-                                                </ImageView>
-                                             </graphic>
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="10.0" right="20.0" top="20.0" />
-                           </HBox.margin>
-                           <effect>
-                              <InnerShadow choke="0.2" />
-                           </effect>
-                        </TitledPane>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
-                  </HBox>
-               </bottom>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <top>
-                  <HBox fx:id="topHbox" alignment="CENTER" minHeight="-Infinity" prefHeight="150.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Text fill="WHITE" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ETAPA 1 DE 5" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                           <HBox.margin>
-                              <Insets bottom="50.0" top="50.0" />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
-                  </HBox>
-               </top>
-            </BorderPane>
-         </center>
-      </BorderPane>
    </children>
    <effect>
       <InnerShadow choke="1.0">

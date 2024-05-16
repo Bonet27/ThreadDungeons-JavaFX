@@ -1,23 +1,78 @@
 package com.bonet.threaddungeons;
 
 public class Jugador {
-    protected boolean isAlive = true;
-    protected float HP = 100f%.2f;
-    protected float DMG = 100f%.2f;
-    protected float SPEED = 100f%.2f;
-    protected float DEF = 100f%.2f;
-    protected float AGI = 100f%.2f;
+    private String nombre;
+    private int salud;
+    private int oro;
+    private int etapaActual;
+    private int casillaActual;
+    private float velocidad;
+    private float daño;
 
-    public Jugador(float HP, float DMG, float SPEED, float DEF, float AGI) {
-        this.HP = HP;
-        this.DMG = DMG;
-        this.SPEED = SPEED;
-        this.DEF = DEF;
-        this.AGI = AGI;
+    public Jugador(String nombre, int salud, int oro, float velocidad, float daño) {
+        this.nombre = nombre;
+        this.salud = salud;
+        this.oro = oro;
+        this.etapaActual = 0;
+        this.casillaActual = 0;
+        this.velocidad = velocidad;
+        this.daño = daño;
     }
 
-    @Override
-    public String toString() {
-        return "STATS [" + "HP: " + HP + " DMG: " + DMG + " SPEED: " + SPEED + " DEF: " + DEF + " AGI: " + DEF + "]";
+    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getSalud() {
+        return salud;
+    }
+
+    public void setSalud(int salud) {
+        this.salud = salud;
+    }
+
+    public int getOro() {
+        return oro;
+    }
+
+    public void setOro(int oro) {
+        this.oro = oro;
+    }
+
+    public int getEtapaActual() {
+        return etapaActual;
+    }
+
+    public void setEtapaActual(int etapaActual) {
+        this.etapaActual = etapaActual;
+    }
+
+    public int getCasillaActual() {
+        return casillaActual;
+    }
+
+    public void setCasillaActual(int casillaActual) {
+        this.casillaActual = casillaActual;
+    }
+
+    public float getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(float velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public float getDaño() {
+        return daño;
+    }
+
+    public void setDaño(float daño) {
+        this.daño = daño;
     }
 }
