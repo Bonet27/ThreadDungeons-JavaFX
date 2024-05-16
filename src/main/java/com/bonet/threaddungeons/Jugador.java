@@ -7,16 +7,16 @@ public class Jugador {
     private int etapaActual;
     private int casillaActual;
     private float velocidad;
-    private float daño;
+    private float dmg;
 
-    public Jugador(String nombre, int salud, int oro, float velocidad, float daño) {
+    public Jugador(String nombre, int salud, int oro, float velocidad, float dmg) {
         this.nombre = nombre;
         this.salud = salud;
         this.oro = oro;
         this.etapaActual = 0;
         this.casillaActual = 0;
         this.velocidad = velocidad;
-        this.daño = daño;
+        this.dmg = dmg;
     }
 
     // Getters y Setters
@@ -68,11 +68,11 @@ public class Jugador {
         this.velocidad = velocidad;
     }
 
-    public float getDaño() {
-        return daño;
+    public float getDmg() {
+        return dmg;
     }
 
-    public void setDaño(float daño) {
-        this.daño = daño;
+    public void setDmg(float dmg) {
+        this.dmg = dmg;
     }
 }

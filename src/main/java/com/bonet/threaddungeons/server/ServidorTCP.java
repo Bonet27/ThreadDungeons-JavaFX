@@ -2,6 +2,7 @@ package com.bonet.threaddungeons.server;
 
 import com.bonet.threaddungeons.Tablero;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -35,6 +36,7 @@ class ClientHandler extends Thread {
     private DataInputStream input;
     private DataOutputStream output;
     private Tablero tablero;
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public ClientHandler(Socket clientSocket, int clientID) {
         this.clientSocket = clientSocket;
@@ -91,5 +93,7 @@ class ClientHandler extends Thread {
     private void enviarEstadoJuego() throws IOException {
         String estadoJuego = tablero.toJson();
         output.writeUTF(estadoJuego);
+        // Imprimir el estado del tablero en JSON estilizado
+        System.out.println(gson.toJson(tablero));
     }
 }

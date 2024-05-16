@@ -56,7 +56,7 @@ public class Tablero {
     public void atacar() {
         // Lógica para atacar la casilla actual
         Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
-        casillaActual.takeDamage(jugador.getDaño());
+        casillaActual.takeDamage(jugador.getDmg());
         if (!casillaActual.isAlive) {
             jugador.setOro(jugador.getOro() + casillaActual.getReward());
         }

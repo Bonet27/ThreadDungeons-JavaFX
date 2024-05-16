@@ -5,7 +5,7 @@ public class Casilla {
     protected boolean isAlive = true;
     protected enum Mode {NORMAL, REWARD, RANDOM}
     protected Mode mode = Mode.NORMAL;
-    protected float health = 100f;
+        protected float health = 100f;
     protected float dificultMultiplier = 1f;
     protected float damage = 10f;
     private int reward;
@@ -47,6 +47,9 @@ public class Casilla {
         return health;
     }
 
+    public void setHealth(float health) {
+        this.health = health;
+    }
     public void takeDamage(float damage) {
         this.health -= damage;
         if (this.health <= 0) {
