@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -68,6 +69,7 @@ public class MainController {
     private Socket sCliente;
     private static final String HOST = "localhost";
     private static final int Puerto = 2000;
+
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
     private ProgressBar[] enemyHealthBars;
@@ -88,6 +90,18 @@ public class MainController {
 
         // Iniciar el hilo de red
         new Thread(this::connectToServer).start();
+
+        // Manejar el evento de cierre de la ventana
+        Stage stage = MainApp.getStage();
+        stage.setOnCloseRequest(event -> {
+            if (sCliente != null && !sCliente.isClosed()) {
+                try {
+                    sCliente.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         // Abrir por defecto el primer panel y el primer botín del acordeón
         accordion1.setExpandedPane(nivel1pane);
@@ -216,12 +230,13 @@ public class MainController {
             InputStream aux = sCliente.getInputStream();
             DataInputStream flujo_entrada = new DataInputStream(aux);
 
-            String mensajeInicial = flujo_entrada.readUTF();
-            System.out.println(mensajeInicial);
+            String mensaje = flujo_entrada.readUTF();
+            System.out.println(mensaje);
 
+            String finalMensaje = mensaje;
             Platform.runLater(() -> {
                 try {
-                    Tablero nuevoTablero = gson.fromJson(mensajeInicial, Tablero.class);
+                    Tablero nuevoTablero = gson.fromJson(finalMensaje, Tablero.class);
                     actualizarInterfaz(nuevoTablero);
                 } catch (JsonSyntaxException e) {
                     textAreaConsole.setText("Error al procesar datos del servidor: " + e.getMessage());
@@ -231,18 +246,20 @@ public class MainController {
             boolean partidaAcabada = false;
 
             while (!partidaAcabada) {
-                String mensaje = flujo_entrada.readUTF();
+                mensaje = flujo_entrada.readUTF();
                 System.out.print(mensaje);
 
+                String finalMensaje1 = mensaje;
                 Platform.runLater(() -> {
                     try {
-                        Tablero nuevoTablero = gson.fromJson(mensaje, Tablero.class);
+                        Tablero nuevoTablero = gson.fromJson(finalMensaje1, Tablero.class);
                         actualizarInterfaz(nuevoTablero);
                     } catch (JsonSyntaxException e) {
                         textAreaConsole.setText("Error al procesar datos del servidor: " + e.getMessage());
                     }
                 });
             }
+
             sCliente.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -275,20 +292,21 @@ public class MainController {
 
         // Actualizar las barras de progreso de los enemigos y sus etiquetas de vida
         for (int i = 0; i < enemyHealthBars.length; i++) {
-            if (i == currentCasillaIndex) {
-                Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
-                enemyHealthBars[currentCasillaIndex].setProgress(casilla.getHealth() / casilla.getMaxHealth());
-                enemyHpLabels[currentCasillaIndex].setText(String.format("%.0f%%", (casilla.getHealth() / casilla.getMaxHealth()) * 100));
+            if (i < tablero.getEtapas()[currentEtapaIndex].getCasillas().length) {
+                Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[i];
+                enemyHealthBars[i].setProgress(casilla.getHealth() / casilla.getMaxHealth());
+                enemyHpLabels[i].setText(String.format("%.0f%%", (casilla.getHealth() / casilla.getMaxHealth()) * 100));
             } else {
                 enemyHealthBars[i].setProgress(0);
                 enemyHpLabels[i].setText("0%");
             }
         }
 
-        openActualTitledPane(currentCasillaIndex);
+        openActualTitledPane(currentEtapaIndex, currentCasillaIndex);
     }
 
-    private void openActualTitledPane(int casillaIndex) {
+    private void openActualTitledPane(int etapaIndex, int casillaIndex) {
+        // Desactivar todos los niveles y botines
         for (TitledPane nivel : niveles) {
             nivel.setDisable(true);
         }
@@ -296,6 +314,7 @@ public class MainController {
             botin.setDisable(true);
         }
 
+        // Activar solo el nivel y botín actuales
         niveles[casillaIndex].setDisable(false);
         botines[casillaIndex].setDisable(false);
         accordion1.setExpandedPane(niveles[casillaIndex]);

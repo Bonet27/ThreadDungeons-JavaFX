@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.bonet.threaddungeons.server.ServidorTCP.SAVE_DIR;
 
@@ -36,12 +37,24 @@ class ClientHandler extends Thread {
     private DataInputStream input;
     private DataOutputStream output;
     private Tablero tablero;
-    private boolean partidaAcabada = false;
+    private AtomicBoolean partidaAcabada = new AtomicBoolean(false);
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public ClientHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
-        this.tablero = new Tablero(1); // Inicializar con un ID de cliente predeterminado
+        this.tablero = loadOrCreateTablero(clientSocket.getInetAddress().getHostAddress());
+    }
+
+    private Tablero loadOrCreateTablero(String clientIp) {
+        File saveFile = new File(SAVE_DIR, clientIp + ".json");
+        if (saveFile.exists()) {
+            try (FileReader reader = new FileReader(saveFile)) {
+                return gson.fromJson(reader, Tablero.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return new Tablero(1); // Inicializar con un ID de cliente predeterminado
     }
 
     @Override
@@ -53,14 +66,16 @@ class ClientHandler extends Thread {
             // Enviar estado inicial del juego
             enviarEstadoJuego();
 
-            while (!partidaAcabada) {
+            while (!partidaAcabada.get()) {
                 try {
-                    String opcionString = input.readUTF();
-                    if (!opcionString.isEmpty()) {
-                        int opcion = Integer.parseInt(opcionString);
+                    if (input.available() > 0) {
+                        int opcion = Integer.parseInt(input.readUTF());
                         procesarOpcion(opcion);
                         enviarEstadoJuego();
                     }
+                } catch (EOFException e) {
+                    System.out.println("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
+                    break;
                 } catch (IOException e) {
                     e.printStackTrace();
                     break;
@@ -78,14 +93,14 @@ class ClientHandler extends Thread {
             case 1: // Atacar
                 tablero.atacar();
                 if (tablero.isPartidaAcabada()) {
-                    partidaAcabada = true;
+                    partidaAcabada.set(true);
                 }
                 break;
             case 2: // Saltar
                 tablero.saltar();
                 break;
             case 3: // Salir de la partida
-                partidaAcabada = true;
+                partidaAcabada.set(true);
                 break;
             default:
                 System.out.println("Opción no válida");
@@ -106,7 +121,7 @@ class ClientHandler extends Thread {
                 dir.mkdirs();
             }
 
-            FileWriter writer = new FileWriter(new File(dir, "partida_" + clientSocket.getInetAddress().getHostAddress() + ".json"));
+            FileWriter writer = new FileWriter(new File(dir, clientSocket.getInetAddress().getHostAddress() + ".json"));
             writer.write(estadoJuego);
             writer.close();
         } catch (IOException e) {
