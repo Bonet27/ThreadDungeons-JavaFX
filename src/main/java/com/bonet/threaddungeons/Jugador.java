@@ -74,4 +74,11 @@ public class Jugador {
     public void setCasillaActual(int casillaActual) {
         this.casillaActual = casillaActual;
     }
+
+    public void takeDamage(float damage) {
+        this.salud -= damage;
+        if (this.salud < 0) {
+            this.salud = 0;
+        }
+    }
 }

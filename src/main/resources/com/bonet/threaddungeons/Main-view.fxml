@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -15,7 +14,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -44,7 +42,7 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="20.0" />
                      </VBox.margin>
                      <effect>
                         <DropShadow height="30.0" offsetX="1.0" offsetY="1.0" radius="14.5" spread="0.2" width="30.0" />
@@ -70,20 +68,6 @@
                         <Insets left="20.0" right="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <ImageView fx:id="playerImage" fitHeight="250.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
-                     <image>
-                        <Image url="@../../../hero4.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow spread="0.75" />
-                     </effect>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
                   <HBox fx:id="statsHbox" alignment="CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
@@ -123,25 +107,20 @@
                         </Text>
                      </children>
                   </HBox>
-                  <Label fx:id="consoleLabel" contentDisplay="BOTTOM" graphicTextGap="0.0" opacity="0.6" text="CONSOLA:">
-                     <graphic>
-                        <TextArea fx:id="textAreaConsole" editable="false" prefWidth="350.0" promptText="Example..." style="overflow: hidden;">
-                           <effect>
-                              <InnerShadow choke="0.5">
-                                 <input>
-                                    <DropShadow />
-                                 </input>
-                              </InnerShadow>
-                           </effect>
-                        </TextArea>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
+                  <ImageView fx:id="playerImage" fitHeight="250.0" fitWidth="300.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../hero4.png" />
+                     </image>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
-                  </Label>
+                     <effect>
+                        <DropShadow spread="0.75" />
+                     </effect>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -163,9 +142,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane fx:id="nivel5content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane fx:id="nivel5content" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <ImageView fx:id="enemy5Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -189,7 +168,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="nivel4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 4 - ELITE" textAlignment="CENTER" textFill="WHITE">
@@ -197,9 +176,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane fx:id="nivel4content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane fx:id="nivel4content" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <ImageView fx:id="enemy4Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -223,7 +202,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="nivel3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 3 - NORMAL" textAlignment="CENTER" textFill="WHITE">
@@ -231,9 +210,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane fx:id="nivel3content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane fx:id="nivel3content" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <ImageView fx:id="enemy3Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -257,7 +236,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="nivel2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 2 - ELITE" textAlignment="CENTER" textFill="WHITE">
@@ -265,9 +244,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane fx:id="nivel2content" alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                          <AnchorPane fx:id="nivel2content" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <ImageView fx:id="enemy2Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -291,17 +270,17 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
-                                    <TitledPane fx:id="nivel1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="NIVEL 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
+                                    <TitledPane fx:id="nivel1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="430.0" text="NIVEL 1 - NORMAL" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane fx:id="nivel1content" alignment="CENTER">
+                                          <AnchorPane fx:id="nivel1content">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <ImageView fx:id="enemy1Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -325,7 +304,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                  </panes>
@@ -343,9 +322,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane alignment="CENTER">
+                                          <AnchorPane fx:id="anchorPaneBotin5">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
@@ -365,7 +344,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="botin4pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
@@ -373,9 +352,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane alignment="CENTER">
+                                          <AnchorPane fx:id="anchorPaneBotin4">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
@@ -395,7 +374,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="botin3pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
@@ -403,9 +382,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane alignment="CENTER">
+                                          <AnchorPane fx:id="anchorPaneBotin3">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
@@ -425,7 +404,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="botin2pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
@@ -433,9 +412,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane alignment="CENTER" maxWidth="1.7976931348623157E308">
+                                          <AnchorPane fx:id="anchorPaneBotin2" maxWidth="1.7976931348623157E308">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
@@ -455,7 +434,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                     <TitledPane fx:id="botin1pane" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="250.0" prefWidth="250.0" text="BOTÍN" textFill="WHITE">
@@ -463,9 +442,9 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <FlowPane alignment="CENTER" scaleShape="false">
+                                          <AnchorPane fx:id="anchorPaneBotin1" scaleShape="false">
                                              <children>
-                                                <HBox alignment="CENTER">
+                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
@@ -485,7 +464,7 @@
                                                    </children>
                                                 </HBox>
                                              </children>
-                                          </FlowPane>
+                                          </AnchorPane>
                                        </content>
                                     </TitledPane>
                                  </panes>

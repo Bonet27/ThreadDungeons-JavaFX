@@ -4,11 +4,24 @@ public class Casilla {
     protected String icon;
     public boolean isAlive = true;
 
+    public enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
+    private Estado estado = Estado.SIN_ATACAR;
+
     protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
+
+    public Mode getMode() {
+        return mode;
+    }
+
     protected Mode mode = Mode.NORMAL;
     protected float health = 100f;
     protected float maxHealth = 100f; // Añadido campo maxHealth
     protected float dificultMultiplier = 1f;
+
+    public float getDamage() {
+        return damage;
+    }
+
     protected float damage = 10f;
     private int reward;
     protected float speed = 12f;
@@ -62,6 +75,7 @@ public class Casilla {
         if (this.health <= 0) {
             this.health = 0;
             this.isAlive = false;
+            setEstado(Estado.MUERTO);
         }
     }
 
@@ -71,6 +85,14 @@ public class Casilla {
 
     public float getMaxHealth() {
         return maxHealth; // Getter para maxHealth
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     private int calculateReward() {

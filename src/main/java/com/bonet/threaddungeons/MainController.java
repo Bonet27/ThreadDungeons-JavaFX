@@ -7,17 +7,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainController {
 
@@ -36,13 +41,11 @@ public class MainController {
     @FXML
     private Label enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel;
     @FXML
+    private AnchorPane nivel1content, nivel2content, nivel3content, nivel4content, nivel5content;
+    @FXML
     private ProgressBar enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5;
     @FXML
-    private TextArea textAreaConsole;
-    @FXML
     private ImageView attackIcon;
-    @FXML
-    private Label consoleLabel;
     @FXML
     private Text attackValue;
     @FXML
@@ -65,18 +68,16 @@ public class MainController {
     private HBox mainHbox;
     @FXML
     private SplitPane splitPane;
-
     private Socket sCliente;
     private static final String HOST = "localhost";
     private static final int Puerto = 2000;
-
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
     private ProgressBar[] enemyHealthBars;
     private Label[] enemyHpLabels;
     private TitledPane[] niveles;
     private TitledPane[] botines;
-
+    private AnchorPane[] nivelContents;
     private int currentEtapaIndex = 0;
     private int currentCasillaIndex = 0;
 
@@ -87,6 +88,7 @@ public class MainController {
         botines = new TitledPane[]{botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
         enemyHealthBars = new ProgressBar[]{enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5};
         enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
+        nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
 
         // Iniciar el hilo de red
         new Thread(this::connectToServer).start();
@@ -108,9 +110,19 @@ public class MainController {
         accordion2.setExpandedPane(botin1pane);
 
         // Configurar eventos de botones
-        btn_attack.setOnAction(event -> enviarMensajeAlServidor("1"));
+        btn_attack.setOnAction(event -> iniciarCombate());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
         btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
+
+        // Configurar eventos de selección de TitledPane
+        for (int i = 0; i < niveles.length; i++) {
+            final int index = i;
+            niveles[i].setOnMouseClicked(event -> {
+                currentCasillaIndex = index;
+                accordion1.setExpandedPane(niveles[currentCasillaIndex]);
+                openActualTitledPane(currentEtapaIndex, currentCasillaIndex);
+            });
+        }
 
         // Ajustar tamaño de fuente al cambiar tamaño de la ventana
         setupSceneListeners();
@@ -144,9 +156,7 @@ public class MainController {
         setStyles(fontSizeStyle, niveles);
         setStyles(fontSizeStyle, botines);
         setStyles(fontSizeStyle, enemyHpLabels);
-        textAreaConsole.setStyle(fontSizeStyle);
         attackValue.setStyle(fontSizeStyle);
-        consoleLabel.setStyle(fontSizeStyle);
         playerName.setStyle(fontSizeStyle);
         speedValue.setStyle(fontSizeStyle);
     }
@@ -196,9 +206,8 @@ public class MainController {
         }
     }
 
-    public void enviarMensajeAlServidor(String mensaje) {
+    private void enviarMensajeAlServidor(String mensaje) {
         if (sCliente == null) {
-            textAreaConsole.setText("ERROR: Servidor no disponible");
             return;
         }
 
@@ -209,7 +218,6 @@ public class MainController {
         } catch (IOException e) {
             String errorMessage = "ERROR: Al enviar mensaje al servidor: " + e.getMessage();
             System.out.println(errorMessage);
-            textAreaConsole.setText(errorMessage);
         }
     }
 
@@ -239,7 +247,7 @@ public class MainController {
                     Tablero nuevoTablero = gson.fromJson(finalMensaje, Tablero.class);
                     actualizarInterfaz(nuevoTablero);
                 } catch (JsonSyntaxException e) {
-                    textAreaConsole.setText("Error al procesar datos del servidor: " + e.getMessage());
+                    System.out.println("Error al procesar datos del servidor: " + e.getMessage());
                 }
             });
 
@@ -255,7 +263,7 @@ public class MainController {
                         Tablero nuevoTablero = gson.fromJson(finalMensaje1, Tablero.class);
                         actualizarInterfaz(nuevoTablero);
                     } catch (JsonSyntaxException e) {
-                        textAreaConsole.setText("Error al procesar datos del servidor: " + e.getMessage());
+                        System.out.println("Error al procesar datos del servidor: " + e.getMessage());
                     }
                 });
             }
@@ -263,7 +271,7 @@ public class MainController {
             sCliente.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            Platform.runLater(() -> textAreaConsole.setText("ERROR: Conexión perdida con el servidor: " + e.getMessage()));
+            Platform.runLater(() -> System.out.println("ERROR: Conexión perdida con el servidor: " + e.getMessage()));
         }
     }
 
@@ -307,17 +315,113 @@ public class MainController {
 
     private void openActualTitledPane(int etapaIndex, int casillaIndex) {
         // Desactivar todos los niveles y botines
-        for (TitledPane nivel : niveles) {
-            nivel.setDisable(true);
+        for (int i = 0; i < niveles.length; i++) {
+            if (i == casillaIndex) {
+                niveles[i].setDisable(false);
+                botines[i].setDisable(false);
+            } else {
+                niveles[i].setDisable(true);
+                botines[i].setDisable(true);
+            }
         }
-        for (TitledPane botin : botines) {
-            botin.setDisable(true);
-        }
-
-        // Activar solo el nivel y botín actuales
-        niveles[casillaIndex].setDisable(false);
-        botines[casillaIndex].setDisable(false);
         accordion1.setExpandedPane(niveles[casillaIndex]);
         accordion2.setExpandedPane(botines[casillaIndex]);
+    }
+
+    private void iniciarCombate() {
+        if (tablero == null) {
+            System.out.println("ERROR: El tablero no está inicializado.");
+            return;
+        }
+
+        Casilla casillaActual = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
+        if (casillaActual.getEstado() == Casilla.Estado.SIN_ATACAR) {
+            casillaActual.setEstado(Casilla.Estado.EN_COMBATE);
+            generarCirculos();
+        }
+
+        // Enviar mensaje al servidor para indicar que se ha iniciado un combate
+        enviarMensajeAlServidor("1");
+    }
+
+    private void generarCirculos() {
+        Casilla casillaActual = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
+        AnchorPane currentPane = nivelContents[currentCasillaIndex];
+
+        // Limpiar sólo los círculos existentes
+        currentPane.getChildren().removeIf(node -> node instanceof Circle);
+
+        int numCircles;
+        switch (casillaActual.getMode()) {
+            case NORMAL:
+                numCircles = 5;
+                break;
+            case REWARD:
+                numCircles = 1;
+                break;
+            case RANDOM:
+                numCircles = 8;
+                break;
+            case BOSS:
+                numCircles = 20;
+                break;
+            default:
+                numCircles = 5;
+        }
+
+        Random random = new Random();
+        double paneWidth = currentPane.getWidth();
+        double paneHeight = currentPane.getHeight();
+        double maxDiameter = 50.0;
+
+        // Variables para el delay
+        final int delayBetweenCircles = 500; // 500 ms
+        final int[] currentCircle = {0};
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    if (currentCircle[0] < numCircles) {
+                        Circle circle = new Circle(maxDiameter / 2, Color.RED);
+                        circle.setOpacity(0.5); // 50% transparencia
+                        circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
+                        circle.setLayoutY(random.nextDouble() * (paneHeight - maxDiameter) + maxDiameter / 2);
+
+                        circle.setOnMouseClicked(event -> {
+                            casillaActual.takeDamage(tablero.getJugador().getDmg());
+                            currentPane.getChildren().remove(circle);
+                            if (casillaActual.getHealth() <= 0) {
+                                casillaActual.setEstado(Casilla.Estado.MUERTO);
+                            }
+                            actualizarInterfaz(tablero);
+                        });
+
+                        currentPane.getChildren().add(circle);
+
+                        // Timer para remover el círculo después de un tiempo basado en la velocidad del jugador
+                        Timer innerTimer = new Timer();
+                        innerTimer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Platform.runLater(() -> {
+                                    if (currentPane.getChildren().contains(circle)) {
+                                        currentPane.getChildren().remove(circle);
+                                        tablero.getJugador().takeDamage(casillaActual.getDamage());
+                                        actualizarInterfaz(tablero);
+                                        if (tablero.getJugador().getSalud() <= 0) {
+                                            enviarMensajeAlServidor("3");
+                                        }
+                                    }
+                                });
+                            }
+                        }, (long) (1000 / tablero.getJugador().getVelocidad()));
+                    }
+                    currentCircle[0]++;
+                });
+            }
+        };
+        timer.schedule(task, 0, delayBetweenCircles);
     }
 }
