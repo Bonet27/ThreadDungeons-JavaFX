@@ -216,9 +216,23 @@ public class MainController {
             InputStream aux = sCliente.getInputStream();
             DataInputStream flujo_entrada = new DataInputStream(aux);
 
-            while (!Thread.currentThread().isInterrupted()) {
+            String mensajeInicial = flujo_entrada.readUTF();
+            System.out.println(mensajeInicial);
+
+            Platform.runLater(() -> {
+                try {
+                    Tablero nuevoTablero = gson.fromJson(mensajeInicial, Tablero.class);
+                    actualizarInterfaz(nuevoTablero);
+                } catch (JsonSyntaxException e) {
+                    textAreaConsole.setText("Error al procesar datos del servidor: " + e.getMessage());
+                }
+            });
+
+            boolean partidaAcabada = false;
+
+            while (!partidaAcabada) {
                 String mensaje = flujo_entrada.readUTF();
-                System.out.println(mensaje);
+                System.out.print(mensaje);
 
                 Platform.runLater(() -> {
                     try {
@@ -245,6 +259,7 @@ public class MainController {
         playerName.setText(tablero.getJugador().getNombre());
         sliderHealth.setProgress(tablero.getJugador().getSalud() / 100.0);
 
+        // Encontrar la primera casilla con vida para establecer currentEtapaIndex y currentCasillaIndex
         boolean casillaEncontrada = false;
         for (int i = 0; i < tablero.getEtapas().length && !casillaEncontrada; i++) {
             Etapa etapa = tablero.getEtapas()[i];
@@ -258,21 +273,22 @@ public class MainController {
             }
         }
 
+        // Actualizar las barras de progreso de los enemigos y sus etiquetas de vida
         for (int i = 0; i < enemyHealthBars.length; i++) {
-            if (i < tablero.getEtapas()[currentEtapaIndex].getCasillas().length) {
-                Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[i];
-                enemyHealthBars[i].setProgress(casilla.getHealth() / 100.0);
-                enemyHpLabels[i].setText(String.format("%.0f%%", casilla.getHealth()));
+            if (i == currentCasillaIndex) {
+                Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
+                enemyHealthBars[currentCasillaIndex].setProgress(casilla.getHealth() / casilla.getMaxHealth());
+                enemyHpLabels[currentCasillaIndex].setText(String.format("%.0f%%", (casilla.getHealth() / casilla.getMaxHealth()) * 100));
             } else {
                 enemyHealthBars[i].setProgress(0);
                 enemyHpLabels[i].setText("0%");
             }
         }
 
-        openActualTitledPane(currentEtapaIndex, currentCasillaIndex);
+        openActualTitledPane(currentCasillaIndex);
     }
 
-    private void openActualTitledPane(int etapaIndex, int casillaIndex) {
+    private void openActualTitledPane(int casillaIndex) {
         for (TitledPane nivel : niveles) {
             nivel.setDisable(true);
         }
