@@ -1,0 +1,122 @@
+{
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy1.png",
+          "isAlive": false,
+          "mode": "NORMAL",
+          "health": 0.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy3.png",
+          "isAlive": true,
+          "mode": "RANDOM",
+          "health": 170.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy3.png",
+          "isAlive": true,
+          "mode": "RANDOM",
+          "health": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy3.png",
+          "isAlive": true,
+          "mode": "RANDOM",
+          "health": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "boss.png",
+          "isAlive": true,
+          "mode": "BOSS",
+          "health": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        }
+      ]
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy1.png",
+          "isAlive": true,
+          "mode": "NORMAL",
+          "health": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy3.png",
+          "isAlive": true,
+          "mode": "RANDOM",
+          "health": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy2.png",
+          "isAlive": true,
+          "mode": "REWARD",
+          "health": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy3.png",
+          "isAlive": true,
+          "mode": "RANDOM",
+          "health": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "boss.png",
+          "isAlive": true,
+          "mode": "BOSS",
+          "health": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        }
+      ]
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "oro": 100,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "etapaActual": 0,
+    "casillaActual": 1
+  },
+  "partidaAcabada": false
+}

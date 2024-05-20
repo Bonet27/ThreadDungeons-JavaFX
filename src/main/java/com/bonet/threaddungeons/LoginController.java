@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.Socket;
 
 public class LoginController {
 
@@ -61,6 +62,8 @@ public class LoginController {
     @FXML
     private void handleLoginButtonAction(javafx.event.ActionEvent event) {
         try {
+            Socket socket = new Socket("localhost", 2000);
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bonet/threaddungeons/Main-View.fxml"));
             Parent mainViewParent = loader.load();
             Scene mainViewScene = new Scene(mainViewParent);
@@ -73,7 +76,8 @@ public class LoginController {
             window.show();
         } catch (IOException e) {
             e.printStackTrace();
-            errorMsg.setText("Error al cargar la vista principal");
+            errorMsg.setVisible(true);
+            errorMsg.setText("Error al conectar con el servidor");
         }
     }
 

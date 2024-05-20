@@ -3,9 +3,9 @@ package com.bonet.threaddungeons;
 public class Casilla {
     protected String icon;
     protected boolean isAlive = true;
-    protected enum Mode {NORMAL, REWARD, RANDOM}
+    protected enum Mode {NORMAL, REWARD, RANDOM, BOSS}
     protected Mode mode = Mode.NORMAL;
-        protected float health = 100f;
+    protected float health = 100f;
     protected float dificultMultiplier = 1f;
     protected float damage = 10f;
     private int reward;
@@ -34,12 +34,17 @@ public class Casilla {
                 this.health = 250f * dificultMultiplier;
                 this.speed *= dificultMultiplier;
                 break;
+            case BOSS:
+                this.icon = "boss.png";
+                this.damage *= dificultMultiplier;
+                this.health = 500f * dificultMultiplier;
+                this.speed *= dificultMultiplier;
+                break;
         }
         this.reward = calculateReward();
     }
 
     private int calculateReward() {
-        // Lógica para calcular la recompensa basada en el tipo de casilla y otros factores
         return (int) (100 * dificultMultiplier);
     }
 
@@ -50,11 +55,16 @@ public class Casilla {
     public void setHealth(float health) {
         this.health = health;
     }
+
     public void takeDamage(float damage) {
         this.health -= damage;
         if (this.health <= 0) {
             this.isAlive = false;
         }
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public int getReward() {

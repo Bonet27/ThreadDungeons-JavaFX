@@ -7,11 +7,12 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.atomic.AtomicInteger;
+
+import static com.bonet.threaddungeons.server.ServidorTCP.SAVE_DIR;
 
 public class ServidorTCP {
-    private static AtomicInteger counter = new AtomicInteger(0);
     private static final int Puerto = 2000;
+    protected static final String SAVE_DIR = "_saves";
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(Puerto)) {
@@ -21,7 +22,7 @@ public class ServidorTCP {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
 
-                ClientHandler clientHandler = new ClientHandler(clientSocket, counter.incrementAndGet());
+                ClientHandler clientHandler = new ClientHandler(clientSocket);
                 clientHandler.start();
             }
         } catch (IOException e) {
@@ -32,16 +33,15 @@ public class ServidorTCP {
 
 class ClientHandler extends Thread {
     private Socket clientSocket;
-    private int clientID;
     private DataInputStream input;
     private DataOutputStream output;
     private Tablero tablero;
+    private boolean partidaAcabada = false;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public ClientHandler(Socket clientSocket, int clientID) {
+    public ClientHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
-        this.clientID = clientID;
-        this.tablero = new Tablero(clientID);
+        this.tablero = new Tablero(1); // Inicializar con un ID de cliente predeterminado
     }
 
     @Override
@@ -53,11 +53,14 @@ class ClientHandler extends Thread {
             // Enviar estado inicial del juego
             enviarEstadoJuego();
 
-            while (!tablero.partidaAcabada) {
+            while (!partidaAcabada) {
                 try {
-                    int opcion = Integer.parseInt(input.readUTF());
-                    procesarOpcion(opcion);
-                    enviarEstadoJuego();
+                    String opcionString = input.readUTF();
+                    if (!opcionString.isEmpty()) {
+                        int opcion = Integer.parseInt(opcionString);
+                        procesarOpcion(opcion);
+                        enviarEstadoJuego();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                     break;
@@ -74,15 +77,15 @@ class ClientHandler extends Thread {
         switch (opcion) {
             case 1: // Atacar
                 tablero.atacar();
-                if (!tablero.partidaAcabada) {
-                    tablero.avanzar(); // Avanza automáticamente después de atacar
+                if (tablero.isPartidaAcabada()) {
+                    partidaAcabada = true;
                 }
                 break;
             case 2: // Saltar
                 tablero.saltar();
                 break;
             case 3: // Salir de la partida
-                tablero.partidaAcabada = true;
+                partidaAcabada = true;
                 break;
             default:
                 System.out.println("Opción no válida");
@@ -91,9 +94,23 @@ class ClientHandler extends Thread {
     }
 
     private void enviarEstadoJuego() throws IOException {
-        String estadoJuego = tablero.toJson();
+        String estadoJuego = gson.toJson(tablero);
         output.writeUTF(estadoJuego);
-        // Imprimir el estado del tablero en JSON estilizado
-        System.out.println(gson.toJson(tablero));
+        guardarEstadoJuego(estadoJuego);
+    }
+
+    private void guardarEstadoJuego(String estadoJuego) {
+        try {
+            File dir = new File(SAVE_DIR);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+
+            FileWriter writer = new FileWriter(new File(dir, "partida_" + clientSocket.getInetAddress().getHostAddress() + ".json"));
+            writer.write(estadoJuego);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

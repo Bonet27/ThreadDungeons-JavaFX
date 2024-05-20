@@ -65,12 +65,10 @@ public class MainController {
     @FXML
     private SplitPane splitPane;
 
-    private static Socket sCliente;
+    private Socket sCliente;
     private static final String HOST = "localhost";
     private static final int Puerto = 2000;
-    private static String mensaje;
-
-    private Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Pretty print JSON
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
     private ProgressBar[] enemyHealthBars;
     private Label[] enemyHpLabels;
@@ -218,14 +216,9 @@ public class MainController {
             InputStream aux = sCliente.getInputStream();
             DataInputStream flujo_entrada = new DataInputStream(aux);
 
-            mensaje = flujo_entrada.readUTF();
-            System.out.println(mensaje);
-
-            boolean partidaAcabada = false;
-
-            while (!partidaAcabada) {
-                mensaje = flujo_entrada.readUTF();
-                System.out.print(mensaje);
+            while (!Thread.currentThread().isInterrupted()) {
+                String mensaje = flujo_entrada.readUTF();
+                System.out.println(mensaje);
 
                 Platform.runLater(() -> {
                     try {
@@ -252,7 +245,6 @@ public class MainController {
         playerName.setText(tablero.getJugador().getNombre());
         sliderHealth.setProgress(tablero.getJugador().getSalud() / 100.0);
 
-        // Encontrar la primera casilla con vida para establecer currentEtapaIndex y currentCasillaIndex
         boolean casillaEncontrada = false;
         for (int i = 0; i < tablero.getEtapas().length && !casillaEncontrada; i++) {
             Etapa etapa = tablero.getEtapas()[i];
@@ -266,7 +258,6 @@ public class MainController {
             }
         }
 
-        // Actualizar las barras de progreso de los enemigos y sus etiquetas de vida
         for (int i = 0; i < enemyHealthBars.length; i++) {
             if (i < tablero.getEtapas()[currentEtapaIndex].getCasillas().length) {
                 Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[i];
@@ -278,14 +269,20 @@ public class MainController {
             }
         }
 
-        // Imprimir el estado del tablero en JSON estilizado
-        System.out.println(gson.toJson(tablero));
-
         openActualTitledPane(currentEtapaIndex, currentCasillaIndex);
     }
 
     private void openActualTitledPane(int etapaIndex, int casillaIndex) {
-        accordion1.setExpandedPane(niveles[etapaIndex]);
+        for (TitledPane nivel : niveles) {
+            nivel.setDisable(true);
+        }
+        for (TitledPane botin : botines) {
+            botin.setDisable(true);
+        }
+
+        niveles[casillaIndex].setDisable(false);
+        botines[casillaIndex].setDisable(false);
+        accordion1.setExpandedPane(niveles[casillaIndex]);
         accordion2.setExpandedPane(botines[casillaIndex]);
     }
 }

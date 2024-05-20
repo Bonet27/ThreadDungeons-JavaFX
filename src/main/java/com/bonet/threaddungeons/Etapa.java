@@ -3,36 +3,24 @@ package com.bonet.threaddungeons;
 import java.util.Random;
 
 public class Etapa {
-    private static int counter = 0;
-    private boolean isAlive = true;
-    private int id;
-    private final int numCasillas = 5;
-    private Casilla[] casillas = new Casilla[numCasillas];
-    private transient Random rnd = new Random(); // Marcar como transient para excluirlo de la serialización
+    private Casilla[] casillas;
 
-    public Etapa() {
-        id = counter++;
-        casillas[0] = new Casilla(Casilla.Mode.NORMAL);
-        for (int i = 1; i < casillas.length - 1; i++) {
-            int numAleatorio = rnd.nextInt(3);
-            if (numAleatorio == 0 || numAleatorio == 1) {
-                casillas[i] = new Casilla(Casilla.Mode.NORMAL);
-            } else {
-                casillas[i] = new Casilla(Casilla.Mode.REWARD);
-            }
-        }
-        casillas[casillas.length - 1] = new Casilla(Casilla.Mode.RANDOM);
+    public Etapa(int numeroEtapa) {
+        this.casillas = new Casilla[5];
+        inicializarCasillas(numeroEtapa);
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    private void inicializarCasillas(int numeroEtapa) {
+        Random random = new Random();
+        casillas[0] = new Casilla(Casilla.Mode.NORMAL);
+        casillas[4] = new Casilla(Casilla.Mode.BOSS);
+
+        for (int i = 1; i < 4; i++) {
+            casillas[i] = new Casilla(random.nextBoolean() ? Casilla.Mode.REWARD : Casilla.Mode.RANDOM);
+        }
     }
 
     public Casilla[] getCasillas() {
         return casillas;
-    }
-
-    public int getId() {
-        return id;
     }
 }

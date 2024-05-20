@@ -1,31 +1,31 @@
 package com.bonet.threaddungeons;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.DataOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Tablero {
-    public Etapa[] etapas; // Cambiado a público para acceso a Gson
-    public Jugador jugador; // Cambiado a público para acceso a Gson
-    public boolean partidaAcabada;
+    private Etapa[] etapas;
+    private Jugador jugador;
+    private boolean partidaAcabada;
 
     public Tablero(int clientID) {
         // Inicializa el tablero y el jugador
-        this.etapas = new Etapa[5];
+        this.etapas = new Etapa[2]; // Cambiado a 2 etapas para pruebas
         this.jugador = new Jugador("Jugador" + clientID, 100, 0, 1.0f, 10.0f); // Ejemplo con velocidad y daño predeterminados
-        this.partidaAcabada = false;
-        inicializarTablero();
-    }
-
-    public void resetJuego() {
         this.partidaAcabada = false;
         inicializarTablero();
     }
 
     private void inicializarTablero() {
         for (int i = 0; i < etapas.length; i++) {
-            etapas[i] = new Etapa(); // Inicializa cada etapa
+            etapas[i] = new Etapa(i + 1);
         }
     }
 
@@ -57,8 +57,9 @@ public class Tablero {
         // Lógica para atacar la casilla actual
         Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
         casillaActual.takeDamage(jugador.getDmg());
-        if (!casillaActual.isAlive) {
+        if (!casillaActual.isAlive()) {
             jugador.setOro(jugador.getOro() + casillaActual.getReward());
+            avanzar();
         }
     }
 
@@ -79,8 +80,24 @@ public class Tablero {
 
     // Método para convertir el tablero a JSON
     public String toJson() {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
+    }
+
+    // Guardar el estado de la partida en un archivo JSON
+    public void guardarEstadoJuego() {
+        String nombreArchivo = jugador.getNombre() + "_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".json";
+        String rutaArchivo = Paths.get("_saves", nombreArchivo).toString();
+
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            writer.write(this.toJson());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isPartidaAcabada() {
+        return partidaAcabada;
     }
 
     // Getters y Setters para las propiedades necesarias
