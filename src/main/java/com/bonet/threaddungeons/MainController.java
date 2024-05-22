@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -23,6 +24,8 @@ import java.net.Socket;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainController {
 
@@ -68,6 +71,7 @@ public class MainController {
     private HBox mainHbox;
     @FXML
     private SplitPane splitPane;
+
     private Socket sCliente;
     private static final String HOST = "localhost";
     private static final int Puerto = 2000;
@@ -80,41 +84,33 @@ public class MainController {
     private AnchorPane[] nivelContents;
     private int currentEtapaIndex = 0;
     private int currentCasillaIndex = 0;
+    private ExecutorService executorService = Executors.newCachedThreadPool(); // Use a thread pool
 
     @FXML
     private void initialize() {
-        // Inicializar los arrays de TitledPane y ProgressBar
         niveles = new TitledPane[]{nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
         botines = new TitledPane[]{botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
         enemyHealthBars = new ProgressBar[]{enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5};
         enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
 
-        // Iniciar el hilo de red
         new Thread(this::connectToServer).start();
 
-        // Manejar el evento de cierre de la ventana
         Stage stage = MainApp.getStage();
         stage.setOnCloseRequest(event -> {
-            if (sCliente != null && !sCliente.isClosed()) {
-                try {
-                    sCliente.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeConnection();
+            executorService.shutdownNow(); // Shutdown the thread pool
+            Platform.exit();
+            System.exit(0);
         });
 
-        // Abrir por defecto el primer panel y el primer botín del acordeón
         accordion1.setExpandedPane(nivel1pane);
         accordion2.setExpandedPane(botin1pane);
 
-        // Configurar eventos de botones
         btn_attack.setOnAction(event -> iniciarCombate());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
         btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
 
-        // Configurar eventos de selección de TitledPane
         for (int i = 0; i < niveles.length; i++) {
             final int index = i;
             niveles[i].setOnMouseClicked(event -> {
@@ -122,87 +118,6 @@ public class MainController {
                 accordion1.setExpandedPane(niveles[currentCasillaIndex]);
                 openActualTitledPane(currentEtapaIndex, currentCasillaIndex);
             });
-        }
-
-        // Ajustar tamaño de fuente al cambiar tamaño de la ventana
-        setupSceneListeners();
-    }
-
-    private void setupSceneListeners() {
-        Scene scene = btn_attack.getScene();
-        if (scene != null) {
-            scene.widthProperty().addListener((obs, oldVal, newVal) -> adjustAllSizes());
-            scene.heightProperty().addListener((obs, oldVal, newVal) -> adjustAllSizes());
-        } else {
-            btn_attack.sceneProperty().addListener((obs, oldScene, newScene) -> {
-                if (newScene != null) {
-                    newScene.widthProperty().addListener((obs2, oldVal, newVal) -> adjustAllSizes());
-                    newScene.heightProperty().addListener((obs2, oldVal, newVal) -> adjustAllSizes());
-                }
-            });
-        }
-    }
-
-    private double calculateFontSize(double width, double height) {
-        return Math.min(width, height) / 25;
-    }
-
-    private void adjustFontSize(double fontSize) {
-        String fontSizeStyle = "-fx-font-size: " + fontSize + "pt;";
-        btn_attack.setStyle(fontSizeStyle);
-        btn_skip.setStyle(fontSizeStyle);
-        btn_menu.setStyle(fontSizeStyle);
-        tp_money.setStyle(fontSizeStyle);
-        setStyles(fontSizeStyle, niveles);
-        setStyles(fontSizeStyle, botines);
-        setStyles(fontSizeStyle, enemyHpLabels);
-        attackValue.setStyle(fontSizeStyle);
-        playerName.setStyle(fontSizeStyle);
-        speedValue.setStyle(fontSizeStyle);
-    }
-
-    private void setStyles(String style, TitledPane[] panes) {
-        for (TitledPane pane : panes) {
-            pane.setStyle(style);
-        }
-    }
-
-    private void setStyles(String style, Label[] labels) {
-        for (Label label : labels) {
-            label.setStyle(style);
-        }
-    }
-
-    private void adjustElementSizes(double scaleFactor) {
-        adjustImageSize(playerImage, scaleFactor);
-        adjustImageSize(attackIcon, scaleFactor);
-        adjustImageSize(speedIcon, scaleFactor);
-        adjustProgressBarsScale(enemyHealthBars, scaleFactor);
-        adjustProgressBarsScale(new ProgressBar[]{sliderHealth}, scaleFactor);
-    }
-
-    private void adjustImageSize(ImageView imageView, double scaleFactor) {
-        imageView.setFitWidth(imageView.getImage().getWidth() * scaleFactor * 0.2);
-        imageView.setFitHeight(imageView.getImage().getHeight() * scaleFactor * 0.2);
-    }
-
-    private void adjustProgressBarsScale(ProgressBar[] bars, double scaleFactor) {
-        for (ProgressBar bar : bars) {
-            bar.setScaleX(scaleFactor);
-            bar.setScaleY(scaleFactor);
-        }
-    }
-
-    private void adjustAllSizes() {
-        Scene scene = btn_attack.getScene();
-        if (scene != null) {
-            double width = scene.getWidth();
-            double height = scene.getHeight();
-            double fontSize = calculateFontSize(width, height);
-            double scaleFactor = Math.min(width / 800, height / 600); // Assuming 800x600 is the base size
-
-            adjustFontSize(fontSize / 2);
-            adjustElementSizes(scaleFactor);
         }
     }
 
@@ -267,11 +182,19 @@ public class MainController {
                     }
                 });
             }
-
-            sCliente.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             Platform.runLater(() -> System.out.println("ERROR: Conexión perdida con el servidor: " + e.getMessage()));
+        }
+    }
+
+    private void closeConnection() {
+        try {
+            if (sCliente != null) {
+                sCliente.close();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
 
@@ -284,7 +207,6 @@ public class MainController {
         playerName.setText(tablero.getJugador().getNombre());
         sliderHealth.setProgress(tablero.getJugador().getSalud() / 100.0);
 
-        // Encontrar la primera casilla con vida para establecer currentEtapaIndex y currentCasillaIndex
         boolean casillaEncontrada = false;
         for (int i = 0; i < tablero.getEtapas().length && !casillaEncontrada; i++) {
             Etapa etapa = tablero.getEtapas()[i];
@@ -298,7 +220,6 @@ public class MainController {
             }
         }
 
-        // Actualizar las barras de progreso de los enemigos y sus etiquetas de vida
         for (int i = 0; i < enemyHealthBars.length; i++) {
             if (i < tablero.getEtapas()[currentEtapaIndex].getCasillas().length) {
                 Casilla casilla = tablero.getEtapas()[currentEtapaIndex].getCasillas()[i];
@@ -314,7 +235,6 @@ public class MainController {
     }
 
     private void openActualTitledPane(int etapaIndex, int casillaIndex) {
-        // Desactivar todos los niveles y botines
         for (int i = 0; i < niveles.length; i++) {
             if (i == casillaIndex) {
                 niveles[i].setDisable(false);
@@ -340,24 +260,22 @@ public class MainController {
             generarCirculos();
         }
 
-        // Enviar mensaje al servidor para indicar que se ha iniciado un combate
-        enviarMensajeAlServidor("1");
+        enviarMensajeAlServidor("1"); // Enviar mensaje de iniciar combate al servidor
     }
 
     private void generarCirculos() {
         Casilla casillaActual = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
         AnchorPane currentPane = nivelContents[currentCasillaIndex];
 
-        // Limpiar sólo los círculos existentes
         currentPane.getChildren().removeIf(node -> node instanceof Circle);
 
         int numCircles;
         switch (casillaActual.getMode()) {
             case NORMAL:
-                numCircles = 5;
+                numCircles = 3;
                 break;
             case REWARD:
-                numCircles = 1;
+                numCircles = 5;
                 break;
             case RANDOM:
                 numCircles = 8;
@@ -374,8 +292,7 @@ public class MainController {
         double paneHeight = currentPane.getHeight();
         double maxDiameter = 50.0;
 
-        // Variables para el delay
-        final int delayBetweenCircles = 500; // 500 ms
+        final int delayBetweenCircles = 1000;
         final int[] currentCircle = {0};
 
         Timer timer = new Timer();
@@ -385,22 +302,18 @@ public class MainController {
                 Platform.runLater(() -> {
                     if (currentCircle[0] < numCircles) {
                         Circle circle = new Circle(maxDiameter / 2, Color.RED);
-                        circle.setOpacity(0.5); // 50% transparencia
+                        circle.setOpacity(0.5);
                         circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
                         circle.setLayoutY(random.nextDouble() * (paneHeight - maxDiameter) + maxDiameter / 2);
 
                         circle.setOnMouseClicked(event -> {
-                            casillaActual.takeDamage(tablero.getJugador().getDmg());
+                            enviarMensajeAlServidor("1");
                             currentPane.getChildren().remove(circle);
-                            if (casillaActual.getHealth() <= 0) {
-                                casillaActual.setEstado(Casilla.Estado.MUERTO);
-                            }
-                            actualizarInterfaz(tablero);
+                            recibirActualizacionDelServidor();
                         });
 
                         currentPane.getChildren().add(circle);
 
-                        // Timer para remover el círculo después de un tiempo basado en la velocidad del jugador
                         Timer innerTimer = new Timer();
                         innerTimer.schedule(new TimerTask() {
                             @Override
@@ -416,7 +329,7 @@ public class MainController {
                                     }
                                 });
                             }
-                        }, (long) (1000 / tablero.getJugador().getVelocidad()));
+                        }, (long) (2000 / tablero.getJugador().getVelocidad()));
                     }
                     currentCircle[0]++;
                 });
@@ -424,4 +337,24 @@ public class MainController {
         };
         timer.schedule(task, 0, delayBetweenCircles);
     }
+
+    private void recibirActualizacionDelServidor() {
+        executorService.submit(() -> {
+            try {
+                DataInputStream flujo_entrada = new DataInputStream(sCliente.getInputStream());
+                String mensaje = flujo_entrada.readUTF();
+                Platform.runLater(() -> {
+                    try {
+                        Tablero nuevoTablero = gson.fromJson(mensaje, Tablero.class);
+                        actualizarInterfaz(nuevoTablero);
+                    } catch (JsonSyntaxException e) {
+                        System.out.println("Error al procesar datos del servidor: " + e.getMessage());
+                    }
+                });
+            } catch (IOException e) {
+                System.out.println("Error al recibir la actualización del servidor: " + e.getMessage());
+            }
+        });
+    }
+
 }

@@ -4,6 +4,10 @@ public class Casilla {
     protected String icon;
     public boolean isAlive = true;
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
     public enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
     private Estado estado = Estado.SIN_ATACAR;
 
@@ -33,26 +37,26 @@ public class Casilla {
         this.mode = mode;
         switch (this.mode) {
             case NORMAL:
-                this.icon = "enemy1.png";
+                this.icon = "enemy6.png";
                 this.damage *= dificultMultiplier;
                 this.speed *= dificultMultiplier;
                 break;
             case REWARD:
-                this.icon = "enemy2.png";
+                this.icon = "enemy7.png";
                 this.damage *= dificultMultiplier;
                 this.health = 150f * dificultMultiplier;
                 this.maxHealth = this.health; // Establecer maxHealth
                 this.speed *= dificultMultiplier;
                 break;
             case RANDOM:
-                this.icon = "enemy3.png";
+                this.icon = "enemy8.png";
                 this.damage *= dificultMultiplier;
                 this.health = 250f * dificultMultiplier;
                 this.maxHealth = this.health; // Establecer maxHealth
                 this.speed *= dificultMultiplier;
                 break;
             case BOSS:
-                this.icon = "enemyBoss.png";
+                this.icon = "boss3.png";
                 this.damage *= dificultMultiplier;
                 this.health = 500f * dificultMultiplier;
                 this.maxHealth = this.health; // Establecer maxHealth
@@ -60,6 +64,10 @@ public class Casilla {
                 break;
         }
         this.reward = calculateReward();
+    }
+
+    public String getIcon() {
+        return icon;
     }
 
     public float getHealth() {

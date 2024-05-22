@@ -81,4 +81,8 @@ public class Jugador {
             this.salud = 0;
         }
     }
+
+    public boolean isAlive() {
+        return this.salud > 0;
+    }
 }

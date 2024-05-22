@@ -6,15 +6,13 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox fx:id="vBox" alignment="TOP_CENTER" cache="true" cacheHint="SCALE" cacheShape="false" centerShape="false" prefHeight="720.0" prefWidth="1080.0" spacing="5.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.LoginController">
-    <Text fx:id="gameTitle" boundsType="LOGICAL_VERTICAL_CENTER" fill="WHITE" focusTraversable="true" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+    <Text fx:id="gameTitle" boundsType="LOGICAL_VERTICAL_CENTER" fill="WHITE" focusTraversable="true" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="0.0" text="THREAD DUNGEONS" textAlignment="CENTER" VBox.vgrow="ALWAYS">
         <font>
             <Font name="System Bold" size="96.0" />
         </font>
@@ -28,17 +26,11 @@
                 <font>
                     <Font name="System Bold" size="40.0" />
                 </font>
-                <effect>
-                    <DropShadow spread="0.5" />
-                </effect>
             </Label>
             <TextField fx:id="inputUsuario" promptText="Usuario" VBox.vgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
-                <effect>
-                    <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
-                </effect>
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
@@ -47,9 +39,6 @@
                 <font>
                     <Font name="System Bold" size="18.0" />
                 </font>
-                <effect>
-                    <DropShadow height="10.0" radius="4.5" spread="1.0" width="10.0" />
-                </effect>
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
@@ -73,13 +62,6 @@
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font>
-                <effect>
-                    <InnerShadow height="20.0" radius="9.5" width="20.0">
-                        <input>
-                            <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
-                        </input>
-                    </InnerShadow>
-                </effect>
                 <HBox.margin>
                     <Insets />
                 </HBox.margin>
@@ -88,13 +70,6 @@
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font>
-                <effect>
-                    <InnerShadow height="20.0" radius="9.5" width="20.0">
-                        <input>
-                            <DropShadow height="20.0" radius="9.5" spread="0.7" width="20.0" />
-                        </input>
-                    </InnerShadow>
-                </effect>
                 <HBox.margin>
                     <Insets />
                 </HBox.margin>

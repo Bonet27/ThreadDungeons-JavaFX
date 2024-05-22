@@ -7,125 +7,86 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import static com.bonet.threaddungeons.server.ServidorTCP.SAVE_DIR;
 
 public class ServidorTCP {
     private static final int Puerto = 2000;
-    protected static final String SAVE_DIR = "_saves";
+    private static AtomicBoolean running = new AtomicBoolean(true);
+    private static ExecutorService threadPool = Executors.newCachedThreadPool(); // Use a thread pool
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(Puerto)) {
             System.out.println("Servidor iniciado en el puerto " + Puerto);
 
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                running.set(false);
+                try {
+                    serverSocket.close();
+                    threadPool.shutdownNow(); // Shutdown the thread pool
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }));
 
-                ClientHandler clientHandler = new ClientHandler(clientSocket);
-                clientHandler.start();
+            while (running.get()) {
+                try {
+                    Socket clientSocket = serverSocket.accept();
+                    System.out.println("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
+                    threadPool.submit(new ClientHandler(clientSocket)); // Submit client handler to thread pool
+                } catch (IOException e) {
+                    if (running.get()) {
+                        System.err.println("Error en el servidor: " + e.getMessage());
+                    }
+                }
             }
         } catch (IOException e) {
             System.err.println("Error en el servidor: " + e.getMessage());
         }
     }
-}
 
-class ClientHandler extends Thread {
-    private Socket clientSocket;
-    private DataInputStream input;
-    private DataOutputStream output;
-    private Tablero tablero;
-    private AtomicBoolean partidaAcabada = new AtomicBoolean(false);
-    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    static class ClientHandler implements Runnable {
+        private Socket clientSocket;
+        private Tablero tablero;
+        private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public ClientHandler(Socket clientSocket) {
-        this.clientSocket = clientSocket;
-        this.tablero = loadOrCreateTablero(clientSocket.getInetAddress().getHostAddress());
-    }
+        public ClientHandler(Socket clientSocket) {
+            this.clientSocket = clientSocket;
+            this.tablero = new Tablero(1); // Asignar un ID de cliente (por simplicidad, siempre 1 en este ejemplo)
+        }
 
-    private Tablero loadOrCreateTablero(String clientIp) {
-        File saveFile = new File(SAVE_DIR, clientIp + ".json");
-        if (saveFile.exists()) {
-            try (FileReader reader = new FileReader(saveFile)) {
-                return gson.fromJson(reader, Tablero.class);
+        @Override
+        public void run() {
+            try (DataInputStream in = new DataInputStream(clientSocket.getInputStream());
+                 DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream())) {
+
+                out.writeUTF(gson.toJson(tablero));
+
+                boolean clientRunning = true;
+                while (clientRunning) {
+                    String message = in.readUTF();
+                    switch (message) {
+                        case "1": // Iniciar combate
+                            tablero.getJugador().takeDamage(10); // Ejemplo de lógica, ajustar según sea necesario
+                            break;
+                        case "ATTACK":
+                            tablero.atacar();
+                            break;
+                        case "2": // Saltar casilla
+                            tablero.saltar();
+                            break;
+                        case "3": // Fin de juego
+                            clientRunning = false;
+                            break;
+                        default:
+                            break;
+                    }
+                    out.writeUTF(gson.toJson(tablero));
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        return new Tablero(1); // Inicializar con un ID de cliente predeterminado
-    }
-
-    @Override
-    public void run() {
-        try {
-            input = new DataInputStream(clientSocket.getInputStream());
-            output = new DataOutputStream(clientSocket.getOutputStream());
-
-            // Enviar estado inicial del juego
-            enviarEstadoJuego();
-
-            while (!partidaAcabada.get()) {
-                try {
-                    if (input.available() > 0) {
-                        int opcion = Integer.parseInt(input.readUTF());
-                        procesarOpcion(opcion);
-                        enviarEstadoJuego();
-                    }
-                } catch (EOFException e) {
-                    System.out.println("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
-                    break;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    break;
-                }
-            }
-
-            clientSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void procesarOpcion(int opcion) {
-        switch (opcion) {
-            case 1: // Atacar
-                tablero.atacar();
-                if (tablero.isPartidaAcabada()) {
-                    partidaAcabada.set(true);
-                }
-                break;
-            case 2: // Saltar
-                tablero.saltar();
-                break;
-            case 3: // Salir de la partida
-                partidaAcabada.set(true);
-                break;
-            default:
-                System.out.println("Opción no válida");
-        }
-        tablero.actualizarProgresoJuego();
-    }
-
-    private void enviarEstadoJuego() throws IOException {
-        String estadoJuego = gson.toJson(tablero);
-        output.writeUTF(estadoJuego);
-        guardarEstadoJuego(estadoJuego);
-    }
-
-    private void guardarEstadoJuego(String estadoJuego) {
-        try {
-            File dir = new File(SAVE_DIR);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-
-            FileWriter writer = new FileWriter(new File(dir, clientSocket.getInetAddress().getHostAddress() + ".json"));
-            writer.write(estadoJuego);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

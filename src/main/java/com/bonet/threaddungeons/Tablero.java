@@ -54,12 +54,14 @@ public class Tablero {
     }
 
     public void atacar() {
-        // Lógica para atacar la casilla actual
         Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
-        casillaActual.takeDamage(jugador.getDmg());
-        if (!casillaActual.isAlive) {
-            jugador.setOro(jugador.getOro() + casillaActual.getReward());
-            avanzar();
+        if (casillaActual.getEstado() == Casilla.Estado.EN_COMBATE && casillaActual.isAlive()) {
+            casillaActual.takeDamage(jugador.getDmg());
+            if (casillaActual.getHealth() <= 0) {
+                casillaActual.setEstado(Casilla.Estado.MUERTO);
+                jugador.setOro(jugador.getOro() + casillaActual.getReward());
+                avanzar(); // Avanzar a la siguiente casilla o etapa si el enemigo es derrotado
+            }
         }
     }
 

@@ -3,11 +3,11 @@
     {
       "casillas": [
         {
-          "icon": "enemy1.png",
-          "isAlive": false,
-          "estado": "MUERTO",
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
           "mode": "NORMAL",
-          "health": 0.0,
+          "health": 100.0,
           "maxHealth": 100.0,
           "dificultMultiplier": 1.0,
           "damage": 10.0,
@@ -15,23 +15,11 @@
           "speed": 12.0
         },
         {
-          "icon": "enemy2.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "reward": 100,
-          "speed": 12.0
-        },
-        {
-          "icon": "enemy3.png",
+          "icon": "enemy8.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "RANDOM",
-          "health": 220.0,
+          "health": 250.0,
           "maxHealth": 250.0,
           "dificultMultiplier": 1.0,
           "damage": 10.0,
@@ -39,7 +27,19 @@
           "speed": 12.0
         },
         {
-          "icon": "enemy2.png",
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "enemy7.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "REWARD",
@@ -51,7 +51,7 @@
           "speed": 12.0
         },
         {
-          "icon": "enemyBoss.png",
+          "icon": "boss3.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "BOSS",
@@ -67,7 +67,7 @@
     {
       "casillas": [
         {
-          "icon": "enemy1.png",
+          "icon": "enemy6.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "NORMAL",
@@ -79,7 +79,7 @@
           "speed": 12.0
         },
         {
-          "icon": "enemy2.png",
+          "icon": "enemy7.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "REWARD",
@@ -91,19 +91,7 @@
           "speed": 12.0
         },
         {
-          "icon": "enemy2.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "REWARD",
-          "health": 150.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "reward": 100,
-          "speed": 12.0
-        },
-        {
-          "icon": "enemy3.png",
+          "icon": "enemy8.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "RANDOM",
@@ -115,7 +103,19 @@
           "speed": 12.0
         },
         {
-          "icon": "enemyBoss.png",
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "reward": 100,
+          "speed": 12.0
+        },
+        {
+          "icon": "boss3.png",
           "isAlive": true,
           "estado": "SIN_ATACAR",
           "mode": "BOSS",
@@ -132,11 +132,11 @@
   "jugador": {
     "nombre": "Jugador1",
     "salud": 100.0,
-    "oro": 200,
+    "oro": 0,
     "velocidad": 1.0,
     "dmg": 10.0,
     "etapaActual": 0,
-    "casillaActual": 2
+    "casillaActual": 0
   },
   "partidaAcabada": false
 }
