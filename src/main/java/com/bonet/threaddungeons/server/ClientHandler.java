@@ -8,9 +8,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.bonet.threaddungeons.server.ServidorTCP.SAVE_DIR;
-
 class ClientHandler implements Runnable {
+    private static final String SAVE_DIR = ".saves";
     private Socket clientSocket;
     private DataInputStream input;
     private DataOutputStream output;
@@ -97,7 +96,7 @@ class ClientHandler implements Runnable {
                 System.out.println("Mensaje no válido");
         }
         tablero.actualizarProgresoJuego();
-        enviarEstadoJuego(); // Enviar el estado del juego actualizado después de procesar el mensaje
+        guardarEstadoJuego(gson.toJson(tablero)); // Guardar el estado del juego después de procesar el mensaje
     }
 
     private void enviarEstadoJuego() {

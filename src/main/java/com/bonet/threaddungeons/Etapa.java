@@ -3,14 +3,14 @@ package com.bonet.threaddungeons;
 import java.util.Random;
 
 public class Etapa {
+    private static final int numCasillas = 5;
     private Casilla[] casillas;
+    private int numeroEtapa = 0;
 
     public Etapa(int numeroEtapa) {
-        this.casillas = new Casilla[5];
-        inicializarCasillas(numeroEtapa);
-    }
+        this.casillas = new Casilla[numCasillas];
+        this.numeroEtapa = numeroEtapa;
 
-    private void inicializarCasillas(int numeroEtapa) {
         Random random = new Random();
         casillas[0] = new Casilla(Casilla.Mode.NORMAL);
         casillas[4] = new Casilla(Casilla.Mode.BOSS);

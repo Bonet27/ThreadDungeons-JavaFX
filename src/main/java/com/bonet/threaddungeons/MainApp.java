@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
     private static Stage primaryStage;
-
     public static Stage getStage() {
         return primaryStage;
     }
@@ -16,14 +15,14 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/bonet/threaddungeons/Login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setTitle("Thread Dungeons");
+        stage.setResizable(false);
         stage.show();
 
         stage.setOnCloseRequest(event -> {
-            // Properly close the application
             Platform.exit();
             System.exit(0);
         });
