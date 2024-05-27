@@ -69,18 +69,21 @@ public class MainController {
     private int currentEtapaIndex = 0, currentCasillaIndex = 0;
     private ExecutorService executorService = Executors.newCachedThreadPool();
     private boolean enCombate = false;
+    private Timer combateTimer;
 
     @FXML
     private void initialize() {
-        niveles = new TitledPane[]{ nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane };
-        botines = new TitledPane[]{ botin1pane, botin2pane, botin3pane, botin4pane, botin5pane };
-        enemyHealthBars = new ProgressBar[]{ enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5 };
-        enemyHpLabels = new Label[]{ enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel };
-        nivelContents = new AnchorPane[]{ nivel1content, nivel2content, nivel3content, nivel4content, nivel5content };
+        niveles = new TitledPane[]{nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
+        botines = new TitledPane[]{botin1pane, botin2pane, botin3pane, botin4pane, botin5pane};
+        enemyHealthBars = new ProgressBar[]{enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5};
+        enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
+        nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
 
         new Thread(this::connectToServer).start();
 
-        btn_attack.setOnAction(event -> { if (!enCombate) iniciarCombate(); });
+        btn_attack.setOnAction(event -> {
+            if (!enCombate) iniciarCombate();
+        });
 
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
         btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
@@ -89,12 +92,12 @@ public class MainController {
         handlerTitledPaneClick();
     }
 
-    private void handlerTitledPaneClick(){
+    private void handlerTitledPaneClick() {
         for (int i = 0; i < niveles.length; i++) {
             final int index = i;
             niveles[i].setOnMouseClicked(event -> {
                 currentCasillaIndex = index;
-                openActualTitledPane(currentCasillaIndex);
+                openActualTitledPane(tablero.getJugador().getCasillaActual());
             });
         }
     }
@@ -188,19 +191,29 @@ public class MainController {
             return;
         }
 
-        Casilla casillaActual = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
+        Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
         if (casillaActual.getEstado() == Casilla.Estado.SIN_ATACAR && casillaActual.isAlive()) {
             casillaActual.setEstado(Casilla.Estado.EN_COMBATE);
             enCombate = true;
             generarCirculos();
-        } else {
-            enCombate = false;
+        }
+    }
+
+    private void terminarCombate() {
+        enCombate = false;
+        if (combateTimer != null) {
+            combateTimer.cancel();
         }
     }
 
     private void generarCirculos() {
-        Casilla casillaActual = tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex];
-        AnchorPane currentPane = nivelContents[currentCasillaIndex];
+        combateTimer = new Timer();
+        generarCirculo();
+    }
+
+    private void generarCirculo() {
+        Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+        AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
 
         currentPane.getChildren().removeIf(node -> node instanceof Circle);
 
@@ -212,30 +225,31 @@ public class MainController {
         final int delayBetweenCircles = 1000;
         final int circleLifetime = 2000; // Tiempo de vida del círculo antes de desaparecer
 
-        Timer timer = new Timer();
-
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                if (casillaActual.getHealth() > 0 && !tablero.isPartidaAcabada() && enCombate) {
-                    Platform.runLater(() -> {
+                Platform.runLater(() -> {
+                    Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+
+                    if (casillaActualizada.getHealth() > 0 && !tablero.isPartidaAcabada() && enCombate) {
                         Circle circle = new Circle(maxDiameter / 2, Color.RED);
                         circle.setOpacity(0.5);
                         circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
                         circle.setLayoutY(random.nextDouble() * (paneHeight - maxDiameter) + maxDiameter / 2);
+                        circle.setManaged(false); // Evitar que se redimensione
 
                         circle.setOnMouseClicked(event -> {
                             tablero.atacar();
                             currentPane.getChildren().remove(circle);
-                            actualizarInterfaz(tablero);
-                            enviarEstadoAlServidor();
 
-                            if (casillaActual.getHealth() <= 0) {
-                                casillaActual.setEstado(Casilla.Estado.MUERTO);
-                                enCombate = false;
-                                timer.cancel();
-                                avanzarANextCasilla();
-                            }
+                            // Obtener la casilla actualizada después del ataque
+
+                            if (casillaActualizada.getHealth() <= 0) terminarCombate();
+
+                            openActualTitledPane(tablero.getJugador().getCasillaActual());
+
+                            enviarEstadoAlServidor();
+                            actualizarInterfaz(tablero);
                         });
 
                         currentPane.getChildren().add(circle);
@@ -260,28 +274,14 @@ public class MainController {
                                 });
                             }
                         }, circleLifetime);
-                    });
-                } else {
-                    timer.cancel();
-                }
+                    } else {
+                        combateTimer.cancel();
+                    }
+                });
             }
         };
 
-        timer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
-    }
-
-    private void avanzarANextCasilla() {
-        Platform.runLater(() -> {
-            tablero.avanzar();
-            currentEtapaIndex = tablero.getJugador().getEtapaActual();
-            currentCasillaIndex = tablero.getJugador().getCasillaActual();
-            openActualTitledPane(currentCasillaIndex);
-
-            // Solo iniciar combate si no hemos terminado el juego
-            if (!tablero.isPartidaAcabada() && tablero.getEtapas()[currentEtapaIndex].getCasillas()[currentCasillaIndex].isAlive()) {
-                iniciarCombate();
-            }
-        });
+        combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
     }
 
     private void enviarEstadoAlServidor() {
@@ -298,12 +298,6 @@ public class MainController {
                     System.out.println("Error al enviar el estado al servidor: " + e.getMessage());
                 }
             });
-        }
-    }
-
-    private void verificarFinDeJuego() {
-        if (tablero.isPartidaAcabada()) {
-            cerrarConexionYVolverAlLogin();
         }
     }
 

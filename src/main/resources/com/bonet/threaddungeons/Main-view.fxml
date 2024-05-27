@@ -291,7 +291,7 @@
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                        <content>
-                                          <AnchorPane fx:id="nivel1content" focusTraversable="true">
+                                          <AnchorPane fx:id="nivel1content" scaleShape="false">
                                              <children>
                                                 <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
