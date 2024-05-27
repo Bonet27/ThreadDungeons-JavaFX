@@ -116,6 +116,7 @@ public class MainController {
                 }
             });
         }
+        actualizarInterfaz(tablero);
     }
 
     private void openScene(String scene) {
@@ -158,9 +159,9 @@ public class MainController {
         }
     }
 
-    private void actualizarInterfaz(Tablero newTablero) {
+    public void actualizarInterfaz(Tablero newTablero) {
         this.tablero = newTablero;
-        sliderHealth.setProgress(tablero.getJugador().getSalud() / 100.0);
+        sliderHealth.setProgress(tablero.getJugador().getSalud() / tablero.getJugador().getSaludMaxima());
         playerName.setText(tablero.getJugador().getNombre());
 
         Casilla[] casillas = tablero.getEtapas()[currentEtapaIndex].getCasillas();
@@ -169,6 +170,7 @@ public class MainController {
             enemyHealthBars[i].setProgress(casilla.getHealth() / casilla.getMaxHealth());
             enemyHpLabels[i].setText(String.format("%.0f / %.0f", casilla.getHealth(), casilla.getMaxHealth()));
         }
+        openActualTitledPane(tablero.getJugador().getCasillaActual());
     }
 
     private void openActualTitledPane(int casillaIndex) {
@@ -186,6 +188,8 @@ public class MainController {
     }
 
     private void iniciarCombate() {
+        openActualTitledPane(tablero.getJugador().getCasillaActual());
+
         if (tablero == null) {
             System.out.println("ERROR: El tablero no está inicializado.");
             return;
@@ -246,8 +250,6 @@ public class MainController {
 
                             if (casillaActualizada.getHealth() <= 0) terminarCombate();
 
-                            openActualTitledPane(tablero.getJugador().getCasillaActual());
-
                             enviarEstadoAlServidor();
                             actualizarInterfaz(tablero);
                         });
@@ -280,7 +282,6 @@ public class MainController {
                 });
             }
         };
-
         combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
     }
 

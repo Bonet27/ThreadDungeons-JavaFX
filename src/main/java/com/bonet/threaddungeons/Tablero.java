@@ -7,12 +7,12 @@ public class Tablero {
 
     public Tablero(int clientID) {
         this.etapas = new Etapa[2];
-        this.jugador = new Jugador("Jugador" + clientID, 100, 0, 1.0f, 10.0f, 0, 0);
+        this.jugador = new Jugador("Jugador" + clientID, 100, 100, 0, 1.0f, 10.0f, 0, 0);
         this.partidaAcabada = false;
 
         // Inicializar tablero
         for (int i = 0; i < etapas.length; i++) {
-            etapas[i] = new Etapa(i + 1);
+            etapas[i] = new Etapa(i);
         }
     }
 
