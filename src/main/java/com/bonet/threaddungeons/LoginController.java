@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -17,7 +18,11 @@ public class LoginController {
     private PasswordField inputPassword;
     @FXML
     private Button btn_login;
+    @FXML
+    private Text errorMsg;
     private MainApp mainApp;
+    private static final String HOST = "localhost";
+    private static final int Puerto = 2000;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -31,9 +36,13 @@ public class LoginController {
     private void handleLoginButtonAction() {
         String login = inputUsuario.getText();
         String password = inputPassword.getText();
+        boolean authenticated = false;
+        Socket socket = null;
 
         try {
-            Socket socket = mainApp.getSocket();
+            // Intentar conectar con el servidor
+            socket = new Socket(HOST, Puerto);
+
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
@@ -42,15 +51,28 @@ public class LoginController {
             output.writeUTF(password);
             output.flush();
 
-            boolean authenticated = input.readBoolean();
+            authenticated = input.readBoolean();
 
             if (authenticated) {
-                mainApp.openMainView();
+                mainApp.openMainView(socket);
             } else {
-                System.out.println("Autenticación fallida");
+                errorMsg.setVisible(true);
+                errorMsg.setText("Autenticación fallida");
+                if (socket != null && !socket.isClosed()) {
+                    socket.close();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
+            errorMsg.setVisible(true);
+            errorMsg.setText("No se pudo conectar al servidor");
+            if (socket != null && !socket.isClosed()) {
+                try {
+                    socket.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -17217,3 +17217,6279 @@
   },
   "partidaAcabada": false
 }
+2024-05-29 21:59:51,779 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:55,974 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:55,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:56,598 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:56,601 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:57,299 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:57,302 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:57,858 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:57,860 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:57,980 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:57,982 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:58,234 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:58,236 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:58,525 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:58,527 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:58,755 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:58,757 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:58,932 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:58,934 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:58,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:58,985 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 21:59:59,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 21:59:59,980 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:00,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:00,980 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,114 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,116 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,276 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,278 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,437 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,439 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,606 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,608 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,758 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,759 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,914 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,915 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:01,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:01,979 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:02,893 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:02,894 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:02,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:02,979 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,102 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,103 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,267 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,268 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,441 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,443 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,596 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,597 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,774 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,776 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,929 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,930 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:03,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:03,979 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:04,978 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:04,980 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:00:05,977 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:00:05,979 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:05,361 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:08,621 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:08,625 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:09,245 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:09,247 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:10,226 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:10,228 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:11,273 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:11,275 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:12,183 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:12,185 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:13,097 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:13,099 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:14,246 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:14,248 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:15,342 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:15,344 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:16,270 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:16,272 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:17,416 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:17,418 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}
+2024-05-29 22:01:18,423 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
+2024-05-29 22:01:18,425 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+  "etapas": [
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "NORMAL",
+          "health": 0.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": false,
+          "estado": "MUERTO",
+          "mode": "REWARD",
+          "health": 0.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 0
+    },
+    {
+      "casillas": [
+        {
+          "icon": "enemy6.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "NORMAL",
+          "health": 100.0,
+          "maxHealth": 100.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy7.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "REWARD",
+          "health": 150.0,
+          "maxHealth": 150.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "enemy8.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "RANDOM",
+          "health": 250.0,
+          "maxHealth": 250.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        },
+        {
+          "icon": "boss3.png",
+          "isAlive": true,
+          "estado": "SIN_ATACAR",
+          "mode": "BOSS",
+          "health": 500.0,
+          "maxHealth": 500.0,
+          "dificultMultiplier": 1.0,
+          "damage": 10.0,
+          "speed": 12.0,
+          "reward": 100
+        }
+      ],
+      "numeroEtapa": 1
+    }
+  ],
+  "jugador": {
+    "nombre": "Jugador1",
+    "salud": 100.0,
+    "saludMaxima": 100.0,
+    "velocidad": 1.0,
+    "dmg": 10.0,
+    "oro": 200,
+    "etapaActual": 0,
+    "casillaActual": 2
+  },
+  "partidaAcabada": false
+}

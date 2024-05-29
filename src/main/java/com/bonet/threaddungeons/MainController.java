@@ -60,8 +60,6 @@ public class MainController {
     private Pane attackPane;
 
     private Socket sCliente;
-    private static final String HOST = "localhost";
-    private static final int Puerto = 2000;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
     private ProgressBar[] enemyHealthBars;
@@ -74,7 +72,10 @@ public class MainController {
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-        this.sCliente = mainApp.getSocket();
+    }
+
+    public void setSocket(Socket socket) {
+        this.sCliente = socket;
         new Thread(this::connectToServer).start();
     }
 
@@ -86,9 +87,9 @@ public class MainController {
         enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
 
-        btn_attack.setOnAction(event -> iniciarCombate()); // Enviar mensaje de iniciar combate
-        btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));   // Enviar mensaje de salto
-        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));    // Volver al menú
+        btn_attack.setOnAction(event -> iniciarAtaque());
+        btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
+        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -157,8 +158,8 @@ public class MainController {
         }
     }
 
-    private void iniciarCombate() {
-        enviarMensajeAlServidor("inicio_combate");
+    private void iniciarAtaque() {
+        enviarMensajeAlServidor("1");
         enCombate = true;
         combateTimer = new Timer();
         generarCirculo();
@@ -217,6 +218,7 @@ public class MainController {
 
                         circle.setOnMouseClicked(event -> {
                             enviarMensajeAlServidor("1"); // Enviar el mensaje de ataque al servidor
+                            currentPane.getChildren().remove(circle);
                         });
 
                         currentPane.getChildren().add(circle);
@@ -234,6 +236,8 @@ public class MainController {
                                             tablero.setPartidaAcabada(true);
                                             enviarMensajeAlServidor("3");
                                             cerrarConexionYVolverAlLogin();
+                                        } else {
+                                            enviarMensajeAlServidor("1");
                                         }
                                     }
                                 });

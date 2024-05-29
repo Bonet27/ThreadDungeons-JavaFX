@@ -11,27 +11,16 @@ import java.net.Socket;
 
 public class MainApp extends Application {
     private static Stage stage;
-    private Socket socket;
-    private static final String HOST = "localhost";
-    private static final int Puerto = 2000;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         primaryStage.setTitle("Thread Dungeons");
-
-        // Crear el socket al iniciar la aplicación
-        socket = new Socket(HOST, Puerto);
-
         openLoginView();
     }
 
     public static Stage getStage() {
         return stage;
-    }
-
-    public Socket getSocket() {
-        return socket;
     }
 
     public void openLoginView() {
@@ -47,12 +36,13 @@ public class MainApp extends Application {
         }
     }
 
-    public void openMainView() {
+    public void openMainView(Socket socket) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Main-view.fxml"));
             Parent root = loader.load();
             MainController mainController = loader.getController();
-            mainController.setMainApp(this); // Pasar la referencia de MainApp al MainController
+            mainController.setMainApp(this);
+            mainController.setSocket(socket);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
