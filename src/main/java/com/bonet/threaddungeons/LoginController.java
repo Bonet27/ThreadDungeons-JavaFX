@@ -1,61 +1,56 @@
 package com.bonet.threaddungeons;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ConnectException;
 import java.net.Socket;
 
 public class LoginController {
-
-    @FXML
-    private Button btn_login, btn_register;
-
-    @FXML
-    private PasswordField inputPassword;
-
     @FXML
     private TextField inputUsuario;
-
     @FXML
-    private Text errorMsg, gameTitle;
+    private PasswordField inputPassword;
+    @FXML
+    private Button btn_login;
+    private MainApp mainApp;
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     @FXML
     private void initialize() {
-        btn_login.setOnAction(this::handleLoginButtonAction);
-        btn_register.setOnAction(this::handleRegisterButtonAction);
+        btn_login.setOnAction(event -> handleLoginButtonAction());
     }
 
-    @FXML
-    private void handleLoginButtonAction(javafx.event.ActionEvent event) {
-        try (Socket socket = new Socket("localhost", 2000)) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bonet/threaddungeons/Main-View.fxml"));
-            Parent mainViewParent = loader.load();
-            Scene mainViewScene = new Scene(mainViewParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(mainViewScene);
-            window.show();
-        } catch (ConnectException e) {
-            errorMsg.setVisible(true);
-            errorMsg.setText(e.getMessage());
-        }catch (IOException e) {
+    private void handleLoginButtonAction() {
+        String login = inputUsuario.getText();
+        String password = inputPassword.getText();
+
+        try {
+            Socket socket = mainApp.getSocket();
+            DataOutputStream output = new DataOutputStream(socket.getOutputStream());
+            DataInputStream input = new DataInputStream(socket.getInputStream());
+
+            // Enviar credenciales de autenticación al servidor
+            output.writeUTF(login);
+            output.writeUTF(password);
+            output.flush();
+
+            boolean authenticated = input.readBoolean();
+
+            if (authenticated) {
+                mainApp.openMainView();
+            } else {
+                System.out.println("Autenticación fallida");
+            }
+        } catch (IOException e) {
             e.printStackTrace();
-            errorMsg.setVisible(true);
-            errorMsg.setText(e.getMessage());
         }
-    }
-
-    @FXML
-    private void handleRegisterButtonAction(javafx.event.ActionEvent event) {
-        System.out.println("Registro button pressed");
     }
 }

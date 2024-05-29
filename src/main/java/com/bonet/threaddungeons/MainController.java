@@ -1,5 +1,8 @@
 package com.bonet.threaddungeons;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -22,8 +23,6 @@ import java.net.Socket;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainController {
 
@@ -57,6 +56,9 @@ public class MainController {
     private HBox lowHbox, mainHBox, mainHBox1;
     @FXML
     private SplitPane splitPane;
+    @FXML
+    private Pane attackPane;
+
     private Socket sCliente;
     private static final String HOST = "localhost";
     private static final int Puerto = 2000;
@@ -66,10 +68,15 @@ public class MainController {
     private Label[] enemyHpLabels;
     private TitledPane[] niveles, botines;
     private AnchorPane[] nivelContents;
-    private int currentEtapaIndex = 0, currentCasillaIndex = 0;
-    private ExecutorService executorService = Executors.newCachedThreadPool();
+    private MainApp mainApp;
     private boolean enCombate = false;
     private Timer combateTimer;
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+        this.sCliente = mainApp.getSocket();
+        new Thread(this::connectToServer).start();
+    }
 
     @FXML
     private void initialize() {
@@ -79,44 +86,22 @@ public class MainController {
         enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
 
-        new Thread(this::connectToServer).start();
-
-        btn_attack.setOnAction(event -> {
-            if (!enCombate) iniciarCombate();
-        });
-
-        btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
-
-        openActualTitledPane(currentCasillaIndex);
-        handlerTitledPaneClick();
-    }
-
-    private void handlerTitledPaneClick() {
-        for (int i = 0; i < niveles.length; i++) {
-            final int index = i;
-            niveles[i].setOnMouseClicked(event -> {
-                currentCasillaIndex = index;
-                openActualTitledPane(tablero.getJugador().getCasillaActual());
-            });
-        }
+        btn_attack.setOnAction(event -> iniciarCombate()); // Enviar mensaje de iniciar combate
+        btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));   // Enviar mensaje de salto
+        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));    // Volver al menú
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
         if (sCliente != null && !sCliente.isClosed() && !sCliente.isOutputShutdown()) {
-            executorService.submit(() -> {
-                try {
-                    if (sCliente != null && !sCliente.isClosed() && !sCliente.isOutputShutdown()) {
-                        OutputStream out = sCliente.getOutputStream();
-                        DataOutputStream flujo_salida = new DataOutputStream(out);
-                        flujo_salida.writeUTF(mensaje);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error al enviar el estado al servidor: " + e.getMessage());
-                }
-            });
+            try {
+                OutputStream out = sCliente.getOutputStream();
+                DataOutputStream flujo_salida = new DataOutputStream(out);
+                flujo_salida.writeUTF(mensaje);
+                System.out.println("Mensaje enviado al servidor: " + mensaje);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        actualizarInterfaz(tablero);
     }
 
     private void openScene(String scene) {
@@ -126,45 +111,69 @@ public class MainController {
             Stage stage = MainApp.getStage();
             stage.getScene().setRoot(root);
         } catch (IOException e) {
-            String errorMessage = "ERROR: Al abrir la escena: " + e.getMessage();
-            System.out.println(errorMessage);
+            e.printStackTrace();
         }
     }
 
     private void connectToServer() {
         try {
-            sCliente = new Socket(HOST, Puerto);
             InputStream in = sCliente.getInputStream();
             DataInputStream flujo_entrada = new DataInputStream(in);
 
             while (!sCliente.isClosed()) {
                 try {
                     String datosServidor = flujo_entrada.readUTF();
+                    System.out.println("Datos recibidos del servidor: " + datosServidor);
                     Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
                     if (newTablero != null) {
                         Platform.runLater(() -> actualizarInterfaz(newTablero));
                     }
                 } catch (EOFException e) {
                     System.out.println("Cliente desconectado del servidor");
+                    cerrarConexionYVolverAlLogin();
                     break;
                 } catch (IOException | JsonSyntaxException e) {
                     if (!sCliente.isClosed()) {
-                        System.out.println("Error al procesar datos del servidor: " + e.getMessage());
+                        e.printStackTrace();
+                        cerrarConexionYVolverAlLogin();
                     }
                     break;
                 }
             }
         } catch (IOException e) {
-            System.out.println("ERROR: Al conectar con el servidor: " + e.getMessage());
+            e.printStackTrace();
+            cerrarConexionYVolverAlLogin();
         }
+    }
+
+    private void cerrarConexionYVolverAlLogin() {
+        try {
+            if (sCliente != null && !sCliente.isClosed()) {
+                sCliente.close();
+            }
+            Platform.runLater(() -> openScene("Login-view.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void iniciarCombate() {
+        enviarMensajeAlServidor("inicio_combate");
+        enCombate = true;
+        combateTimer = new Timer();
+        generarCirculo();
     }
 
     public void actualizarInterfaz(Tablero newTablero) {
         this.tablero = newTablero;
+        System.out.println("Interfaz actualizada con nuevo tablero: " + tablero);
+
         sliderHealth.setProgress(tablero.getJugador().getSalud() / tablero.getJugador().getSaludMaxima());
         playerName.setText(tablero.getJugador().getNombre());
+        attackValue.setText(String.valueOf(tablero.getJugador().getDmg()));
+        speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
 
-        Casilla[] casillas = tablero.getEtapas()[currentEtapaIndex].getCasillas();
+        Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
         for (int i = 0; i < casillas.length; i++) {
             Casilla casilla = casillas[i];
             enemyHealthBars[i].setProgress(casilla.getHealth() / casilla.getMaxHealth());
@@ -173,46 +182,10 @@ public class MainController {
         openActualTitledPane(tablero.getJugador().getCasillaActual());
     }
 
-    private void openActualTitledPane(int casillaIndex) {
+    private void openActualTitledPane(int casillaActual) {
         for (int i = 0; i < niveles.length; i++) {
-            if (i == casillaIndex) {
-                niveles[i].setDisable(false);
-                botines[i].setDisable(false);
-            } else {
-                niveles[i].setDisable(true);
-                botines[i].setDisable(true);
-            }
+            niveles[i].setExpanded(i == casillaActual);
         }
-        accordion1.setExpandedPane(niveles[casillaIndex]);
-        accordion2.setExpandedPane(botines[casillaIndex]);
-    }
-
-    private void iniciarCombate() {
-        openActualTitledPane(tablero.getJugador().getCasillaActual());
-
-        if (tablero == null) {
-            System.out.println("ERROR: El tablero no está inicializado.");
-            return;
-        }
-
-        Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
-        if (casillaActual.getEstado() == Casilla.Estado.SIN_ATACAR && casillaActual.isAlive()) {
-            casillaActual.setEstado(Casilla.Estado.EN_COMBATE);
-            enCombate = true;
-            generarCirculos();
-        }
-    }
-
-    private void terminarCombate() {
-        enCombate = false;
-        if (combateTimer != null) {
-            combateTimer.cancel();
-        }
-    }
-
-    private void generarCirculos() {
-        combateTimer = new Timer();
-        generarCirculo();
     }
 
     private void generarCirculo() {
@@ -243,15 +216,7 @@ public class MainController {
                         circle.setManaged(false); // Evitar que se redimensione
 
                         circle.setOnMouseClicked(event -> {
-                            tablero.atacar();
-                            currentPane.getChildren().remove(circle);
-
-                            // Obtener la casilla actualizada después del ataque
-
-                            if (casillaActualizada.getHealth() <= 0) terminarCombate();
-
-                            enviarEstadoAlServidor();
-                            actualizarInterfaz(tablero);
+                            enviarMensajeAlServidor("1"); // Enviar el mensaje de ataque al servidor
                         });
 
                         currentPane.getChildren().add(circle);
@@ -267,10 +232,8 @@ public class MainController {
                                         actualizarInterfaz(tablero);
                                         if (tablero.getJugador().getSalud() <= 0) {
                                             tablero.setPartidaAcabada(true);
-                                            enviarEstadoAlServidor();
+                                            enviarMensajeAlServidor("3");
                                             cerrarConexionYVolverAlLogin();
-                                        } else {
-                                            enviarEstadoAlServidor();
                                         }
                                     }
                                 });
@@ -283,36 +246,5 @@ public class MainController {
             }
         };
         combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
-    }
-
-    private void enviarEstadoAlServidor() {
-        if (sCliente != null && !sCliente.isClosed() && !sCliente.isOutputShutdown()) {
-            executorService.submit(() -> {
-                try {
-                    if (sCliente != null && !sCliente.isClosed() && !sCliente.isOutputShutdown()) {
-                        OutputStream out = sCliente.getOutputStream();
-                        DataOutputStream flujo_salida = new DataOutputStream(out);
-                        String estadoJuego = gson.toJson(tablero);
-                        flujo_salida.writeUTF(estadoJuego);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error al enviar el estado al servidor: " + e.getMessage());
-                }
-            });
-        }
-    }
-
-    private void cerrarConexionYVolverAlLogin() {
-        executorService.submit(() -> {
-            try {
-                if (sCliente != null && !sCliente.isClosed())
-                    sCliente.close();
-            } catch (IOException e) {
-                System.out.println("Error al cerrar la conexión: " + e.getMessage());
-            } finally {
-                sCliente = null; // Asegurarse de que el socket no sea utilizado nuevamente
-            }
-            Platform.runLater(() -> openScene("Login-view.fxml"));
-        });
     }
 }

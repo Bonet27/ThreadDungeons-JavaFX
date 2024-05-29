@@ -1,0 +1,14 @@
+[
+  {
+    "login": "user",
+    "password": "pass",
+    "nombre": "Bonet",
+    "imagen": "hero.png"
+  },
+  {
+    "login": "user1",
+    "password": "pass1",
+    "nombre": "Paco",
+    "imagen": "Hero4.png"
+  }
+]

@@ -58,7 +58,7 @@
     </VBox>
     <HBox alignment="TOP_CENTER" maxWidth="800.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
         <children>
-            <Button fx:id="btn_login" defaultButton="true" maxWidth="1.7976931348623157E308" onAction="#handleLoginButtonAction" text="INICIAR SESIÓN" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Button fx:id="btn_login" defaultButton="true" maxWidth="1.7976931348623157E308" text="INICIAR SESIÓN" textFill="WHITE" HBox.hgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font>
@@ -66,7 +66,7 @@
                     <Insets />
                 </HBox.margin>
             </Button>
-            <Button fx:id="btn_register" defaultButton="true" maxWidth="1.7976931348623157E308" onAction="#handleRegisterButtonAction" text="REGISTRO" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Button fx:id="btn_register" defaultButton="true" maxWidth="1.7976931348623157E308" text="REGISTRO" textFill="WHITE" HBox.hgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font>
