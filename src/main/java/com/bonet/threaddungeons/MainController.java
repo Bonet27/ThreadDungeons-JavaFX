@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -34,6 +31,8 @@ public class MainController {
     private TitledPane tp_money;
     @FXML
     private HBox topHbox;
+    @FXML
+    private GridPane mainGridPane;
     @FXML
     private TitledPane botin1pane, botin2pane, botin3pane, botin4pane, botin5pane;
     @FXML

@@ -23,9 +23,7 @@ public class LoginController {
     private MainApp mainApp;
     private Socket socket;
 
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
-    }
+    public void setMainApp(MainApp mainApp) { this.mainApp = mainApp; }
 
     @FXML
     private void initialize() {
@@ -56,7 +54,7 @@ public class LoginController {
                 socket.close();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             errorMsg.setVisible(true);
             errorMsg.setText("Error al conectar con el servidor");
         }

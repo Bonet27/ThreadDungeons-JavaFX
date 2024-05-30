@@ -15,11 +15,9 @@ VBox {
 
 #topHbox {
     -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(112, 17, 17), rgb(52, 12, 16), rgb(72, 10, 10));
-    -fx-border-color: white;
 }
 
 #mainHbox, #lowHbox {
-    -fx-border-color: white;
 }
 
 #anchorPaneMonedero {
@@ -45,7 +43,7 @@ VBox {
 .titled-pane > .title
 {
     -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(183, 183, 183), rgb(82, 82, 82));
-    -fx-border-radius: 3;
+    -fx-border-radius: 2;
     -fx-border-color: white;
 }
 
