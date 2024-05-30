@@ -64,14 +64,13 @@ public class Tablero {
         if (casillaActual.getEstado() == Casilla.Estado.EN_COMBATE && casillaActual.isAlive()) {
             casillaActual.takeDamage(jugador.getDmg());
             if (casillaActual.getHealth() <= 0) {
-                casillaActual.setEstado(Casilla.Estado.MUERTO);
                 jugador.setOro(jugador.getOro() + casillaActual.getReward());
                 avanzar();
             }
         }
     }
 
-    public void actualizarProgresoJuego() {
+    public void comprobarFinPartida() {
         if (jugador.getSalud() <= 0) {
             partidaAcabada = true;
         }

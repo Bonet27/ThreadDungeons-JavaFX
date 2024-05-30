@@ -21,8 +21,7 @@ public class LoginController {
     @FXML
     private Text errorMsg;
     private MainApp mainApp;
-    private static final String HOST = "localhost";
-    private static final int Puerto = 2000;
+    private Socket socket;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -36,13 +35,9 @@ public class LoginController {
     private void handleLoginButtonAction() {
         String login = inputUsuario.getText();
         String password = inputPassword.getText();
-        boolean authenticated = false;
-        Socket socket = null;
 
         try {
-            // Intentar conectar con el servidor
-            socket = new Socket(HOST, Puerto);
-
+            socket = new Socket("localhost", 2000); // Cambia "localhost" y el puerto según sea necesario
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
@@ -51,28 +46,19 @@ public class LoginController {
             output.writeUTF(password);
             output.flush();
 
-            authenticated = input.readBoolean();
+            boolean authenticated = input.readBoolean();
 
             if (authenticated) {
                 mainApp.openMainView(socket);
             } else {
                 errorMsg.setVisible(true);
                 errorMsg.setText("Autenticación fallida");
-                if (socket != null && !socket.isClosed()) {
-                    socket.close();
-                }
+                socket.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
             errorMsg.setVisible(true);
-            errorMsg.setText("No se pudo conectar al servidor");
-            if (socket != null && !socket.isClosed()) {
-                try {
-                    socket.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
+            errorMsg.setText("Error al conectar con el servidor");
         }
     }
 }

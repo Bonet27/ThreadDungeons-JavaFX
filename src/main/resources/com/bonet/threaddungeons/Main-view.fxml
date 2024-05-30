@@ -20,13 +20,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="mainHBox1" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
+<HBox fx:id="mainHBox1" focusTraversable="true" minHeight="800.0" minWidth="-Infinity" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
    <children>
       <SplitPane fx:id="splitPane" dividerPositions="0.2" HBox.hgrow="ALWAYS">
          <items>
             <VBox fx:id="playerVbox" alignment="TOP_CENTER" focusTraversable="true" spacing="10.0">
                <children>
-                  <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="350.0" text="SALIR">
+                  <Button fx:id="btn_menu" alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="350.0" text="SALIR" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -298,7 +298,7 @@
                                              <children>
                                                 <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <ImageView fx:id="enemy1Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+                                                      <ImageView fx:id="enemy1Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../enemy7.png" />
                                                          </image>

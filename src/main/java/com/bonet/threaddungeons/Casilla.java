@@ -68,11 +68,17 @@ public class Casilla {
     private int calculateReward() { return (int) (100 * dificultMultiplier); }
 
     public void takeDamage(float damage) {
-        this.health -= damage;
-        if (this.health <= 0) {
-            this.health = 0;
-            this.isAlive = false;
+        health -= damage;
+
+        if (health <= 0) {
+            health = 0;
+            isAlive = false;
             setEstado(Estado.MUERTO);
         }
+
+        if (health < maxHealth && health > 0)
+            this.estado = Estado.EN_COMBATE;
+        else
+            this.estado = Estado.MUERTO;
     }
 }

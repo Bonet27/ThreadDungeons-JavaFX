@@ -1,48 +1,58 @@
-2024-05-29 19:59:58,302 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 19:59:59,369 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 20:00:05,005 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 20:00:33,549 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 20:00:38,920 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Paco
-2024-05-29 20:02:19,037 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:02:24,867 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:02:29,012 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:02:33,579 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:03:35,560 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:07:13,995 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:07:15,648 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:07:20,705 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:07:41,484 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:10:18,585 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:10:19,647 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:10:26,216 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:10:31,831 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:11:30,815 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:11:31,986 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:11:38,080 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:11:49,154 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:12:55,775 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:12:57,311 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:13:07,635 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:13:14,472 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:13:50,707 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:13:51,743 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:13:55,970 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:14:21,862 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:23:55,834 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:23:56,854 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:24:03,392 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 21:24:21,341 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 21:59:41,947 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 21:59:43,024 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:59:43,028 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
-2024-05-29 21:59:44,118 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:59:44,120 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
-2024-05-29 21:59:51,758 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 21:59:51,761 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 22:00:06,048 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
-2024-05-29 22:00:58,022 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
-2024-05-29 22:01:01,340 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 22:01:01,344 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
-2024-05-29 22:01:05,341 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
-2024-05-29 22:01:05,344 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
-2024-05-29 22:01:20,043 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 18:39:09,256 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 18:39:12,339 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:39:12,342 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-05-30 18:39:20,849 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:39:20,852 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 18:39:44,618 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 18:45:13,976 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 18:45:19,064 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:45:19,069 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 18:45:28,649 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 18:47:34,363 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 18:47:39,428 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:47:39,432 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 18:47:49,897 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 18:53:15,611 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 18:53:18,392 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:53:18,396 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-05-30 18:53:24,866 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:53:24,869 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 18:53:29,745 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 18:53:41,242 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 18:53:46,344 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 18:53:46,348 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 18:54:13,117 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:05:40,548 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:05:43,896 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:05:43,900 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-05-30 19:05:49,090 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:05:49,093 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:06:15,797 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:11:58,731 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:12:06,956 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:12:06,960 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:12:28,651 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:12:28,652 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:12:31,358 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:12:31,359 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:12:39,621 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:24:23,386 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:24:23,758 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:24:23,762 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-05-30 19:24:28,549 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:24:28,552 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:24:59,382 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:24:59,385 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:25:54,844 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:30:59,975 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:31:04,999 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:31:05,004 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:31:26,567 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:34:10,515 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:34:16,217 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:34:16,222 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:34:46,744 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-05-30 19:35:07,108 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-05-30 19:35:12,233 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-05-30 19:35:12,238 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-05-30 19:35:25,111 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado

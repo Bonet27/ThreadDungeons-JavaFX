@@ -34,7 +34,7 @@ public class ServidorTCP {
                     logger.info("Servidor cerrado");
                 } catch (IOException e) {
                     logger.error("Error al cerrar el servidor: " + e.getMessage());
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }));
 
@@ -66,7 +66,7 @@ public class ServidorTCP {
                 } catch (IOException e) {
                     if (running.get()) {
                         logger.error("Error en el servidor: " + e.getMessage());
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
                     }
                 }
             }

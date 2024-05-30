@@ -69,6 +69,7 @@ public class MainController {
     private MainApp mainApp;
     private boolean enCombate = false;
     private Timer combateTimer;
+    private boolean jugadorMuerto = false;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -98,10 +99,13 @@ public class MainController {
                 OutputStream out = sCliente.getOutputStream();
                 DataOutputStream flujo_salida = new DataOutputStream(out);
                 flujo_salida.writeUTF(mensaje);
-                System.out.println("Mensaje enviado al servidor: " + mensaje);
+                flujo_salida.flush();
+                System.out.println("Intentando enviar mensaje al servidor: " + mensaje);
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("El socket está cerrado o no disponible");
             }
+        } else {
+            System.out.println("El socket está cerrado o no disponible");
         }
     }
 
@@ -112,7 +116,7 @@ public class MainController {
             Stage stage = MainApp.getStage();
             stage.getScene().setRoot(root);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -135,14 +139,14 @@ public class MainController {
                     break;
                 } catch (IOException | JsonSyntaxException e) {
                     if (!sCliente.isClosed()) {
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
                         cerrarConexionYVolverAlLogin();
                     }
                     break;
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             cerrarConexionYVolverAlLogin();
         }
     }
@@ -154,20 +158,22 @@ public class MainController {
             }
             Platform.runLater(() -> openScene("Login-view.fxml"));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     private void iniciarAtaque() {
-        enviarMensajeAlServidor("1");
-        enCombate = true;
-        combateTimer = new Timer();
-        generarCirculo();
+        if (!enCombate) {
+            enviarMensajeAlServidor("1");
+            enCombate = true;
+            combateTimer = new Timer();
+            generarCirculo();
+        }
     }
 
     public void actualizarInterfaz(Tablero newTablero) {
         this.tablero = newTablero;
-        System.out.println("Interfaz actualizada con nuevo tablero: " + tablero);
+        System.out.println("Interfaz actualizada con nuevo tablero: " + gson.toJson(tablero));
 
         sliderHealth.setProgress(tablero.getJugador().getSalud() / tablero.getJugador().getSaludMaxima());
         playerName.setText(tablero.getJugador().getNombre());
@@ -175,17 +181,35 @@ public class MainController {
         speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
 
         Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
-        for (int i = 0; i < casillas.length; i++) {
-            Casilla casilla = casillas[i];
-            enemyHealthBars[i].setProgress(casilla.getHealth() / casilla.getMaxHealth());
-            enemyHpLabels[i].setText(String.format("%.0f / %.0f", casilla.getHealth(), casilla.getMaxHealth()));
+        Casilla casillaActual = casillas[tablero.getJugador().getCasillaActual()];
+        int numCasillaActual = tablero.getJugador().getCasillaActual();
+        enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
+        enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
+        openActualTitledPane(numCasillaActual);
+        openBotinTitledPane(numCasillaActual);
+
+        if (casillaActual.health <= 0) {
+            detenerCombate();
         }
-        openActualTitledPane(tablero.getJugador().getCasillaActual());
+
+        if (tablero.getJugador().getSalud() <= 0 && !jugadorMuerto) {
+            jugadorMuerto = true;
+            enviarMensajeAlServidor("3");
+            cerrarConexionYVolverAlLogin();
+        }
     }
 
     private void openActualTitledPane(int casillaActual) {
         for (int i = 0; i < niveles.length; i++) {
             niveles[i].setExpanded(i == casillaActual);
+            niveles[i].setDisable(i != casillaActual);
+        }
+    }
+
+    private void openBotinTitledPane(int casillaActual) {
+        for (int i = 0; i < botines.length; i++) {
+            botines[i].setExpanded(i == casillaActual);
+            botines[i].setDisable(i != casillaActual);
         }
     }
 
@@ -201,7 +225,7 @@ public class MainController {
         double maxDiameter = 50.0;
 
         final int delayBetweenCircles = 1000;
-        final int circleLifetime = 2000; // Tiempo de vida del círculo antes de desaparecer
+        final int circleLifetime = 2000;
 
         TimerTask task = new TimerTask() {
             @Override
@@ -214,10 +238,12 @@ public class MainController {
                         circle.setOpacity(0.5);
                         circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
                         circle.setLayoutY(random.nextDouble() * (paneHeight - maxDiameter) + maxDiameter / 2);
-                        circle.setManaged(false); // Evitar que se redimensione
+                        circle.setManaged(false);
 
                         circle.setOnMouseClicked(event -> {
-                            enviarMensajeAlServidor("1"); // Enviar el mensaje de ataque al servidor
+                            System.out.println("Círculo clicado. Preparando para enviar mensaje de ataque.");
+                            enviarMensajeAlServidor("4");
+                            System.out.println("Mensaje de ataque enviado al servidor");
                             currentPane.getChildren().remove(circle);
                         });
 
@@ -230,25 +256,23 @@ public class MainController {
                                 Platform.runLater(() -> {
                                     if (currentPane.getChildren().contains(circle)) {
                                         currentPane.getChildren().remove(circle);
-                                        tablero.getJugador().takeDamage(casillaActual.getDamage());
-                                        actualizarInterfaz(tablero);
-                                        if (tablero.getJugador().getSalud() <= 0) {
-                                            tablero.setPartidaAcabada(true);
-                                            enviarMensajeAlServidor("3");
-                                            cerrarConexionYVolverAlLogin();
-                                        } else {
-                                            enviarMensajeAlServidor("1");
-                                        }
                                     }
                                 });
                             }
                         }, circleLifetime);
                     } else {
-                        combateTimer.cancel();
+                        detenerCombate();
                     }
                 });
             }
         };
         combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
+    }
+
+    private void detenerCombate() {
+        if (combateTimer != null) {
+            combateTimer.cancel();
+        }
+        enCombate = false;
     }
 }

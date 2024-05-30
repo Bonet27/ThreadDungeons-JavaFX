@@ -1,4 +1,4 @@
-2024-05-30 18:39:20,870 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 18:39:20,870 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -143,7 +143,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 18:45:19,085 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 18:45:19,085 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -288,7 +288,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 18:47:39,448 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 18:47:39,448 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -433,7 +433,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 18:53:24,886 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 18:53:24,886 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -578,7 +578,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 18:53:46,365 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 18:53:46,365 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -723,7 +723,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:49,110 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:49,110 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -868,8 +868,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:53,695 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
-2024-05-30 19:05:53,739 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:53,695 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 1
+2024-05-30 19:05:53,739 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1014,9 +1014,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:54,559 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:54,559 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:54,576 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:54,559 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:54,559 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:54,576 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1161,9 +1161,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:56,122 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:56,122 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:56,161 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:56,122 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:56,122 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:56,161 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1308,9 +1308,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:56,805 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:56,806 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:56,885 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:56,805 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:56,806 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:56,885 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1455,9 +1455,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:57,478 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:57,478 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:57,494 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:57,478 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:57,478 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:57,494 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1602,9 +1602,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:58,250 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:58,250 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:58,289 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:58,250 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:58,250 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:58,289 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1749,9 +1749,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:05:59,239 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:05:59,240 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:05:59,258 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:05:59,239 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:05:59,240 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:05:59,258 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -1896,9 +1896,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:00,171 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:00,171 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:00,191 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:00,171 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:00,171 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:00,191 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2043,9 +2043,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:01,541 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:01,542 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:01,557 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:01,541 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:01,542 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:01,557 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2190,9 +2190,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:02,214 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:02,214 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:02,263 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:02,214 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:02,214 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:02,263 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2337,9 +2337,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:03,177 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:03,178 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:03,193 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:03,177 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:03,178 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:03,193 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2484,9 +2484,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:04,559 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:04,559 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:04,602 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:04,559 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:04,559 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:04,602 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2631,9 +2631,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:05,179 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:05,180 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:05,218 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:05,179 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:05,180 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:05,218 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2778,9 +2778,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:06,657 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:06,657 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:06,675 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:06,657 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:06,657 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:06,675 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -2925,9 +2925,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:07,219 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:07,220 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:07,238 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:07,219 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:07,220 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:07,238 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3072,9 +3072,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:08,332 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:08,332 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:08,360 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:08,332 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:08,332 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:08,360 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3219,8 +3219,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:10,067 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
-2024-05-30 19:06:10,107 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:10,067 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 1
+2024-05-30 19:06:10,107 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3365,9 +3365,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:10,665 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:10,665 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:10,693 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:10,665 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:10,665 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:10,693 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3512,9 +3512,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:11,628 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:11,628 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:11,644 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:11,628 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:11,628 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:11,644 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3659,9 +3659,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:12,769 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:12,769 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:12,785 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:12,769 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:12,769 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:12,785 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3806,9 +3806,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:06:13,943 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:06:13,943 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:06:13,971 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:06:13,943 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:06:13,943 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:06:13,971 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -3953,7 +3953,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:06,976 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:06,976 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4098,8 +4098,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:10,145 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
-2024-05-30 19:12:10,149 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:10,145 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 1
+2024-05-30 19:12:10,149 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4244,9 +4244,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:10,812 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:12:10,812 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:12:10,850 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:10,812 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:12:10,812 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:12:10,850 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4391,9 +4391,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:11,663 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:12:11,663 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:12:11,702 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:11,663 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:12:11,663 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:12:11,702 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4538,9 +4538,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:12,649 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:12:12,649 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:12:12,665 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:12,649 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:12:12,649 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:12:12,665 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4685,9 +4685,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:13,778 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:12:13,779 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:12:13,797 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:13,778 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 4
+2024-05-30 19:12:13,779 [pool-1-thread-1] INFO  ClientHandler:92 - Procesando mensaje de ataque
+2024-05-30 19:12:13,797 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4832,8 +4832,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:16,151 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 3
-2024-05-30 19:12:16,154 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:16,151 [pool-1-thread-1] INFO  ClientHandler:52 - Mensaje recibido del cliente: 3
+2024-05-30 19:12:16,154 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -4978,8 +4978,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:16,154 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Cliente desconectado: 127.0.0.1
-2024-05-30 19:12:28,655 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:16,154 [pool-1-thread-1] INFO  ClientHandler:75 - Cliente desconectado: 127.0.0.1
+2024-05-30 19:12:28,655 [pool-1-thread-1] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -5124,7 +5124,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:28,655 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:12:31,365 [pool-1-thread-2] INFO  ClientHandler:107 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -5269,7 +5269,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:31,365 [pool-1-thread-2] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:28,569 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -5414,7 +5414,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:31,365 [pool-1-thread-2] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:30,902 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 1
+2024-05-30 19:24:30,905 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -5559,445 +5560,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:12:31,365 [pool-1-thread-2] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
-  "etapas": [
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "NORMAL",
-          "health": 0.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "EN_COMBATE",
-          "mode": "REWARD",
-          "health": 70.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 0
-    },
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "NORMAL",
-          "health": 100.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "REWARD",
-          "health": 150.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 1
-    }
-  ],
-  "jugador": {
-    "nombre": "Jugador1",
-    "salud": 100.0,
-    "saludMaxima": 100.0,
-    "velocidad": 1.0,
-    "dmg": 10.0,
-    "oro": 300,
-    "etapaActual": 0,
-    "casillaActual": 3
-  },
-  "partidaAcabada": false
-}
-2024-05-30 19:24:28,569 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
-  "etapas": [
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "NORMAL",
-          "health": 0.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "EN_COMBATE",
-          "mode": "REWARD",
-          "health": 70.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 0
-    },
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "NORMAL",
-          "health": 100.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "REWARD",
-          "health": 150.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 1
-    }
-  ],
-  "jugador": {
-    "nombre": "Jugador1",
-    "salud": 100.0,
-    "saludMaxima": 100.0,
-    "velocidad": 1.0,
-    "dmg": 10.0,
-    "oro": 300,
-    "etapaActual": 0,
-    "casillaActual": 3
-  },
-  "partidaAcabada": false
-}
-2024-05-30 19:24:30,902 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
-2024-05-30 19:24:30,905 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
-  "etapas": [
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "NORMAL",
-          "health": 0.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "EN_COMBATE",
-          "mode": "REWARD",
-          "health": 70.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 0
-    },
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "NORMAL",
-          "health": 100.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "REWARD",
-          "health": 150.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 1
-    }
-  ],
-  "jugador": {
-    "nombre": "Jugador1",
-    "salud": 100.0,
-    "saludMaxima": 100.0,
-    "velocidad": 1.0,
-    "dmg": 10.0,
-    "oro": 300,
-    "etapaActual": 0,
-    "casillaActual": 3
-  },
-  "partidaAcabada": false
-}
-2024-05-30 19:24:31,658 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:31,659 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:31,697 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:31,658 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:31,659 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:31,697 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6142,9 +5707,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:32,694 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:32,694 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:32,713 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:32,694 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:32,694 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:32,713 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6289,9 +5854,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:35,806 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:35,806 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:35,840 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:35,806 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:35,806 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:35,840 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6436,9 +6001,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:42,351 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:42,351 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:42,379 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:42,351 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:42,351 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:42,379 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6583,9 +6148,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:45,622 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:45,622 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:45,652 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:45,622 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:45,622 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:45,652 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6730,9 +6295,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:46,860 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:46,860 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:46,876 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:46,860 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:46,860 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:46,876 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -6877,9 +6442,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:47,792 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:24:47,792 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:24:47,812 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:47,792 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:24:47,792 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:24:47,812 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7024,7 +6589,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:59,388 [pool-1-thread-2] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:24:59,388 [pool-1-thread-2] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7169,7 +6734,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:24:59,388 [pool-1-thread-2] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:05,021 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7314,153 +6879,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:05,021 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
-  "etapas": [
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "NORMAL",
-          "health": 0.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": false,
-          "estado": "MUERTO",
-          "mode": "REWARD",
-          "health": 0.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 0
-    },
-    {
-      "casillas": [
-        {
-          "icon": "enemy6.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "NORMAL",
-          "health": 100.0,
-          "maxHealth": 100.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy7.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "REWARD",
-          "health": 150.0,
-          "maxHealth": 150.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "enemy8.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "RANDOM",
-          "health": 250.0,
-          "maxHealth": 250.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        },
-        {
-          "icon": "boss3.png",
-          "isAlive": true,
-          "estado": "SIN_ATACAR",
-          "mode": "BOSS",
-          "health": 500.0,
-          "maxHealth": 500.0,
-          "dificultMultiplier": 1.0,
-          "damage": 10.0,
-          "speed": 12.0,
-          "reward": 100
-        }
-      ],
-      "numeroEtapa": 1
-    }
-  ],
-  "jugador": {
-    "nombre": "Jugador1",
-    "salud": 100.0,
-    "saludMaxima": 100.0,
-    "velocidad": 1.0,
-    "dmg": 10.0,
-    "oro": 400,
-    "etapaActual": 0,
-    "casillaActual": 4
-  },
-  "partidaAcabada": false
-}
-2024-05-30 19:31:08,076 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 1
-2024-05-30 19:31:08,101 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:08,076 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 1
+2024-05-30 19:31:08,101 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7605,9 +7025,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:08,801 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:08,801 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:08,837 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:08,801 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:08,801 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:08,837 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7752,9 +7172,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:09,581 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:09,581 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:09,598 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:09,581 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:09,581 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:09,598 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -7899,9 +7319,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:10,572 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:10,572 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:10,590 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:10,572 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:10,572 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:10,590 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8046,9 +7466,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:11,534 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:11,536 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:11,552 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:11,534 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:11,536 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:11,552 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8193,9 +7613,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:12,694 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:12,695 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:12,733 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:12,694 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:12,695 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:12,733 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8340,9 +7760,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:13,764 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:13,765 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:13,808 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:13,764 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:13,765 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:13,808 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8487,9 +7907,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:14,662 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:14,662 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:14,685 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:14,662 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:14,662 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:14,685 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8634,9 +8054,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:15,452 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:15,452 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:15,485 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:15,452 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:15,452 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:15,485 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8781,9 +8201,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:16,477 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:16,478 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:16,517 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:16,477 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:16,478 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:16,517 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -8928,8 +8348,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:16,931 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 2
-2024-05-30 19:31:16,970 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:16,931 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 2
+2024-05-30 19:31:16,970 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9074,8 +8494,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:17,672 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 2
-2024-05-30 19:31:17,689 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:17,672 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 2
+2024-05-30 19:31:17,689 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9220,8 +8640,8 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:18,260 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 2
-2024-05-30 19:31:18,289 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:18,260 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 2
+2024-05-30 19:31:18,289 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9366,9 +8786,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:23,429 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:23,430 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:23,432 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:23,429 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:23,430 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:23,432 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9513,9 +8933,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:23,877 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:23,878 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:23,879 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:23,877 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:23,878 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:23,879 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9660,9 +9080,9 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:31:24,672 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Mensaje recibido del cliente: 4
-2024-05-30 19:31:24,672 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Procesando mensaje de ataque
-2024-05-30 19:31:24,674 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:31:24,672 [pool-1-thread-1] INFO  ClientHandler:54 - Mensaje recibido del cliente: 4
+2024-05-30 19:31:24,672 [pool-1-thread-1] INFO  ClientHandler:95 - Procesando mensaje de ataque
+2024-05-30 19:31:24,674 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9807,7 +9227,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:34:16,238 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:34:16,238 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [
@@ -9952,7 +9372,7 @@
   },
   "partidaAcabada": false
 }
-2024-05-30 19:35:12,254 [pool-1-thread-1] INFO  com.bonet.threaddungeons.server.ClientHandler - Enviando estado del juego al cliente: {
+2024-05-30 19:35:12,254 [pool-1-thread-1] INFO  ClientHandler:108 - Enviando estado del juego al cliente: {
   "etapas": [
     {
       "casillas": [

@@ -9,6 +9,10 @@ VBox {
     -fx-background-size: stretch;
 }
 
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}
+
 #topHbox {
     -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(112, 17, 17), rgb(52, 12, 16), rgb(72, 10, 10));
     -fx-border-color: white;
