@@ -49,19 +49,12 @@ public class Tablero {
     }
 
     public void saltar() {
-        if (jugador.getCasillaActual() < etapas[jugador.getEtapaActual()].getCasillas().length - 2) {
-            jugador.setCasillaActual(jugador.getCasillaActual() + 2);
-        } else if (jugador.getEtapaActual() < etapas.length - 1) {
-            jugador.setEtapaActual(jugador.getEtapaActual() + 1);
-            jugador.setCasillaActual(0);
-        } else {
-            partidaAcabada = true;
-        }
+        avanzar();
     }
 
     public void atacar() {
         Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
-        if (casillaActual.getEstado() == Casilla.Estado.EN_COMBATE && casillaActual.isAlive()) {
+        if (casillaActual.isAlive()) {
             casillaActual.takeDamage(jugador.getDmg());
             if (casillaActual.getHealth() <= 0) {
                 jugador.setOro(jugador.getOro() + casillaActual.getReward());

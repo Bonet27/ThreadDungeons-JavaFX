@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -44,6 +45,8 @@ public class MainController {
     @FXML
     private ProgressBar enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5;
     @FXML
+    private ImageView enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image;
+    @FXML
     private ImageView playerImage, attackIcon, speedIcon;
     @FXML
     private Text playerName, attackValue, speedValue;
@@ -62,6 +65,7 @@ public class MainController {
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
     private ProgressBar[] enemyHealthBars;
+    private ImageView[] enemyImages;
     private Label[] enemyHpLabels;
     private TitledPane[] niveles, botines;
     private AnchorPane[] nivelContents;
@@ -86,6 +90,7 @@ public class MainController {
         enemyHealthBars = new ProgressBar[]{enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5};
         enemyHpLabels = new Label[]{enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel};
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
+        enemyImages = new ImageView[]{enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image};
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
@@ -172,6 +177,11 @@ public class MainController {
 
     public void actualizarInterfaz(Tablero newTablero) {
         this.tablero = newTablero;
+
+        Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
+        Casilla casillaActual = casillas[tablero.getJugador().getCasillaActual()];
+        int numCasillaActual = tablero.getJugador().getCasillaActual();
+
         System.out.println("Interfaz actualizada con nuevo tablero: " + gson.toJson(tablero));
 
         sliderHealth.setProgress(tablero.getJugador().getSalud() / tablero.getJugador().getSaludMaxima());
@@ -179,22 +189,19 @@ public class MainController {
         attackValue.setText(String.valueOf(tablero.getJugador().getDmg()));
         speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
 
-        Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
-        Casilla casillaActual = casillas[tablero.getJugador().getCasillaActual()];
-        int numCasillaActual = tablero.getJugador().getCasillaActual();
         enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
         enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
-        if (casillaActual.health <= 0) {
-            detenerCombate();
-        }
-
         if (tablero.getJugador().getSalud() <= 0 && !jugadorMuerto) {
             jugadorMuerto = true;
             enviarMensajeAlServidor("3");
             cerrarConexionYVolverAlLogin();
+        }
+
+        if (casillaActual.health <= 0) {
+            detenerCombate();
         }
     }
 
@@ -254,6 +261,7 @@ public class MainController {
                             public void run() {
                                 Platform.runLater(() -> {
                                     if (currentPane.getChildren().contains(circle)) {
+                                        tablero.getJugador().takeDamage(casillaActualizada.getDamage());
                                         currentPane.getChildren().remove(circle);
                                     }
                                 });

@@ -22,21 +22,21 @@ public class Casilla {
             case REWARD:
                 this.icon = "enemy7.png";
                 this.damage *= dificultMultiplier;
-                this.health = 150f * dificultMultiplier;
+                this.health = 120f * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
             case RANDOM:
                 this.icon = "enemy8.png";
                 this.damage *= dificultMultiplier;
-                this.health = 250f * dificultMultiplier;
+                this.health = 150f * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
             case BOSS:
                 this.icon = "boss3.png";
                 this.damage *= dificultMultiplier;
-                this.health = 500f * dificultMultiplier;
+                this.health = 250f * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
