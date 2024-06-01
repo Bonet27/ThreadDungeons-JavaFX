@@ -22,16 +22,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <GridPane fx:id="mainGridPane" alignment="CENTER" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="800.0" stylesheets="@../../../style_main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.MainController">
    <columnConstraints>
+      <ColumnConstraints />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <HBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <HBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <VBox fx:id="playerVbox" alignment="TOP_CENTER" focusTraversable="true" prefWidth="350.0" HBox.hgrow="NEVER">
                <children>
@@ -424,13 +424,25 @@
                                        <content>
                                           <AnchorPane fx:id="anchorPaneBotin5">
                                              <children>
-                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <HBox alignment="BOTTOM_CENTER" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                      <Label contentDisplay="BOTTOM" graphicTextGap="5.0" text="+10" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../../chest.png" />
+                                                                  <Image url="@../../../sword.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="104.0" layoutY="24.0" text="+ 2" HBox.hgrow="ALWAYS">
+                                                         <graphic>
+                                                            <ImageView fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../lightning.png" />
                                                                </image>
                                                             </ImageView>
                                                          </graphic>
@@ -451,11 +463,11 @@
                                        <content>
                                           <AnchorPane fx:id="anchorPaneBotin4">
                                              <children>
-                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
-                                                            <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../chest.png" />
                                                                </image>
@@ -478,13 +490,13 @@
                                        <content>
                                           <AnchorPane fx:id="anchorPaneBotin3">
                                              <children>
-                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Label contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
-                                                            <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../../chest.png" />
+                                                                  <Image url="@../../../gold.png" />
                                                                </image>
                                                             </ImageView>
                                                          </graphic>
@@ -505,11 +517,11 @@
                                        <content>
                                           <AnchorPane fx:id="anchorPaneBotin2" maxWidth="1.7976931348623157E308">
                                              <children>
-                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                      <Label contentDisplay="BOTTOM" text="CHEST" HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../chest.png" />
                                                                </image>
@@ -532,14 +544,21 @@
                                        <content>
                                           <AnchorPane fx:id="anchorPaneBotin1" scaleShape="false">
                                              <children>
-                                                <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   " HBox.hgrow="NEVER">
+                                                      <Label contentDisplay="BOTTOM" text="+30 " HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="120.0" fitWidth="120.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
-                                                                  <Image url="@../../../chest.png" />
+                                                                  <Image url="@../../../gold.png" />
                                                                </image>
+                                                               <effect>
+                                                                  <DropShadow height="120.0" radius="59.5" spread="0.2" width="120.0">
+                                                                     <color>
+                                                                        <Color red="1.0" green="0.6470588445663452" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
                                                             </ImageView>
                                                          </graphic>
                                                          <font>
@@ -594,9 +613,9 @@
                                        <children>
                                           <HBox alignment="CENTER" layoutX="18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <Label text="Oro: 50" HBox.hgrow="ALWAYS">
+                                                <Label fx:id="goldText" text="50" HBox.hgrow="ALWAYS">
                                                    <graphic>
-                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../gold.png" />
                                                          </image>

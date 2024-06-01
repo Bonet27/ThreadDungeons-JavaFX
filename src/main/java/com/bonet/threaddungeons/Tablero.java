@@ -32,8 +32,7 @@ public class Tablero {
         this.partidaAcabada = partidaAcabada;
     }
 
-    public void iniciarCombate() {
-        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
+    public void iniciarCombate(Casilla casillaActual) {
         casillaActual.setEstado(Casilla.Estado.EN_COMBATE);
     }
 

@@ -3,7 +3,6 @@ package com.bonet.threaddungeons.server;
 import com.bonet.threaddungeons.DatabaseManager;
 import com.bonet.threaddungeons.LoggerUtility;
 import com.bonet.threaddungeons.Tablero;
-import com.bonet.threaddungeons.Usuario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -12,7 +11,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -82,14 +80,17 @@ public class ClientHandler implements Runnable {
     private void procesarMensaje(String mensaje) {
         switch (mensaje) {
             case "1":
-                tablero.iniciarCombate();
+                tablero.iniciarCombate(tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()]);
+                logger.info("Procesando mensaje de iniciar ataque");
                 break;
             case "2":
                 tablero.saltar();
+                logger.info("Procesando mensaje de saltar");
                 break;
             case "3":
                 partidaAcabada.set(true);
                 tablero.setPartidaAcabada(true);
+                logger.info("Procesando mensaje de acabar la partida");
                 break;
             case "4":
                 logger.info("Procesando mensaje de ataque");

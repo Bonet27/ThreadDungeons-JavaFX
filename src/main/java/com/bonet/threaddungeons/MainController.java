@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,6 +49,8 @@ public class MainController {
     private ImageView enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image;
     @FXML
     private ImageView playerImage, attackIcon, speedIcon;
+    @FXML
+    private Label goldText;
     @FXML
     private Text playerName, attackValue, speedValue;
     @FXML
@@ -189,6 +192,9 @@ public class MainController {
         attackValue.setText(String.valueOf(tablero.getJugador().getDmg()));
         speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
 
+        enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
+        goldText.setText(String.valueOf(tablero.getJugador().getOro()));
+
         enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
         enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
         openActualTitledPane(numCasillaActual);
@@ -198,10 +204,6 @@ public class MainController {
             jugadorMuerto = true;
             enviarMensajeAlServidor("3");
             cerrarConexionYVolverAlLogin();
-        }
-
-        if (casillaActual.health <= 0) {
-            detenerCombate();
         }
     }
 
@@ -220,26 +222,24 @@ public class MainController {
     }
 
     private void generarCirculo() {
-        Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
-        AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
-
-        currentPane.getChildren().removeIf(node -> node instanceof Circle);
-
-        Random random = new Random();
-        double paneWidth = currentPane.getWidth();
-        double paneHeight = currentPane.getHeight();
-        double maxDiameter = 50.0;
-
+        final Random random = new Random();
+        final double maxDiameter = 50.0;
         final int delayBetweenCircles = 1000;
         final int circleLifetime = 2000;
 
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(() -> {
-                    Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+                Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
 
-                    if (casillaActualizada.getHealth() > 0 && !tablero.isPartidaAcabada() && enCombate) {
+                if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada() && enCombate) {
+                    Platform.runLater(() -> {
+                        AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
+                        double paneWidth = currentPane.getWidth();
+                        double paneHeight = currentPane.getHeight();
+
+                        currentPane.getChildren().removeIf(node -> node instanceof Circle);
+
                         Circle circle = new Circle(maxDiameter / 2, Color.RED);
                         circle.setOpacity(0.5);
                         circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
@@ -261,16 +261,19 @@ public class MainController {
                             public void run() {
                                 Platform.runLater(() -> {
                                     if (currentPane.getChildren().contains(circle)) {
-                                        tablero.getJugador().takeDamage(casillaActualizada.getDamage());
                                         currentPane.getChildren().remove(circle);
+                                        if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
+                                            tablero.getJugador().takeDamage(casillaActualizada.getDamage());
+                                            actualizarInterfaz(tablero);
+                                        }
                                     }
                                 });
                             }
                         }, circleLifetime);
-                    } else {
-                        detenerCombate();
-                    }
-                });
+                    });
+                } else {
+                    detenerCombate();
+                }
             }
         };
         combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
@@ -279,6 +282,7 @@ public class MainController {
     private void detenerCombate() {
         if (combateTimer != null) {
             combateTimer.cancel();
+            combateTimer = null;
         }
         enCombate = false;
     }

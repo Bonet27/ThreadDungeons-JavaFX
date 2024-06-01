@@ -7,7 +7,7 @@ public class Casilla {
     protected Estado estado = Estado.SIN_ATACAR;
     protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
     protected Mode mode = Mode.NORMAL;
-    protected float health = 100f, maxHealth = 100f, dificultMultiplier = 1f, damage = 10f, speed = 12f;
+    protected float health = 50f, maxHealth = 50f, dificultMultiplier = 1f, damage = 10f, speed = 12f;
     private int reward;
     public Casilla() {}
 
@@ -22,21 +22,21 @@ public class Casilla {
             case REWARD:
                 this.icon = "enemy7.png";
                 this.damage *= dificultMultiplier;
-                this.health = 120f * dificultMultiplier;
+                this.health = health * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
             case RANDOM:
                 this.icon = "enemy8.png";
                 this.damage *= dificultMultiplier;
-                this.health = 150f * dificultMultiplier;
+                this.health = health * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
             case BOSS:
                 this.icon = "boss3.png";
                 this.damage *= dificultMultiplier;
-                this.health = 250f * dificultMultiplier;
+                this.health = health * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed *= dificultMultiplier;
                 break;
@@ -75,10 +75,5 @@ public class Casilla {
             isAlive = false;
             setEstado(Estado.MUERTO);
         }
-
-        if (health < maxHealth && health > 0)
-            this.estado = Estado.EN_COMBATE;
-        else
-            this.estado = Estado.MUERTO;
     }
 }
