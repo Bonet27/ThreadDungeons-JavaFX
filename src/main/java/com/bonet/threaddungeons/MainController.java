@@ -171,7 +171,7 @@ public class MainController {
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
         goldText.setText(String.valueOf(tablero.getJugador().getOro()));
 
-        textEtapa.setText("ETAPA " + tablero.getJugador().getEtapaActual() + 1 + " DE " + tablero.getEtapas().length);
+        textEtapa.setText("ETAPA " + (tablero.getJugador().getEtapaActual() + 1) + " DE " + tablero.getEtapas().length);
 
         for (int i = 0; i < casillas.length; i++) {
             niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());

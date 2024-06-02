@@ -128,3 +128,19 @@
 2024-06-02 20:19:58,096 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
 2024-06-02 20:19:58,101 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
 2024-06-02 20:20:11,153 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:21:15,966 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:21:20,881 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:21:20,886 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:21:34,546 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:21:34,549 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:21:39,926 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:22:41,212 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:23:06,302 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:23:06,308 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-06-02 20:23:09,049 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:23:09,050 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:24:11,691 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:24:11,693 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Autenticación fallida para el cliente: 127.0.0.1
+2024-06-02 20:24:13,786 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:24:13,787 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:25:31,021 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
