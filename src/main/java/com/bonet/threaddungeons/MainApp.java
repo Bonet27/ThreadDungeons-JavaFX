@@ -14,7 +14,7 @@ public class MainApp extends Application {
     private static Stage stage;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         primaryStage.setTitle("Thread Dungeons");
         primaryStage.setOnCloseRequest(event -> {

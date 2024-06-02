@@ -9,19 +9,11 @@ public class Casilla {
     protected Mode mode = Mode.NORMAL;
     protected float health = 50f;
     protected float maxHealth = 50f;
-
-    public float getDificultMultiplier() {
-        return dificultMultiplier;
-    }
-
-    public void setDificultMultiplier(float dificultMultiplier) {
-        this.dificultMultiplier = dificultMultiplier;
-    }
-
     protected float dificultMultiplier = 1f;
     protected float damage = 10f;
     protected float speed = 12f;
     private int reward;
+
     public Casilla() {}
 
     public Casilla(Mode mode, int dificultMultiplier) {
@@ -56,6 +48,7 @@ public class Casilla {
         }
         this.reward = calculateReward();
     }
+
     public Mode getMode() {
         return mode;
     }

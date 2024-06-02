@@ -43,7 +43,6 @@ public class LoginController {
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
-            // Enviar credenciales de autenticación al servidor
             output.writeUTF(login);
             output.writeUTF(password);
             output.flush();

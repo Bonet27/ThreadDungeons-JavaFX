@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -67,7 +66,6 @@ public class MainController {
     private TitledPane[] niveles, botines;
     private AnchorPane[] nivelContents;
     private MainApp mainApp;
-    private boolean enCombate = false;
     private Timer combateTimer;
     private boolean jugadorMuerto = false;
 
@@ -91,11 +89,7 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> {
-            detenerCombate();  // Detén cualquier combate en curso antes de cambiar de escena
-            cerrarConexion();
-            mainApp.openLoginView();
-        });
+        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -111,6 +105,17 @@ public class MainController {
             }
         } else {
             System.out.println("El socket está cerrado o no disponible");
+        }
+    }
+
+    private void openScene(String scene) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(scene));
+            Parent root = fxmlLoader.load();
+            Stage stage = MainApp.getStage();
+            stage.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -148,26 +153,13 @@ public class MainController {
     }
 
     private void cerrarConexionYVolverAlLogin() {
-        cerrarConexion();
-        Platform.runLater(() -> mainApp.openLoginView());
-    }
-
-    private void cerrarConexion() {
         try {
             if (sCliente != null && !sCliente.isClosed()) {
                 sCliente.close();
             }
+            Platform.runLater(() -> openScene("Login-view.fxml"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
-    }
-
-    private void iniciarAtaque() {
-        if (!enCombate && tablero.getJugador().isAlive()) {
-            enviarMensajeAlServidor("1");
-            enCombate = true;
-            combateTimer = new Timer();
-            generarCirculo();
         }
     }
 
@@ -193,11 +185,18 @@ public class MainController {
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
-        if (!tablero.getJugador().isAlive()) {
+        if (!tablero.getJugador().isAlive() && !jugadorMuerto) {
             jugadorMuerto = true;
             enviarMensajeAlServidor("3");
             if (!sCliente.isClosed()) {
                 cerrarConexionYVolverAlLogin();
+            }
+        }
+
+        if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
+            detenerCombate();
+            if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
+                avanzarCasilla();
             }
         }
     }
@@ -218,7 +217,6 @@ public class MainController {
 
     private void generarCirculo() {
         final Random random = new Random();
-        final double maxDiameter = 50.0;
         final int delayBetweenCircles = 1000;
         final int circleLifetime = 2000;
 
@@ -226,19 +224,21 @@ public class MainController {
             @Override
             public void run() {
                 Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+                casillaActualizada.setEstado(Casilla.Estado.EN_COMBATE);
 
-                if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada() && enCombate) {
+                if (casillaActualizada.getEstado() == Casilla.Estado.EN_COMBATE && casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
                     Platform.runLater(() -> {
                         AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
                         double paneWidth = currentPane.getWidth();
                         double paneHeight = currentPane.getHeight();
+                        double diameter = Math.min(paneWidth, paneHeight) * 0.25; // Adjust size based on window size
 
                         currentPane.getChildren().removeIf(node -> node instanceof Circle);
 
-                        Circle circle = new Circle(maxDiameter / 2, Color.RED);
+                        Circle circle = new Circle(diameter / 2, Color.RED);
                         circle.setOpacity(0.5);
-                        circle.setLayoutX(random.nextDouble() * (paneWidth - maxDiameter) + maxDiameter / 2);
-                        circle.setLayoutY(random.nextDouble() * (paneHeight - maxDiameter) + maxDiameter / 2);
+                        circle.setLayoutX(random.nextDouble() * (paneWidth - diameter) + diameter / 2);
+                        circle.setLayoutY(random.nextDouble() * (paneHeight - diameter) + diameter / 2);
                         circle.setManaged(false);
 
                         circle.setOnMouseClicked(event -> {
@@ -258,10 +258,8 @@ public class MainController {
                                     if (currentPane.getChildren().contains(circle)) {
                                         currentPane.getChildren().remove(circle);
                                         if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
-                                            System.out.println(tablero.getJugador().getDmg());
-                                            System.out.println(tablero.getJugador().getSalud());
-                                            tablero.getJugador().takeDamage(casillaActualizada.getDamage());
-                                            actualizarInterfaz(tablero);
+                                            // Notificar al servidor del daño recibido
+                                            enviarMensajeAlServidor("DAMAGE_RECEIVED");
                                         }
                                     }
                                 });
@@ -281,6 +279,19 @@ public class MainController {
             combateTimer.cancel();
             combateTimer = null;
         }
-        enCombate = false;
+        btn_attack.setDisable(false);
+        btn_skip.setDisable(false);
+    }
+
+    private void avanzarCasilla() {
+        enviarMensajeAlServidor("2");
+    }
+
+    private void iniciarAtaque() {
+            enviarMensajeAlServidor("1");
+            combateTimer = new Timer();
+            btn_attack.setDisable(true);
+            btn_skip.setDisable(true);
+            generarCirculo();
     }
 }

@@ -1,8 +1,6 @@
 package com.bonet.threaddungeons.server;
 
-import com.bonet.threaddungeons.DatabaseManager;
-import com.bonet.threaddungeons.LoggerUtility;
-import com.bonet.threaddungeons.Tablero;
+import com.bonet.threaddungeons.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
@@ -95,6 +93,11 @@ public class ClientHandler implements Runnable {
             case "4":
                 logger.info("Procesando mensaje de ataque");
                 tablero.atacar();
+                break;
+            case "DAMAGE_RECEIVED":
+                logger.info("Procesando mensaje de daño recibido");
+                Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+                tablero.getJugador().takeDamage(casillaActual.getDamage());
                 break;
             default:
                 logger.warn("Mensaje no válido: " + mensaje);

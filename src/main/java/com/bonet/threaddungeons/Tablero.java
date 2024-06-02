@@ -10,9 +10,8 @@ public class Tablero {
         this.jugador = new Jugador("Jugador" + clientID, 100, 100, 0, 1.0f, 10.0f, 0, 0);
         this.partidaAcabada = false;
 
-        // Inicializar tablero
         for (int i = 0; i < etapas.length; i++) {
-            etapas[i] = new Etapa(i, i);
+            etapas[i] = new Etapa(i, i+1);
         }
     }
 
@@ -37,6 +36,9 @@ public class Tablero {
     }
 
     public void avanzar() {
+        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
+        casillaActual.setEstado(Casilla.Estado.SIN_ATACAR); // Finaliza el combate
+
         if (jugador.getCasillaActual() < etapas[jugador.getEtapaActual()].getCasillas().length - 1) {
             jugador.setCasillaActual(jugador.getCasillaActual() + 1);
         } else if (jugador.getEtapaActual() < etapas.length - 1) {
@@ -55,7 +57,7 @@ public class Tablero {
         Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
         if (casillaActual.isAlive()) {
             casillaActual.takeDamage(jugador.getDmg());
-            if (casillaActual.getHealth() <= 0) {
+            if (!casillaActual.isAlive()) {
                 jugador.setOro(jugador.getOro() + casillaActual.getReward());
                 avanzar();
             }
