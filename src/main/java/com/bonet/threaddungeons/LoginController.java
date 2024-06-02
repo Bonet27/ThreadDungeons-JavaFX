@@ -22,11 +22,15 @@ public class LoginController {
     private Text errorMsg;
     private MainApp mainApp;
     private Socket socket;
+    private boolean authenticated;
 
-    public void setMainApp(MainApp mainApp) { this.mainApp = mainApp; }
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     @FXML
     private void initialize() {
+        authenticated = false;
         btn_login.setOnAction(event -> handleLoginButtonAction());
     }
 
@@ -35,7 +39,7 @@ public class LoginController {
         String password = inputPassword.getText();
 
         try {
-            socket = new Socket("localhost", 2000); // Cambia "localhost" y el puerto según sea necesario
+            socket = new Socket("localhost", 2000);
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 

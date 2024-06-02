@@ -7,11 +7,24 @@ public class Casilla {
     protected Estado estado = Estado.SIN_ATACAR;
     protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
     protected Mode mode = Mode.NORMAL;
-    protected float health = 50f, maxHealth = 50f, dificultMultiplier = 1f, damage = 10f, speed = 12f;
+    protected float health = 50f;
+    protected float maxHealth = 50f;
+
+    public float getDificultMultiplier() {
+        return dificultMultiplier;
+    }
+
+    public void setDificultMultiplier(float dificultMultiplier) {
+        this.dificultMultiplier = dificultMultiplier;
+    }
+
+    protected float dificultMultiplier = 1f;
+    protected float damage = 10f;
+    protected float speed = 12f;
     private int reward;
     public Casilla() {}
 
-    public Casilla(Mode mode) {
+    public Casilla(Mode mode, int dificultMultiplier) {
         this.mode = mode;
         switch (this.mode) {
             case NORMAL:

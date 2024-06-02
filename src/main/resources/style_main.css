@@ -41,8 +41,7 @@ VBox {
 }
 
 .titled-pane .arrow {
-    -fx-opacity: 1;
-    
+    -fx-opacity: 0;
 }
 
 .titled-pane > .title

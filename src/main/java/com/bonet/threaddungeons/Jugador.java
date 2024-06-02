@@ -2,7 +2,7 @@ package com.bonet.threaddungeons;
 
 public class Jugador {
     private String nombre = "Player";
-    private float salud = 0f;
+    private float salud = 100f;
     private float saludMaxima = 100f;
     private float velocidad = 0f;
     private float dmg = 0f;

@@ -12,7 +12,7 @@ public class Tablero {
 
         // Inicializar tablero
         for (int i = 0; i < etapas.length; i++) {
-            etapas[i] = new Etapa(i);
+            etapas[i] = new Etapa(i, i);
         }
     }
 

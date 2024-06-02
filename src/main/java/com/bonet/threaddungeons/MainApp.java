@@ -14,7 +14,7 @@ public class MainApp extends Application {
     private static Stage stage;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         stage = primaryStage;
         primaryStage.setTitle("Thread Dungeons");
         primaryStage.setOnCloseRequest(event -> {
@@ -30,7 +30,7 @@ public class MainApp extends Application {
 
     public void openLoginView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("Login-view.fxml"));
             Parent root = loader.load();
             LoginController loginController = loader.getController();
             loginController.setMainApp(this);

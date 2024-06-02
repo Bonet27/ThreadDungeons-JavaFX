@@ -10,7 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -54,16 +57,7 @@ public class MainController {
     @FXML
     private Text playerName, attackValue, speedValue;
     @FXML
-    private VBox playerVbox;
-    @FXML
     private ProgressBar sliderHealth;
-    @FXML
-    private HBox lowHbox, mainHBox, mainHBox1;
-    @FXML
-    private SplitPane splitPane;
-    @FXML
-    private Pane attackPane;
-
     private Socket sCliente;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
@@ -97,7 +91,11 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
+        btn_menu.setOnAction(event -> {
+            detenerCombate();  // Detén cualquier combate en curso antes de cambiar de escena
+            cerrarConexion();
+            mainApp.openLoginView();
+        });
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -113,17 +111,6 @@ public class MainController {
             }
         } else {
             System.out.println("El socket está cerrado o no disponible");
-        }
-    }
-
-    private void openScene(String scene) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(scene));
-            Parent root = fxmlLoader.load();
-            Stage stage = MainApp.getStage();
-            stage.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
     }
 
@@ -154,23 +141,29 @@ public class MainController {
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            cerrarConexionYVolverAlLogin();
+            if (!sCliente.isClosed()) {
+                cerrarConexionYVolverAlLogin();
+            }
         }
     }
 
     private void cerrarConexionYVolverAlLogin() {
+        cerrarConexion();
+        Platform.runLater(() -> mainApp.openLoginView());
+    }
+
+    private void cerrarConexion() {
         try {
             if (sCliente != null && !sCliente.isClosed()) {
                 sCliente.close();
             }
-            Platform.runLater(() -> openScene("Login-view.fxml"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private void iniciarAtaque() {
-        if (!enCombate) {
+        if (!enCombate && tablero.getJugador().isAlive()) {
             enviarMensajeAlServidor("1");
             enCombate = true;
             combateTimer = new Timer();
@@ -200,10 +193,12 @@ public class MainController {
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
-        if (tablero.getJugador().getSalud() <= 0 && !jugadorMuerto) {
+        if (!tablero.getJugador().isAlive()) {
             jugadorMuerto = true;
             enviarMensajeAlServidor("3");
-            cerrarConexionYVolverAlLogin();
+            if (!sCliente.isClosed()) {
+                cerrarConexionYVolverAlLogin();
+            }
         }
     }
 
@@ -263,6 +258,8 @@ public class MainController {
                                     if (currentPane.getChildren().contains(circle)) {
                                         currentPane.getChildren().remove(circle);
                                         if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
+                                            System.out.println(tablero.getJugador().getDmg());
+                                            System.out.println(tablero.getJugador().getSalud());
                                             tablero.getJugador().takeDamage(casillaActualizada.getDamage());
                                             actualizarInterfaz(tablero);
                                         }
