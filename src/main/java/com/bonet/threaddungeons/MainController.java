@@ -5,8 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,11 +14,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,7 +50,7 @@ public class MainController {
     @FXML
     private Label goldText;
     @FXML
-    private Text playerName, attackValue, speedValue;
+    private Text playerName, attackValue, speedValue, textEtapa;
     @FXML
     private ProgressBar sliderHealth;
     private Socket sCliente;
@@ -107,17 +103,6 @@ public class MainController {
             }
         } else {
             System.out.println("El socket está cerrado o no disponible");
-        }
-    }
-
-    private void openScene(String scene) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(scene));
-            Parent root = fxmlLoader.load();
-            Stage stage = MainApp.getStage();
-            stage.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
     }
 
@@ -185,6 +170,8 @@ public class MainController {
 
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
         goldText.setText(String.valueOf(tablero.getJugador().getOro()));
+
+        textEtapa.setText("ETAPA " + tablero.getJugador().getEtapaActual() + 1 + " DE " + tablero.getEtapas().length);
 
         for (int i = 0; i < casillas.length; i++) {
             niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());

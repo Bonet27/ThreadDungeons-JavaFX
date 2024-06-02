@@ -112,3 +112,19 @@
 2024-06-02 20:13:41,843 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
 2024-06-02 20:13:41,845 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
 2024-06-02 20:13:50,429 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:14:17,384 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:14:23,636 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:14:23,640 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:14:45,135 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:17:19,188 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:17:24,435 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:17:24,440 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:17:37,297 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:17:51,089 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:17:57,337 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:17:57,342 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:18:09,449 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
+2024-06-02 20:19:52,633 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor iniciado en el puerto 2000
+2024-06-02 20:19:58,096 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Nuevo cliente conectado: 127.0.0.1
+2024-06-02 20:19:58,101 [main] INFO  com.bonet.threaddungeons.LoggerUtility - Usuario autenticado: Bonet
+2024-06-02 20:20:11,153 [Thread-0] INFO  com.bonet.threaddungeons.LoggerUtility - Servidor cerrado
