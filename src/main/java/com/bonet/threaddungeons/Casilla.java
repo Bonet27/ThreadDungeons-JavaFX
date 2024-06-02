@@ -16,15 +16,17 @@ public class Casilla {
 
     public Casilla() {}
 
-    public Casilla(Mode mode, int dificultMultiplier) {
+    public Casilla(Mode mode, float dificultMultiplier) {
         this.mode = mode;
         switch (this.mode) {
             case NORMAL:
+                dificultMultiplier = 1;
                 this.icon = "enemy6.png";
                 this.damage *= dificultMultiplier;
                 this.speed *= dificultMultiplier;
                 break;
             case REWARD:
+                dificultMultiplier = Math.abs(1.25f);
                 this.icon = "enemy7.png";
                 this.damage *= dificultMultiplier;
                 this.health = health * dificultMultiplier;
@@ -32,6 +34,7 @@ public class Casilla {
                 this.speed *= dificultMultiplier;
                 break;
             case RANDOM:
+                dificultMultiplier = Math.abs(1.1f);
                 this.icon = "enemy8.png";
                 this.damage *= dificultMultiplier;
                 this.health = health * dificultMultiplier;
@@ -39,6 +42,7 @@ public class Casilla {
                 this.speed *= dificultMultiplier;
                 break;
             case BOSS:
+                dificultMultiplier = Math.abs(1.5f);
                 this.icon = "boss3.png";
                 this.damage *= dificultMultiplier;
                 this.health = health * dificultMultiplier;
@@ -53,7 +57,7 @@ public class Casilla {
         return mode;
     }
 
-    public boolean isAlive() { return isAlive; }
+    public boolean isAlive() { return health > 0; }
 
     public float getDamage() { return damage; }
 

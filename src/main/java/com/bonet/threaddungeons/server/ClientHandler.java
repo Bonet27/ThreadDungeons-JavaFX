@@ -19,7 +19,6 @@ public class ClientHandler implements Runnable {
     private DataInputStream input;
     private DataOutputStream output;
     private Tablero tablero;
-    private AtomicBoolean partidaAcabada = new AtomicBoolean(false);
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private int userId;
 
@@ -43,7 +42,7 @@ public class ClientHandler implements Runnable {
 
             enviarEstadoJuego();
 
-            while (!partidaAcabada.get() && !clientSocket.isClosed()) {
+            while (!tablero.isPartidaAcabada() && !clientSocket.isClosed()) {
                 try {
                     if (input.available() > 0) {
                         String mensaje = input.readUTF();
@@ -86,7 +85,6 @@ public class ClientHandler implements Runnable {
                 logger.info("Procesando mensaje de saltar");
                 break;
             case "3":
-                partidaAcabada.set(true);
                 tablero.setPartidaAcabada(true);
                 logger.info("Procesando mensaje de acabar la partida");
                 break;
@@ -94,7 +92,7 @@ public class ClientHandler implements Runnable {
                 logger.info("Procesando mensaje de ataque");
                 tablero.atacar();
                 break;
-            case "DAMAGE_RECEIVED":
+            case "5":
                 logger.info("Procesando mensaje de daño recibido");
                 Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
                 tablero.getJugador().takeDamage(casillaActual.getDamage());

@@ -89,7 +89,9 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> openScene("Login-view.fxml"));
+        btn_menu.setOnAction(event -> {
+            cerrarConexionYVolverAlLogin();
+        });
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -99,9 +101,9 @@ public class MainController {
                 DataOutputStream flujo_salida = new DataOutputStream(out);
                 flujo_salida.writeUTF(mensaje);
                 flujo_salida.flush();
-                System.out.println("Intentando enviar mensaje al servidor: " + mensaje);
+                System.out.println("Mensaje enviado al servidor: " + mensaje);  // Añadir registro para depuración
             } catch (IOException e) {
-                System.out.println("El socket está cerrado o no disponible");
+                System.out.println("Error al enviar mensaje al servidor: " + e.getMessage());
             }
         } else {
             System.out.println("El socket está cerrado o no disponible");
@@ -153,11 +155,15 @@ public class MainController {
     }
 
     private void cerrarConexionYVolverAlLogin() {
+        cerrarConexion();
+        Platform.runLater(() -> mainApp.openLoginView());
+    }
+
+    private void cerrarConexion() {
         try {
             if (sCliente != null && !sCliente.isClosed()) {
                 sCliente.close();
             }
-            Platform.runLater(() -> openScene("Login-view.fxml"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -179,6 +185,10 @@ public class MainController {
 
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
         goldText.setText(String.valueOf(tablero.getJugador().getOro()));
+
+        for (int i = 0; i < casillas.length; i++) {
+            niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
+        }
 
         enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
         enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
@@ -218,20 +228,19 @@ public class MainController {
     private void generarCirculo() {
         final Random random = new Random();
         final int delayBetweenCircles = 1000;
-        final int circleLifetime = 2000;
+        final int circleLifetime = 750;
 
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
-                casillaActualizada.setEstado(Casilla.Estado.EN_COMBATE);
+        Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
 
-                if (casillaActualizada.getEstado() == Casilla.Estado.EN_COMBATE && casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
+        if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
+            TimerTask task = new TimerTask() {
+                @Override
+                public void run() {
                     Platform.runLater(() -> {
                         AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
                         double paneWidth = currentPane.getWidth();
                         double paneHeight = currentPane.getHeight();
-                        double diameter = Math.min(paneWidth, paneHeight) * 0.25; // Adjust size based on window size
+                        double diameter = Math.min(paneWidth, paneHeight) * 0.25;
 
                         currentPane.getChildren().removeIf(node -> node instanceof Circle);
 
@@ -246,6 +255,7 @@ public class MainController {
                             enviarMensajeAlServidor("4");
                             System.out.println("Mensaje de ataque enviado al servidor");
                             currentPane.getChildren().remove(circle);
+                            actualizarInterfaz(tablero);
                         });
 
                         currentPane.getChildren().add(circle);
@@ -255,23 +265,23 @@ public class MainController {
                             @Override
                             public void run() {
                                 Platform.runLater(() -> {
-                                    if (currentPane.getChildren().contains(circle)) {
+                                    if (currentPane.getChildren().contains(circle) && !tablero.isPartidaAcabada()) {
+                                        System.out.println("Círculo NO clicado. Dañando al jugador.");
+                                        enviarMensajeAlServidor("5");
+                                        System.out.println("Mensaje 5 enviado al servidor");  // Añadir registro para depuración
                                         currentPane.getChildren().remove(circle);
-                                        if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
-                                            // Notificar al servidor del daño recibido
-                                            enviarMensajeAlServidor("DAMAGE_RECEIVED");
-                                        }
+                                        actualizarInterfaz(tablero);
                                     }
                                 });
                             }
                         }, circleLifetime);
                     });
-                } else {
-                    detenerCombate();
                 }
-            }
-        };
-        combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
+            };
+            combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
+        } else {
+            detenerCombate();
+        }
     }
 
     private void detenerCombate() {

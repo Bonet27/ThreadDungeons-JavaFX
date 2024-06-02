@@ -652,7 +652,7 @@
                      <top>
                         <HBox fx:id="topHbox" alignment="CENTER" BorderPane.alignment="TOP_LEFT">
                            <children>
-                              <Text fill="WHITE" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ETAPA 1 DE 5" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                              <Text fx:id="textEtapa" fill="WHITE" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ETAPA 1 DE 5" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="System Bold" size="36.0" />
                                  </font>
