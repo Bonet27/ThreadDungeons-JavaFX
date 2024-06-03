@@ -57,7 +57,7 @@ public class ServidorTCP {
                     output.flush();
 
                     if (authenticated && usuario != null) {
-                        logger.info("Usuario autenticado: " + usuario.getNombre());
+                        logger.info("Usuario autenticado: " + usuario.getLogin());
                         threadPool.submit(new ClientHandler(clientSocket, usuario.getId()));
                     } else {
                         logger.info("Autenticación fallida para el cliente: " + clientSocket.getInetAddress().getHostAddress());

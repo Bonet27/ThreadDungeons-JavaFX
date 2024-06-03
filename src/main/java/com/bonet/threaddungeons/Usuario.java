@@ -4,16 +4,14 @@ public class Usuario {
     private Integer id;
     private String login;
     private String password;
-    private String nombre;
-    private String imagen;
+    private String email;
     public Usuario() {}
 
-    public Usuario(Integer id, String login, String password, String nombre, String imagen){
+    public Usuario(Integer id, String login, String password, String email){
         this.id = id;
         this.login = login;
         this.password = password;
-        this.nombre = nombre;
-        this.imagen = imagen;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -28,12 +26,8 @@ public class Usuario {
         return password;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getImagen() {
-        return imagen;
+    public String getEmail() {
+        return email;
     }
 
     @Override
@@ -42,8 +36,7 @@ public class Usuario {
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", imagen='" + imagen + '\'' +
+                ", email='" + email + '\'' +
                 "}\n";
     }
 }

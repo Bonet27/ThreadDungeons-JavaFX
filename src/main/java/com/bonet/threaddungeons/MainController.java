@@ -85,9 +85,7 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> {
-            cerrarConexionYVolverAlLogin();
-        });
+        btn_menu.setOnAction(event -> cerrarConexionYVolverAlLogin());
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -97,7 +95,7 @@ public class MainController {
                 DataOutputStream flujo_salida = new DataOutputStream(out);
                 flujo_salida.writeUTF(mensaje);
                 flujo_salida.flush();
-                System.out.println("Mensaje enviado al servidor: " + mensaje);  // Añadir registro para depuración
+                System.out.println("Mensaje enviado al servidor: " + mensaje);
             } catch (IOException e) {
                 System.out.println("Error al enviar mensaje al servidor: " + e.getMessage());
             }
@@ -173,9 +171,7 @@ public class MainController {
 
         textEtapa.setText("ETAPA " + (tablero.getJugador().getEtapaActual() + 1) + " DE " + tablero.getEtapas().length);
 
-        for (int i = 0; i < casillas.length; i++) {
-            niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
-        }
+        for (int i = 0; i < casillas.length; i++) { niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString()); }
 
         enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
         enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
@@ -192,9 +188,8 @@ public class MainController {
 
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
             detenerCombate();
-            if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
+            if (casillaActual.getEstado() == Casilla.Estado.MUERTO)
                 avanzarCasilla();
-            }
         }
     }
 

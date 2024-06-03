@@ -19,6 +19,8 @@ public class LoginController {
     @FXML
     private Button btn_login;
     @FXML
+    private Button btn_register;
+    @FXML
     private Text errorMsg;
     private MainApp mainApp;
     private Socket socket;
@@ -32,11 +34,18 @@ public class LoginController {
     private void initialize() {
         authenticated = false;
         btn_login.setOnAction(event -> handleLoginButtonAction());
+        btn_register.setOnAction(event -> handleRegisterButtonAction());
     }
 
     private void handleLoginButtonAction() {
         String login = inputUsuario.getText();
         String password = inputPassword.getText();
+
+        if (login.isEmpty() || password.isEmpty()) {
+            errorMsg.setText("El usuario y la contraseña no pueden estar vacíos.");
+            errorMsg.setVisible(true);
+            return;
+        }
 
         try {
             socket = new Socket("localhost", 2000);
@@ -52,14 +61,17 @@ public class LoginController {
             if (authenticated) {
                 mainApp.openMainView(socket);
             } else {
+                errorMsg.setText("Usuario o contraseña incorrectos.");
                 errorMsg.setVisible(true);
-                errorMsg.setText("Autenticación fallida");
                 socket.close();
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            errorMsg.setText("Error al conectar con el servidor.");
             errorMsg.setVisible(true);
-            errorMsg.setText("Error al conectar con el servidor");
         }
+    }
+
+    private void handleRegisterButtonAction() {
+        mainApp.openRegisterView();
     }
 }

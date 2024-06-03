@@ -23,7 +23,7 @@ public class DatabaseManager {
                         "login TEXT NOT NULL UNIQUE," +
                         "password TEXT NOT NULL," +
                         "nombre TEXT," +
-                        "imagen TEXT)";
+                        "email TEXT)";
                 stmt.execute(createUsuariosTableSQL);
 
                 String createTablerosTableSQL = "CREATE TABLE IF NOT EXISTS tableros (" +
@@ -52,13 +52,12 @@ public class DatabaseManager {
             Type userListType = new TypeToken<List<Usuario>>() {}.getType();
             List<Usuario> usuarios = gson.fromJson(reader, userListType);
 
-            String insertSQL = "INSERT OR IGNORE INTO usuarios (login, password, nombre, imagen) VALUES (?, ?, ?, ?)";
+            String insertSQL = "INSERT OR IGNORE INTO usuarios (login, password, email) VALUES (?, ?, ?)";
             try (PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
                 for (Usuario usuario : usuarios) {
                     pstmt.setString(1, usuario.getLogin());
                     pstmt.setString(2, usuario.getPassword());
-                    pstmt.setString(3, usuario.getNombre());
-                    pstmt.setString(4, usuario.getImagen());
+                    pstmt.setString(3, usuario.getEmail());
                     pstmt.executeUpdate();
                 }
             }
@@ -78,8 +77,7 @@ public class DatabaseManager {
                         rs.getInt("id"),
                         rs.getString("login"),
                         rs.getString("password"),
-                        rs.getString("nombre"),
-                        rs.getString("imagen")
+                        rs.getString("email")
                 );
             }
         } catch (SQLException e) {
@@ -100,6 +98,26 @@ public class DatabaseManager {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static Usuario getUserById(int userId) {
+        String sql = "SELECT * FROM usuarios WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return new Usuario(
+                        rs.getInt("id"),
+                        rs.getString("login"),
+                        rs.getString("password"),
+                        rs.getString("email")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static Tablero getTableroByUserId(int userId) {
@@ -168,5 +186,20 @@ public class DatabaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean registerUser(String login, String password, String email) {
+        String sql = "INSERT INTO usuarios (login, password, email) VALUES (?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, login);
+            pstmt.setString(2, password);
+            pstmt.setString(3, email); // Assuming 'email' is not used and 'email' is optional
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -2,13 +2,16 @@
   {
     "login": "user",
     "password": "pass",
-    "nombre": "Bonet",
-    "imagen": "hero.png"
+    "email": "hola@gmail.com"
   },
   {
     "login": "user1",
     "password": "pass1",
-    "nombre": "Paco",
-    "imagen": "Hero4.png"
+    "email": "bye@gmail.com"
+  },
+  {
+    "login": "Bonet",
+    "password": "Bonet",
+    "email": "bye1@gmail.com"
   }
 ]

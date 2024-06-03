@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainApp extends Application {
     private static Stage stage;
@@ -34,6 +36,19 @@ public class MainApp extends Application {
             Parent root = loader.load();
             LoginController loginController = loader.getController();
             loginController.setMainApp(this);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openRegisterView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Register-view.fxml"));
+            Parent root = loader.load();
+            RegisterController registerController = loader.getController();
+            registerController.setMainApp(this);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

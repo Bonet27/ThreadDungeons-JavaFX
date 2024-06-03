@@ -21,15 +21,17 @@ public class ClientHandler implements Runnable {
     private Tablero tablero;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private int userId;
+    private Usuario user;
 
     public ClientHandler(Socket clientSocket, int userId) {
         this.clientSocket = clientSocket;
         this.userId = userId;
+        this.user = DatabaseManager.getUserById(userId);
         logger = LoggerUtility.getLogger(ClientHandler.class, "usuario" + userId);
 
         this.tablero = DatabaseManager.getTableroByUserId(userId);
         if (this.tablero == null || this.tablero.isPartidaAcabada()) {
-            this.tablero = new Tablero(userId);
+            this.tablero = new Tablero(user.getLogin(), userId);
             DatabaseManager.saveTablero(userId, this.tablero);
         }
     }

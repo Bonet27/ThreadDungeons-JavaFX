@@ -1,0 +1,16 @@
+#vBox {
+    -fx-background-size: stretch;
+    -fx-background-image: url("background10.jpg");
+}
+
+#btn_createAcc {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
+}
+
+#btn_back {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 97, 0), rgb(255, 53, 53), rgb(255, 0, 0));
+}
+
+.label {
+    -fx-text-fill: #e8ecf1;
+}

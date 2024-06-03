@@ -34,14 +34,13 @@ VBox {
     -fx-background-size: stretch;
 }
 
-
-#btn_menu {
-    -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(255, 82, 82), rgb(203, 0, 0), rgb(179, 57, 57));
-    -fx-text-fill: white;
-}
-
 .titled-pane .arrow {
     -fx-opacity: 0;
+}
+
+#playerVbox {
+    -fx-border-radius: 2;
+    -fx-border-color: white;
 }
 
 .titled-pane > .title
@@ -55,15 +54,33 @@ VBox {
     -fx-background-color: radial-gradient(center 50% 100%, radius 100%, rgb(246, 186, 57), rgb(171, 61, 2));
 }
 
+#btn_menu {
+    -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(255, 82, 82), rgb(203, 0, 0), rgb(179, 57, 57));
+    -fx-text-fill: white;
+}
 
+#btn_menu:hover {
+    -fx-background-color: radial-gradient(center 50% 90%, radius 120%, rgb(255, 93, 93), rgb(218, 6, 6), rgb(179, 57, 57));
+    -fx-text-fill: white;
+}
 
 #btn_attack {
     -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 194, 0), rgb(255, 118, 32), rgb(255, 38, 0));
     -fx-text-fill: white;
 }
 
+#btn_attack:hover {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(250, 210, 6), rgb(255, 131, 52), rgb(255, 38, 0));
+    -fx-text-fill: white;
+}
+
 #btn_skip {
     -fx-background-color: radial-gradient(center 50% 20%, radius 150%, rgb(172, 182, 201), rgb(52, 172, 224), rgb(34, 112, 147));
+    -fx-text-fill: white;
+}
+
+#btn_skip:hover {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 150%, rgb(192, 203, 224), rgb(62, 184, 238), rgb(34, 112, 147));
     -fx-text-fill: white;
 }
 
