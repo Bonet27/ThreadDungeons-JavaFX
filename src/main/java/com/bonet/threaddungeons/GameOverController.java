@@ -11,9 +11,7 @@ import java.util.List;
 
 public class GameOverController {
     @FXML
-    private Button btn_login;
-    @FXML
-    private Button btn_register;
+    private Button btn_back;
     @FXML
     private TableView<Score> tableViewTop;
     @FXML
@@ -38,8 +36,7 @@ public class GameOverController {
 
     @FXML
     private void initialize() {
-        btn_login.setOnAction(event -> mainApp.openLoginView());
-        btn_register.setOnAction(event -> mainApp.openRegisterView());
+        btn_back.setOnAction(event -> mainApp.openLoginView());
 
         columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         columnEtapaActual.setCellValueFactory(new PropertyValueFactory<>("etapaActual"));

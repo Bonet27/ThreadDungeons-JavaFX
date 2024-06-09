@@ -1,0 +1,27 @@
+#vBox {
+    -fx-background-size: stretch;
+    -fx-background-image: url("background10.jpg");
+}
+
+.titled-pane > .title
+{
+    -fx-background-color: radial-gradient(center 50% 90%, radius 100%, rgb(183, 183, 183), rgb(82, 82, 82));
+    -fx-border-radius: 2;
+    -fx-border-color: white;
+}
+
+.table-view > .label {
+    -fx-text-fill: black;
+}
+
+.titled-pane:expanded > .title {
+    -fx-background-color: radial-gradient(center 50% 100%, radius 100%, rgb(246, 186, 57), rgb(171, 61, 2));
+}
+
+#btn_back {
+    -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 97, 0), rgb(255, 53, 53), rgb(255, 0, 0));
+}
+
+.label {
+    -fx-text-fill: #e8ecf1;
+}

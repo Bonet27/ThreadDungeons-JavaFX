@@ -25,9 +25,14 @@ public class LoginController {
     private MainApp mainApp;
     private Socket socket;
     private boolean authenticated;
+    private String serverIp;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+
+    public void setServerIp(String serverIp) {
+        this.serverIp = serverIp;
     }
 
     @FXML
@@ -48,7 +53,7 @@ public class LoginController {
         }
 
         try {
-            socket = new Socket("192.168.1.33", 2000);
+            socket = new Socket(serverIp, 2000);
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 

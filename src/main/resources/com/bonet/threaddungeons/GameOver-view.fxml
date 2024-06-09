@@ -6,13 +6,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" alignment="CENTER" cache="true" cacheHint="SCALE" cacheShape="false" centerShape="false" prefHeight="720.0" prefWidth="1280.0" spacing="5.0" stylesheets="@../../../style_login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.GameOverController">
+<VBox fx:id="vBox" alignment="CENTER" cache="true" cacheHint="SCALE" cacheShape="false" centerShape="false" prefHeight="720.0" prefWidth="1280.0" spacing="5.0" stylesheets="@../../../style_gameOver.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.GameOverController">
     <Text fx:id="gameTitle" boundsType="LOGICAL_VERTICAL_CENTER" fill="RED" focusTraversable="true" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="10.0" text="GAME OVER" textAlignment="CENTER" VBox.vgrow="ALWAYS">
         <font>
             <Font name="System Bold" size="96.0" />
@@ -21,7 +22,7 @@
             <Insets left="100.0" right="100.0" />
         </VBox.margin>
     </Text>
-    <VBox alignment="CENTER" maxWidth="600.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+    <VBox alignment="CENTER" maxWidth="800.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
         <children>
             <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false" VBox.vgrow="ALWAYS">
                 <font>
@@ -31,23 +32,32 @@
                     <Insets top="10.0" />
                 </VBox.margin>
             </Text>
-            <TitledPane fx:id="titledPaneTop" animated="false" text="TOP 15 PLAYERS">
+            <TitledPane fx:id="titledPaneTop" animated="false" collapsible="false" prefHeight="300.0" text="TOP 15 PLAYERS" textFill="WHITE">
                 <content>
                     <AnchorPane fx:id="anchorPaneTops" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
                             <TableView fx:id="tableViewTop" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                    <TableColumn fx:id="columnUsername" text="Username" />
-                                    <TableColumn fx:id="columnEtapaActual" text="Etapa" />
-                                    <TableColumn fx:id="columnCasillaActual" text="Casilla" />
-                                    <TableColumn fx:id="columnDmg" text="DMG" />
-                                    <TableColumn fx:id="columnSpeed" text="Speed" />
-                                    <TableColumn fx:id="columnOro" text="Oro" />
+                                    <TableColumn fx:id="columnUsername" minWidth="40.0" text="Username" />
+                                    <TableColumn fx:id="columnEtapaActual" minWidth="40.0" text="Etapa" />
+                                    <TableColumn fx:id="columnCasillaActual" minWidth="40.0" text="Casilla" />
+                                    <TableColumn fx:id="columnDmg" minWidth="40.0" text="DMG" />
+                                    <TableColumn fx:id="columnSpeed" minWidth="40.0" text="Speed" />
+                                    <TableColumn fx:id="columnOro" minWidth="40.0" text="Oro" />
                                 </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <effect>
+                           <DropShadow />
+                        </effect>
                             </TableView>
                         </children>
                     </AnchorPane>
                 </content>
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
             </TitledPane>
         </children>
         <VBox.margin>
@@ -56,15 +66,7 @@
     </VBox>
     <HBox alignment="TOP_CENTER" maxWidth="600.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
         <children>
-            <Button fx:id="btn_login" defaultButton="true" maxWidth="1.7976931348623157E308" text="INICIAR SESIÓN" textFill="WHITE" HBox.hgrow="ALWAYS">
-                <font>
-                    <Font name="System Bold" size="20.0" />
-                </font>
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
-            </Button>
-            <Button fx:id="btn_register" defaultButton="true" maxWidth="1.7976931348623157E308" text="REGISTRO" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Button fx:id="btn_back" defaultButton="true" maxWidth="1.7976931348623157E308" text="VOLVER AL MENÚ" textFill="WHITE" HBox.hgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font>

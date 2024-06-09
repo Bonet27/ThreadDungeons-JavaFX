@@ -12,6 +12,7 @@ import java.net.Socket;
 
 public class MainApp extends Application {
     private static Stage stage;
+    private String serverIp = "127.0.0.1"; // Default IP
 
     @Override
     public void start(Stage primaryStage) {
@@ -21,11 +22,29 @@ public class MainApp extends Application {
             Platform.exit();
             System.exit(0);
         });
-        openLoginView();
+        openIPConfigView();
     }
 
     public static Stage getStage() {
         return stage;
+    }
+
+    public void openIPConfigView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("IPConfig-view.fxml"));
+            Parent root = loader.load();
+            IPConfigController controller = loader.getController();
+            controller.setMainApp(this);
+
+            Stage ipConfigStage = new Stage();
+            ipConfigStage.setTitle("Server IP Configuration");
+            ipConfigStage.setScene(new Scene(root));
+            ipConfigStage.showAndWait();
+
+            openLoginView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void openLoginView() {
@@ -34,6 +53,7 @@ public class MainApp extends Application {
             Parent root = loader.load();
             LoginController loginController = loader.getController();
             loginController.setMainApp(this);
+            loginController.setServerIp(serverIp);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -83,5 +103,9 @@ public class MainApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void setServerIp(String serverIp) {
+        this.serverIp = serverIp;
     }
 }
