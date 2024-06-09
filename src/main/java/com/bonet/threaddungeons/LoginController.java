@@ -48,7 +48,7 @@ public class LoginController {
         }
 
         try {
-            socket = new Socket("localhost", 2000);
+            socket = new Socket("192.168.1.33", 2000);
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 

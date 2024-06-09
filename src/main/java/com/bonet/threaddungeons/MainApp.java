@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainApp extends Application {
     private static Stage stage;
@@ -67,6 +65,19 @@ public class MainApp extends Application {
             stage.show();
         } catch (IOException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void openGameOverView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOver-view.fxml"));
+            Parent root = loader.load();
+            GameOverController gameOverController = loader.getController();
+            gameOverController.setMainApp(this);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

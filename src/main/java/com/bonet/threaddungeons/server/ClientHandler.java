@@ -11,7 +11,6 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ClientHandler implements Runnable {
     private static Logger logger;
@@ -72,6 +71,7 @@ public class ClientHandler implements Runnable {
             System.out.println(e.getMessage());
         } finally {
             logger.info("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
+            DatabaseManager.saveScore(user, tablero); // Guardar la puntuación del jugador al desconectarse
             closeResources();
         }
     }
@@ -89,6 +89,7 @@ public class ClientHandler implements Runnable {
             case "3":
                 tablero.setPartidaAcabada(true);
                 logger.info("Procesando mensaje de acabar la partida");
+                DatabaseManager.saveScore(user, tablero); // Guardar la puntuación cuando termina la partida
                 break;
             case "4":
                 logger.info("Procesando mensaje de ataque");

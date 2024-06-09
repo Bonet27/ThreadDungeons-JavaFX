@@ -6,7 +6,8 @@ module com.bonet.threaddungeons {
     requires java.sql;
 
     opens com.bonet.threaddungeons to com.google.gson, javafx.fxml;
+    opens com.bonet.threaddungeons.server to com.google.gson;
+
     exports com.bonet.threaddungeons;
     exports com.bonet.threaddungeons.server;
-    opens com.bonet.threaddungeons.server to com.google.gson;
 }

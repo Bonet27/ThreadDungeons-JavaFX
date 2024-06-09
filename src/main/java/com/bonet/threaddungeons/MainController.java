@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -85,7 +86,7 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> cerrarConexionYVolverAlLogin());
+        btn_menu.setOnAction(event -> gameOver());
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -137,6 +138,12 @@ public class MainController {
         }
     }
 
+    private void gameOver() {
+        enviarMensajeAlServidor("3"); // Marcar partida como terminada
+        cerrarConexion();
+        Platform.runLater(() -> mainApp.openGameOverView());
+    }
+
     private void cerrarConexionYVolverAlLogin() {
         cerrarConexion();
         Platform.runLater(() -> mainApp.openLoginView());
@@ -169,9 +176,9 @@ public class MainController {
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
         goldText.setText(String.valueOf(tablero.getJugador().getOro()));
 
-        textEtapa.setText("ETAPA " + (tablero.getJugador().getEtapaActual() + 1) + " DE " + tablero.getEtapas().length);
-
-        for (int i = 0; i < casillas.length; i++) { niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString()); }
+        for (int i = 0; i < casillas.length; i++) {
+            niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
+        }
 
         enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
         enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
@@ -180,16 +187,15 @@ public class MainController {
 
         if (!tablero.getJugador().isAlive() && !jugadorMuerto) {
             jugadorMuerto = true;
-            enviarMensajeAlServidor("3");
-            if (!sCliente.isClosed()) {
-                cerrarConexionYVolverAlLogin();
-            }
+            detenerCombate();
+            gameOver();
         }
 
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
             detenerCombate();
-            if (casillaActual.getEstado() == Casilla.Estado.MUERTO)
+            if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
                 avanzarCasilla();
+            }
         }
     }
 
@@ -218,6 +224,7 @@ public class MainController {
             TimerTask task = new TimerTask() {
                 @Override
                 public void run() {
+
                     Platform.runLater(() -> {
                         AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
                         double paneWidth = currentPane.getWidth();
@@ -247,17 +254,18 @@ public class MainController {
                             @Override
                             public void run() {
                                 Platform.runLater(() -> {
-                                    if (currentPane.getChildren().contains(circle) && !tablero.isPartidaAcabada()) {
+                                    if (currentPane.getChildren().contains(circle)) {
                                         System.out.println("Círculo NO clicado. Dañando al jugador.");
                                         enviarMensajeAlServidor("5");
-                                        System.out.println("Mensaje 5 enviado al servidor");  // Añadir registro para depuración
+                                        System.out.println("Mensaje DAMAGE_RECEIVED enviado al servidor");
                                         currentPane.getChildren().remove(circle);
-                                        actualizarInterfaz(tablero);
+                                        Platform.runLater(() -> actualizarInterfaz(tablero));
                                     }
                                 });
                             }
                         }, circleLifetime);
                     });
+
                 }
             };
             combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
@@ -280,10 +288,10 @@ public class MainController {
     }
 
     private void iniciarAtaque() {
-            enviarMensajeAlServidor("1");
-            combateTimer = new Timer();
-            btn_attack.setDisable(true);
-            btn_skip.setDisable(true);
-            generarCirculo();
+        enviarMensajeAlServidor("1");
+        combateTimer = new Timer();
+        btn_attack.setDisable(true);
+        btn_skip.setDisable(true);
+        generarCirculo();
     }
 }

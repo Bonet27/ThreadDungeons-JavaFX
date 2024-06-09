@@ -3,15 +3,15 @@ package com.bonet.threaddungeons;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
     private static final String DB_URL = "jdbc:sqlite:threaddungeons.db";
-    private static final String USERS_JSON = "src/main/resources/usuarios.json";
+    private static final String USERS_JSON = "/usuarios.json"; // Ruta del classpath
 
     public static void initializeDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
@@ -22,7 +22,6 @@ public class DatabaseManager {
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "login TEXT NOT NULL UNIQUE," +
                         "password TEXT NOT NULL," +
-                        "nombre TEXT," +
                         "email TEXT)";
                 stmt.execute(createUsuariosTableSQL);
 
@@ -38,6 +37,18 @@ public class DatabaseManager {
                         "FOREIGN KEY (tablero_id) REFERENCES tableros(id))";
                 stmt.execute(createUsuariosTablerosTableSQL);
 
+                String createScoresTableSQL = "CREATE TABLE IF NOT EXISTS scores (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "user_id INTEGER," +
+                        "username TEXT," +
+                        "etapa_actual INTEGER," +
+                        "casilla_actual INTEGER," +
+                        "dmg REAL," +
+                        "speed REAL," +
+                        "oro INTEGER," +
+                        "FOREIGN KEY (user_id) REFERENCES usuarios(id))";
+                stmt.execute(createScoresTableSQL);
+
                 // Cargar usuarios desde el JSON
                 cargarUsuariosDesdeJson(conn);
             }
@@ -48,7 +59,7 @@ public class DatabaseManager {
 
     private static void cargarUsuariosDesdeJson(Connection conn) {
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader(USERS_JSON)) {
+        try (InputStreamReader reader = new InputStreamReader(DatabaseManager.class.getResourceAsStream(USERS_JSON))) {
             Type userListType = new TypeToken<List<Usuario>>() {}.getType();
             List<Usuario> usuarios = gson.fromJson(reader, userListType);
 
@@ -61,7 +72,7 @@ public class DatabaseManager {
                     pstmt.executeUpdate();
                 }
             }
-        } catch (IOException | SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -194,12 +205,53 @@ public class DatabaseManager {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, login);
             pstmt.setString(2, password);
-            pstmt.setString(3, email); // Assuming 'email' is not used and 'email' is optional
+            pstmt.setString(3, email);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void saveScore(Usuario user, Tablero tablero) {
+        String sql = "INSERT INTO scores (user_id, username, etapa_actual, casilla_actual, dmg, speed, oro) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, user.getId());
+            pstmt.setString(2, user.getLogin());
+            pstmt.setInt(3, tablero.getJugador().getEtapaActual());
+            pstmt.setInt(4, tablero.getJugador().getCasillaActual());
+            pstmt.setDouble(5, tablero.getJugador().getDmg());
+            pstmt.setDouble(6, tablero.getJugador().getVelocidad());
+            pstmt.setInt(7, tablero.getJugador().getOro());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Score> getTopScores(int limit) {
+        List<Score> scores = new ArrayList<>();
+        String sql = "SELECT * FROM scores ORDER BY oro DESC LIMIT ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, limit);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                scores.add(new Score(
+                        rs.getInt("user_id"),
+                        rs.getString("username"),
+                        rs.getInt("etapa_actual"),
+                        rs.getInt("casilla_actual"),
+                        rs.getDouble("dmg"),
+                        rs.getDouble("speed"),
+                        rs.getInt("oro")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return scores;
     }
 }
