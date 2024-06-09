@@ -22,35 +22,35 @@
             <Insets left="100.0" right="100.0" />
         </VBox.margin>
     </Text>
-    <VBox alignment="CENTER" maxWidth="800.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
+    <VBox alignment="CENTER" maxWidth="600.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
         <children>
             <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false" VBox.vgrow="ALWAYS">
                 <font>
                     <Font name="System Bold" size="24.0" />
                 </font>
                 <VBox.margin>
-                    <Insets top="10.0" />
+                    <Insets />
                 </VBox.margin>
             </Text>
             <TitledPane fx:id="titledPaneTop" animated="false" collapsible="false" prefHeight="300.0" text="TOP 15 PLAYERS" textFill="WHITE">
                 <content>
-                    <AnchorPane fx:id="anchorPaneTops" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane fx:id="anchorPaneTops" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="200.0">
                         <children>
                             <TableView fx:id="tableViewTop" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                    <TableColumn fx:id="columnUsername" minWidth="40.0" text="Username" />
-                                    <TableColumn fx:id="columnEtapaActual" minWidth="40.0" text="Etapa" />
-                                    <TableColumn fx:id="columnCasillaActual" minWidth="40.0" text="Casilla" />
-                                    <TableColumn fx:id="columnDmg" minWidth="40.0" text="DMG" />
-                                    <TableColumn fx:id="columnSpeed" minWidth="40.0" text="Speed" />
-                                    <TableColumn fx:id="columnOro" minWidth="40.0" text="Oro" />
+                                    <TableColumn fx:id="columnUsername" editable="false" minWidth="40.0" text="Username" />
+                                    <TableColumn fx:id="columnEtapaActual" editable="false" minWidth="40.0" text="Etapa" />
+                                    <TableColumn fx:id="columnCasillaActual" editable="false" minWidth="40.0" text="Casilla" />
+                                    <TableColumn fx:id="columnDmg" editable="false" minWidth="40.0" text="DMG" />
+                                    <TableColumn fx:id="columnSpeed" editable="false" minWidth="40.0" text="Speed" />
+                                    <TableColumn fx:id="columnOro" editable="false" minWidth="40.0" text="Oro" />
                                 </columns>
-                        <columnResizePolicy>
-                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                        </columnResizePolicy>
                         <effect>
                            <DropShadow />
                         </effect>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
                             </TableView>
                         </children>
                     </AnchorPane>

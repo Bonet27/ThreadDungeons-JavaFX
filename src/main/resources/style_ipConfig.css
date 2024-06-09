@@ -1,6 +1,6 @@
 #vBox {
     -fx-background-size: stretch;
-    -fx-background-image: url("background10.jpg");
+    -fx-background-image: url("background8.jpg");
 }
 
 .titled-pane > .title
@@ -18,6 +18,6 @@
     -fx-background-color: radial-gradient(center 50% 100%, radius 100%, rgb(246, 186, 57), rgb(171, 61, 2));
 }
 
-#btn_back {
+#btn_accept {
     -fx-background-color: radial-gradient(center 50% 20%, radius 90%, rgb(232, 97, 0), rgb(255, 53, 53), rgb(255, 0, 0));
 }

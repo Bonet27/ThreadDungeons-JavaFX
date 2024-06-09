@@ -5,14 +5,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.IPConfigController">
+<VBox fx:id="vBox" alignment="CENTER" prefHeight="360.0" prefWidth="690.0" spacing="30.0" stylesheets="@../../../style_ipConfig.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bonet.threaddungeons.IPConfigController">
     <children>
-        <Label text="Enter Server IP:" />
-        <TextField fx:id="ipTextField" promptText="Server IP" />
-        <Button text="OK" onAction="#handleOkButtonAction" />
+        <Label text="Introduce la direccion IP" textFill="WHITE" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font></Label>
+        <TextField fx:id="ipTextField" maxWidth="200.0" promptText="Server IP" />
+        <Button fx:id="btn_accept" onAction="#handleOkButtonAction" text="ACEPTAR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
     </children>
     <padding>
-        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>
