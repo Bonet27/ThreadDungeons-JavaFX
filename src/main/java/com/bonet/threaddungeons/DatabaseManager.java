@@ -215,21 +215,44 @@ public class DatabaseManager {
     }
 
     public static void saveScore(Usuario user, Tablero tablero) {
-        String sql = "INSERT INTO scores (user_id, username, etapa_actual, casilla_actual, dmg, speed, oro) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlSelect = "SELECT * FROM scores WHERE user_id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, user.getId());
-            pstmt.setString(2, user.getLogin());
-            pstmt.setInt(3, tablero.getJugador().getEtapaActual());
-            pstmt.setInt(4, tablero.getJugador().getCasillaActual());
-            pstmt.setDouble(5, tablero.getJugador().getDmg());
-            pstmt.setDouble(6, tablero.getJugador().getVelocidad());
-            pstmt.setInt(7, tablero.getJugador().getOro());
-            pstmt.executeUpdate();
+             PreparedStatement pstmtSelect = conn.prepareStatement(sqlSelect)) {
+            pstmtSelect.setInt(1, user.getId());
+            ResultSet rs = pstmtSelect.executeQuery();
+
+            if (rs.next()) {
+                int existingOro = rs.getInt("oro");
+                if (tablero.getJugador().getOro() > existingOro) {
+                    String sqlUpdate = "UPDATE scores SET etapa_actual = ?, casilla_actual = ?, dmg = ?, speed = ?, oro = ? WHERE user_id = ?";
+                    try (PreparedStatement pstmtUpdate = conn.prepareStatement(sqlUpdate)) {
+                        pstmtUpdate.setInt(1, tablero.getJugador().getEtapaActual());
+                        pstmtUpdate.setInt(2, tablero.getJugador().getCasillaActual());
+                        pstmtUpdate.setDouble(3, tablero.getJugador().getDmg());
+                        pstmtUpdate.setDouble(4, tablero.getJugador().getVelocidad());
+                        pstmtUpdate.setInt(5, tablero.getJugador().getOro());
+                        pstmtUpdate.setInt(6, user.getId());
+                        pstmtUpdate.executeUpdate();
+                    }
+                }
+            } else {
+                String sqlInsert = "INSERT INTO scores (user_id, username, etapa_actual, casilla_actual, dmg, speed, oro) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement pstmtInsert = conn.prepareStatement(sqlInsert)) {
+                    pstmtInsert.setInt(1, user.getId());
+                    pstmtInsert.setString(2, user.getLogin());
+                    pstmtInsert.setInt(3, tablero.getJugador().getEtapaActual());
+                    pstmtInsert.setInt(4, tablero.getJugador().getCasillaActual());
+                    pstmtInsert.setDouble(5, tablero.getJugador().getDmg());
+                    pstmtInsert.setDouble(6, tablero.getJugador().getVelocidad());
+                    pstmtInsert.setInt(7, tablero.getJugador().getOro());
+                    pstmtInsert.executeUpdate();
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     public static List<Score> getTopScores(int limit) {
         List<Score> scores = new ArrayList<>();

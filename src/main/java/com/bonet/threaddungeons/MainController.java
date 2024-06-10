@@ -178,9 +178,9 @@ public class MainController {
         playerName.setText(tablero.getJugador().getNombre());
         attackValue.setText(String.valueOf(tablero.getJugador().getDmg()));
         speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
+        goldText.setText(String.valueOf(tablero.getJugador().getOro()));
 
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
-        goldText.setText(String.valueOf(tablero.getJugador().getOro()));
 
         for (int i = 0; i < casillas.length; i++) {
             niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
@@ -197,12 +197,14 @@ public class MainController {
             gameOver();
         }
 
+        if(tablero.isPartidaAcabada())
+            gameOver();
+
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
             detenerCombate();
             if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
                 aplicarRecompensa(casillaActual);
                 avanzarCasilla();
-
             }
         }
 
@@ -298,7 +300,6 @@ public class MainController {
                 break;
         }
     }
-
 
     private void generarCirculo() {
         final Random random = new Random();
