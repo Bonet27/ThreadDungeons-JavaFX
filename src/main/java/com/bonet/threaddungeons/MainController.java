@@ -17,7 +17,6 @@ import javafx.scene.text.Text;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,6 +53,10 @@ public class MainController {
     private Text playerName, attackValue, speedValue, textEtapa;
     @FXML
     private ProgressBar sliderHealth;
+    @FXML
+    private ImageView botin1Image, botin2Image, botin3Image, botin4Image, botin5Image1, botin5Image2;
+    @FXML
+    private Label botin1Label, botin2Label, botin3Label, botin4Label, botin5Label1, botin5Label2;
     private Socket sCliente;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
@@ -64,6 +67,7 @@ public class MainController {
     private AnchorPane[] nivelContents;
     private MainApp mainApp;
     private Timer combateTimer;
+    private Timer circleTimer;
     private boolean jugadorMuerto = false;
 
     public void setMainApp(MainApp mainApp) {
@@ -117,6 +121,7 @@ public class MainController {
                     Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
                     if (newTablero != null) {
                         Platform.runLater(() -> actualizarInterfaz(newTablero));
+                        Platform.runLater(this::actualizarBotines);
                     }
                 } catch (EOFException e) {
                     System.out.println("Cliente desconectado del servidor");
@@ -140,6 +145,7 @@ public class MainController {
 
     private void gameOver() {
         enviarMensajeAlServidor("3"); // Marcar partida como terminada
+        detenerCombate();
         cerrarConexion();
         Platform.runLater(() -> mainApp.openGameOverView());
     }
@@ -194,9 +200,13 @@ public class MainController {
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
             detenerCombate();
             if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
+                aplicarRecompensa(casillaActual);
                 avanzarCasilla();
+
             }
         }
+
+        //actualizarBotines();
     }
 
     private void openActualTitledPane(int casillaActual) {
@@ -213,71 +223,161 @@ public class MainController {
         }
     }
 
+    private void actualizarBotines() {
+        Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
+        for (int i = 0; i < casillas.length; i++) {
+            Casilla casilla = casillas[i];
+            switch (i) {
+                case 0:
+                    if (casilla.getRewardIconUrl() != null) {
+                        botin1Image.setImage(new Image(casilla.getRewardIconUrl()));
+                    }
+                    if (casilla.getRewardText() != null) {
+                        botin1Label.setText(casilla.getRewardText());
+                    }
+                    break;
+                case 1:
+                    if (casilla.getRewardIconUrl() != null) {
+                        botin2Image.setImage(new Image(casilla.getRewardIconUrl()));
+                    }
+                    if (casilla.getRewardText() != null) {
+                        botin2Label.setText(casilla.getRewardText());
+                    }
+                    break;
+                case 2:
+                    if (casilla.getRewardIconUrl() != null) {
+                        botin3Image.setImage(new Image(casilla.getRewardIconUrl()));
+                    }
+                    if (casilla.getRewardText() != null) {
+                        botin3Label.setText(casilla.getRewardText());
+                    }
+                    break;
+                case 3:
+                    if (casilla.getRewardIconUrl() != null) {
+                        botin4Image.setImage(new Image(casilla.getRewardIconUrl()));
+                    }
+                    if (casilla.getRewardText() != null) {
+                        botin4Label.setText(casilla.getRewardText());
+                    }
+                    break;
+                case 4:
+                    if (casilla.getRewardIconUrl() != null) {
+                        botin5Image1.setImage(new Image(casilla.getRewardIconUrl()));
+                    }
+                    if (casilla.getRewardIconUrl1() != null) {
+                        botin5Image2.setImage(new Image(casilla.getRewardIconUrl1()));
+                    }
+                    if (casilla.getRewardText() != null) {
+                        botin5Label1.setText(casilla.getRewardText());
+                    }
+                    if (casilla.getRewardText1() != null) {
+                        botin5Label2.setText(casilla.getRewardText1());
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void aplicarRecompensa(Casilla casilla) {
+        Jugador jugador = tablero.getJugador();
+        switch (casilla.getMode()) {
+            case NORMAL:
+            case REWARD:
+                jugador.setOro(jugador.getOro() + casilla.getReward());
+                break;
+            case RANDOM:
+                if (casilla.getRewardText().contains("salud")) {
+                    jugador.setSalud(Math.min(jugador.getSaludMaxima(), jugador.getSalud() + casilla.getReward()));
+                } else if (casilla.getRewardText().contains("daño")) {
+                    jugador.setDmg(jugador.getDmg() + casilla.getReward());
+                }
+                break;
+            case BOSS:
+                jugador.setDmg(jugador.getDmg() + casilla.getReward());
+                jugador.setVelocidad(jugador.getVelocidad() + casilla.getReward());
+                break;
+        }
+    }
+
+
     private void generarCirculo() {
         final Random random = new Random();
-        final int delayBetweenCircles = 1000;
-        final int circleLifetime = 750;
+        final int baseDelay = 2000;
+        final int baseLifetime = 1950;
 
         Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+        float speedMultiplier = 1.0f - (tablero.getJugador().getVelocidad() / 100.0f);
 
-        if (casillaActualizada.isAlive() && !tablero.isPartidaAcabada()) {
-            TimerTask task = new TimerTask() {
-                @Override
-                public void run() {
+        final int delayBetweenCircles = (int) (baseDelay * speedMultiplier);
+        final int circleLifetime = (int) (baseLifetime * speedMultiplier);
 
-                    Platform.runLater(() -> {
-                        AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
-                        double paneWidth = currentPane.getWidth();
-                        double paneHeight = currentPane.getHeight();
-                        double diameter = Math.min(paneWidth, paneHeight) * 0.25;
+        if (circleTimer != null) {
+            circleTimer.cancel();
+        }
 
-                        currentPane.getChildren().removeIf(node -> node instanceof Circle);
+        circleTimer = new Timer();
+        circleTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    if (jugadorMuerto || tablero.isPartidaAcabada()) {
+                        detenerCombate();
+                        return;
+                    }
 
-                        Circle circle = new Circle(diameter / 2, Color.RED);
-                        circle.setOpacity(0.5);
-                        circle.setLayoutX(random.nextDouble() * (paneWidth - diameter) + diameter / 2);
-                        circle.setLayoutY(random.nextDouble() * (paneHeight - diameter) + diameter / 2);
-                        circle.setManaged(false);
+                    AnchorPane currentPane = nivelContents[tablero.getJugador().getCasillaActual()];
+                    double paneWidth = currentPane.getWidth();
+                    double paneHeight = currentPane.getHeight();
+                    double diameter = Math.min(paneWidth, paneHeight) * 0.25;
 
-                        circle.setOnMouseClicked(event -> {
-                            System.out.println("Círculo clicado. Preparando para enviar mensaje de ataque.");
-                            enviarMensajeAlServidor("4");
-                            System.out.println("Mensaje de ataque enviado al servidor");
-                            currentPane.getChildren().remove(circle);
-                            actualizarInterfaz(tablero);
-                        });
+                    currentPane.getChildren().removeIf(node -> node instanceof Circle);
 
-                        currentPane.getChildren().add(circle);
+                    Circle circle = new Circle(diameter / 2, Color.RED);
+                    circle.setOpacity(0.5);
+                    circle.setLayoutX(random.nextDouble() * (paneWidth - diameter) + diameter / 2);
+                    circle.setLayoutY(random.nextDouble() * (paneHeight - diameter) + diameter / 2);
+                    circle.setManaged(false);
 
-                        Timer removeCircleTimer = new Timer();
-                        removeCircleTimer.schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> {
-                                    if (currentPane.getChildren().contains(circle)) {
-                                        System.out.println("Círculo NO clicado. Dañando al jugador.");
-                                        enviarMensajeAlServidor("5");
-                                        System.out.println("Mensaje DAMAGE_RECEIVED enviado al servidor");
-                                        currentPane.getChildren().remove(circle);
-                                        Platform.runLater(() -> actualizarInterfaz(tablero));
-                                    }
-                                });
-                            }
-                        }, circleLifetime);
+                    circle.setOnMouseClicked(event -> {
+                        System.out.println("Círculo clicado. Preparando para enviar mensaje de ataque.");
+                        enviarMensajeAlServidor("4");
+                        System.out.println("Mensaje de ataque enviado al servidor");
+                        currentPane.getChildren().remove(circle);
+                        actualizarInterfaz(tablero);
+                        generarCirculo();
                     });
 
-                }
-            };
-            combateTimer.scheduleAtFixedRate(task, 0, delayBetweenCircles);
-        } else {
-            detenerCombate();
-        }
+                    currentPane.getChildren().add(circle);
+
+                    Timer removeCircleTimer = new Timer();
+                    removeCircleTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater(() -> {
+                                if (currentPane.getChildren().contains(circle)) {
+                                    System.out.println("Círculo NO clicado. Dañando al jugador.");
+                                    enviarMensajeAlServidor("5");
+                                    System.out.println("Mensaje DAMAGE_RECEIVED enviado al servidor");
+                                    currentPane.getChildren().remove(circle);
+                                    actualizarInterfaz(tablero);
+                                    generarCirculo();
+                                }
+                            });
+                        }
+                    }, circleLifetime);
+                });
+            }
+        }, delayBetweenCircles);
     }
 
     private void detenerCombate() {
         if (combateTimer != null) {
             combateTimer.cancel();
             combateTimer = null;
+        }
+        if (circleTimer != null) {
+            circleTimer.cancel();
+            circleTimer = null;
         }
         btn_attack.setDisable(false);
         btn_skip.setDisable(false);

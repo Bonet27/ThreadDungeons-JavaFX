@@ -186,7 +186,7 @@
                                                    <children>
                                                       <ImageView fx:id="enemy5Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../enemy7.png" />
+                                                            <Image url="@../../../enemy1.png" />
                                                          </image>
                                                          <viewport>
                                                             <Rectangle2D />
@@ -236,7 +236,7 @@
                                                    <children>
                                                       <ImageView fx:id="enemy4Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../enemy7.png" />
+                                                            <Image url="@../../../enemy1.png" />
                                                          </image>
                                                          <viewport>
                                                             <Rectangle2D />
@@ -286,7 +286,7 @@
                                                    <children>
                                                       <ImageView fx:id="enemy3Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                                          <image>
-                                                            <Image url="@../../../enemy7.png" />
+                                                            <Image url="@../../../enemy1.png" />
                                                          </image>
                                                          <viewport>
                                                             <Rectangle2D />
@@ -336,7 +336,7 @@
                                                    <children>
                                                       <ImageView fx:id="enemy2Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                                          <image>
-                                                            <Image url="@../../../enemy7.png" />
+                                                            <Image url="@../../../enemy1.png" />
                                                          </image>
                                                          <viewport>
                                                             <Rectangle2D />
@@ -386,7 +386,7 @@
                                                    <children>
                                                       <ImageView fx:id="enemy1Image" fitHeight="200.0" fitWidth="200.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                                          <image>
-                                                            <Image url="@../../../enemy7.png" />
+                                                            <Image url="@../../../enemy1.png" />
                                                          </image>
                                                          <viewport>
                                                             <Rectangle2D />
@@ -444,9 +444,9 @@
                                              <children>
                                                 <HBox alignment="BOTTOM_CENTER" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" graphicTextGap="5.0" text="+10" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                                      <Label fx:id="botin5Label1" contentDisplay="BOTTOM" graphicTextGap="5.0" text="+10" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin5Image1" fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../sword.png" />
                                                                </image>
@@ -456,9 +456,9 @@
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="104.0" layoutY="24.0" text="+ 2" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                      <Label fx:id="botin5Label2" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="104.0" layoutY="24.0" text="+ 2" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin5Image2" fitHeight="80.0" fitWidth="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../lightning.png" />
                                                                </image>
@@ -483,9 +483,9 @@
                                              <children>
                                                 <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                      <Label fx:id="botin4Label" contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
-                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin4Image" fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../chest.png" />
                                                                </image>
@@ -510,9 +510,9 @@
                                              <children>
                                                 <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 ORO   ">
+                                                      <Label fx:id="botin3Label" contentDisplay="BOTTOM" text="+30 ORO   ">
                                                          <graphic>
-                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin3Image" fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../gold.png" />
                                                                </image>
@@ -537,9 +537,9 @@
                                              <children>
                                                 <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="CHEST" HBox.hgrow="ALWAYS">
+                                                      <Label fx:id="botin2Label" contentDisplay="BOTTOM" text="CHEST" HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin2Image" fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../chest.png" />
                                                                </image>
@@ -564,9 +564,9 @@
                                              <children>
                                                 <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Label contentDisplay="BOTTOM" text="+30 " HBox.hgrow="ALWAYS">
+                                                      <Label fx:id="botin1Label" contentDisplay="BOTTOM" text="+30 " HBox.hgrow="ALWAYS">
                                                          <graphic>
-                                                            <ImageView fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="botin1Image" fitHeight="100.0" fitWidth="100.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@../../../gold.png" />
                                                                </image>
@@ -695,4 +695,7 @@
          </children>
       </HBox>
    </children>
+   <effect>
+      <DropShadow />
+   </effect>
 </GridPane>

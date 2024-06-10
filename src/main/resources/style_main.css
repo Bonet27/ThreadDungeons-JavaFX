@@ -5,12 +5,12 @@ VBox {
 
 #nivel1content, #nivel2content, #nivel3content, #nivel4content, #nivel5content  {
     -fx-background-color: #313131;
-    -fx-background-image: url("background9.jpg");
+    -fx-background-image: url("background7.jpg");
     -fx-background-size: stretch;
 }
 
 #anchorPaneBotin1, #anchorPaneBotin2, #anchorPaneBotin3, #anchorPaneBotin4, #anchorPaneBotin5 {
-    -fx-background-image: url("background4.jpg");
+    -fx-background-image: url("background-botin.jpg");
     -fx-background-size: stretch;
 }
 
@@ -30,7 +30,7 @@ VBox {
 }
 
 #playerVbox {
-    -fx-background-image: url("background8.jpg");
+    -fx-background-image: url("background-hero.jpg");
     -fx-background-size: stretch;
 }
 
