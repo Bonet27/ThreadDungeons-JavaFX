@@ -17,16 +17,7 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
-      <version>${javafx.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-fxml</artifactId>
-      <version>${javafx.version}</version>
-    </dependency>
+    <!-- Dependencias comunes -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -57,11 +48,6 @@
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -119,11 +105,28 @@
   <profiles>
     <profile>
       <id>client</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-fxml</artifactId>
+          <version>${javafx.version}</version>
+        </dependency>
+      </dependencies>
       <properties>
         <main.class>com.bonet.threaddungeons.MainApp</main.class>
       </properties>
       <build>
         <finalName>ThreadDungeons-Client</finalName>
+        <resources>
+          <resource>
+            <directory>src/main/resources</directory>
+          </resource>
+        </resources>
       </build>
     </profile>
     <profile>

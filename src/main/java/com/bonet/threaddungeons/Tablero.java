@@ -5,8 +5,8 @@ public class Tablero {
     private Jugador jugador;
     private boolean partidaAcabada;
 
-    public Tablero(String username, int clientID) {
-        this.etapas = new Etapa[5];
+    public Tablero(String username) {
+        this.etapas = new Etapa[10];
         this.jugador = new Jugador(username, 100, 100, 0, 1.0f, 10.0f, 0, 0);
         this.partidaAcabada = false;
 
@@ -65,7 +65,7 @@ public class Tablero {
                 break;
             case BOSS:
                 jugador.setDmg(jugador.getDmg() + casilla.getReward());
-                jugador.setVelocidad(jugador.getVelocidad() + casilla.getReward());
+                jugador.setVelocidad(jugador.getVelocidad() + casilla.getReward1());
                 break;
         }
     }

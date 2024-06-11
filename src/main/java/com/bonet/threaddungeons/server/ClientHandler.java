@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.net.SocketException;
 
 public class ClientHandler implements Runnable {
-    private static Logger logger;
+    private static final Logger logger = LoggerUtility.getLogger();;
     private Socket clientSocket;
     private DataInputStream input;
     private DataOutputStream output;
@@ -26,11 +26,10 @@ public class ClientHandler implements Runnable {
         this.clientSocket = clientSocket;
         this.userId = userId;
         this.user = DatabaseManager.getUserById(userId);
-        logger = LoggerUtility.getLogger(ClientHandler.class, "usuario" + userId);
 
         this.tablero = DatabaseManager.getTableroByUserId(userId);
         if (this.tablero == null || this.tablero.isPartidaAcabada()) {
-            this.tablero = new Tablero(user.getLogin(), userId);
+            this.tablero = new Tablero(user.getLogin());
             DatabaseManager.saveTablero(userId, this.tablero);
         }
     }

@@ -18,6 +18,7 @@ public class Casilla {
     protected float damage;
     protected float speed;
     private int reward;
+    private int reward1;
     private String rewardIconUrl;
     private String rewardIconUrl1;
     private String rewardText;
@@ -72,10 +73,11 @@ public class Casilla {
                 this.maxHealth = this.health;
                 this.speed = Math.round(10 * dificultMultiplier);
                 this.reward = (int) (5 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
+                this.reward1 = (int) (2 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
                 this.rewardIconUrl = "sword.png";
                 this.rewardIconUrl1 = "lightning.png";
                 this.rewardText = "+" + this.reward + " daño";
-                this.rewardText1 = "+" + Math.round((float) this.reward/2) + " velocidad";
+                this.rewardText1 = "+" + this.reward1 + " velocidad";
                 break;
         }
     }
@@ -95,6 +97,7 @@ public class Casilla {
     public void setHealth(float health) { this.health = health; }
 
     public int getReward() { return reward; }
+    public int getReward1() { return reward1; }
 
     public float getMaxHealth() { return maxHealth; }
 
