@@ -1,5 +1,7 @@
 package com.bonet.threaddungeons;
 
+import java.util.Random;
+
 public class Tablero {
     private final Etapa[] etapas;
     private Jugador jugador;
@@ -36,7 +38,14 @@ public class Tablero {
     }
 
     public void saltar() {
-        avanzar();
+        Random rdn = new Random();
+        var num = rdn.nextFloat(0f,1f);
+        if (num < 0.75f) {
+            avanzar();
+        } else {
+            Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
+            iniciarCombate(casillaActual);
+        }
     }
 
     public void atacar() {

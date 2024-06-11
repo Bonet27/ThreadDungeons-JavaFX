@@ -18,7 +18,7 @@ public class ServidorTCP {
     private static final int Puerto = 2000;
     private static AtomicBoolean running = new AtomicBoolean(true);
     private static ExecutorService threadPool = Executors.newCachedThreadPool();
-    private static final Logger logger = LoggerUtility.getLogger();
+    private static final Logger logger = LoggerUtility.getLogger(ServidorTCP.class, "server");
 
     public static void main(String[] args) {
         DatabaseManager.initializeDatabase(); // Inicializar la base de datos
@@ -26,6 +26,7 @@ public class ServidorTCP {
         try (ServerSocket serverSocket = new ServerSocket(Puerto)) {
             logger.info("Servidor iniciado en el puerto " + Puerto);
 
+            // Manejar el cierre del servidor
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 running.set(false);
                 try {
@@ -34,10 +35,10 @@ public class ServidorTCP {
                     logger.info("Servidor cerrado");
                 } catch (IOException e) {
                     logger.error("Error al cerrar el servidor: " + e.getMessage());
-                    System.out.println(e.getMessage());
                 }
             }));
 
+            // Esperar conexiones de clientes
             while (running.get()) {
                 try {
                     Socket clientSocket = serverSocket.accept();
@@ -58,7 +59,7 @@ public class ServidorTCP {
 
                     if (authenticated && usuario != null) {
                         logger.info("Usuario autenticado: " + usuario.getLogin());
-                        threadPool.submit(new ClientHandler(clientSocket, usuario.getId()));
+                        threadPool.submit(new ClientHandler(clientSocket, usuario.getId(), usuario.getLogin()));
                     } else {
                         logger.info("Autenticación fallida para el cliente: " + clientSocket.getInetAddress().getHostAddress());
                         clientSocket.close();
@@ -66,7 +67,6 @@ public class ServidorTCP {
                 } catch (IOException e) {
                     if (running.get()) {
                         logger.error("Error en el servidor: " + e.getMessage());
-                        System.out.println(e.getMessage());
                     }
                 }
             }

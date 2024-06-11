@@ -212,9 +212,8 @@ public class MainController {
             }
         }
 
-        actualizarBotines();
+        actualizarBotinActual();
     }
-
 
     private void openActualTitledPane(int casillaActual) {
         for (int i = 0; i < niveles.length; i++) {
@@ -230,58 +229,57 @@ public class MainController {
         }
     }
 
-    private void actualizarBotines() {
-        Casilla[] casillas = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas();
-        for (int i = 0; i < casillas.length; i++) {
-            Casilla casilla = casillas[i];
-            switch (i) {
-                case 0:
-                    if (casilla.getRewardIconUrl() != null) {
-                        botin1Image.setImage(new Image(casilla.getRewardIconUrl()));
-                    }
-                    if (casilla.getRewardText() != null) {
-                        botin1Label.setText(casilla.getRewardText());
-                    }
-                    break;
-                case 1:
-                    if (casilla.getRewardIconUrl() != null) {
-                        botin2Image.setImage(new Image(casilla.getRewardIconUrl()));
-                    }
-                    if (casilla.getRewardText() != null) {
-                        botin2Label.setText(casilla.getRewardText());
-                    }
-                    break;
-                case 2:
-                    if (casilla.getRewardIconUrl() != null) {
-                        botin3Image.setImage(new Image(casilla.getRewardIconUrl()));
-                    }
-                    if (casilla.getRewardText() != null) {
-                        botin3Label.setText(casilla.getRewardText());
-                    }
-                    break;
-                case 3:
-                    if (casilla.getRewardIconUrl() != null) {
-                        botin4Image.setImage(new Image(casilla.getRewardIconUrl()));
-                    }
-                    if (casilla.getRewardText() != null) {
-                        botin4Label.setText(casilla.getRewardText());
-                    }
-                    break;
-                case 4:
-                    if (casilla.getRewardIconUrl() != null) {
-                        botin5Image1.setImage(new Image(casilla.getRewardIconUrl()));
-                    }
-                    if (casilla.getRewardIconUrl1() != null) {
-                        botin5Image2.setImage(new Image(casilla.getRewardIconUrl1()));
-                    }
-                    if (casilla.getRewardText() != null) {
-                        botin5Label1.setText(casilla.getRewardText());
-                    }
-                    if (casilla.getRewardText1() != null) {
-                        botin5Label2.setText(casilla.getRewardText1());
-                    }
-                    break;
-            }
+    private void actualizarBotinActual() {
+        int casillaActual = tablero.getJugador().getCasillaActual();
+        Casilla casilla = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[casillaActual];
+
+        switch (casillaActual) {
+            case 0:
+                if (casilla.getRewardIconUrl() != null) {
+                    botin1Image.setImage(new Image(casilla.getRewardIconUrl()));
+                }
+                if (casilla.getRewardText() != null) {
+                    botin1Label.setText(casilla.getRewardText());
+                }
+                break;
+            case 1:
+                if (casilla.getRewardIconUrl() != null) {
+                    botin2Image.setImage(new Image(casilla.getRewardIconUrl()));
+                }
+                if (casilla.getRewardText() != null) {
+                    botin2Label.setText(casilla.getRewardText());
+                }
+                break;
+            case 2:
+                if (casilla.getRewardIconUrl() != null) {
+                    botin3Image.setImage(new Image(casilla.getRewardIconUrl()));
+                }
+                if (casilla.getRewardText() != null) {
+                    botin3Label.setText(casilla.getRewardText());
+                }
+                break;
+            case 3:
+                if (casilla.getRewardIconUrl() != null) {
+                    botin4Image.setImage(new Image(casilla.getRewardIconUrl()));
+                }
+                if (casilla.getRewardText() != null) {
+                    botin4Label.setText(casilla.getRewardText());
+                }
+                break;
+            case 4:
+                if (casilla.getRewardIconUrl() != null) {
+                    botin5Image1.setImage(new Image(casilla.getRewardIconUrl()));
+                }
+                if (casilla.getRewardIconUrl1() != null) {
+                    botin5Image2.setImage(new Image(casilla.getRewardIconUrl1()));
+                }
+                if (casilla.getRewardText() != null) {
+                    botin5Label1.setText(casilla.getRewardText());
+                }
+                if (casilla.getRewardText1() != null) {
+                    botin5Label2.setText(casilla.getRewardText1());
+                }
+                break;
         }
     }
 
@@ -366,6 +364,7 @@ public class MainController {
 
     private void avanzarCasilla() {
         enviarMensajeAlServidor("2");
+        actualizarBotinActual();
     }
 
     private void iniciarAtaque() {

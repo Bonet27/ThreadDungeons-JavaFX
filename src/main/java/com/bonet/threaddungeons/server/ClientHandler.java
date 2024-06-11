@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.net.SocketException;
 
 public class ClientHandler implements Runnable {
-    private static final Logger logger = LoggerUtility.getLogger();;
+    private static Logger logger;
     private Socket clientSocket;
     private DataInputStream input;
     private DataOutputStream output;
@@ -22,10 +22,13 @@ public class ClientHandler implements Runnable {
     private int userId;
     private Usuario user;
 
-    public ClientHandler(Socket clientSocket, int userId) {
+    public ClientHandler(Socket clientSocket, int userId, String userLogin) {
         this.clientSocket = clientSocket;
         this.userId = userId;
         this.user = DatabaseManager.getUserById(userId);
+
+        // Utiliza el nombre de usuario y el ID del usuario para el logger
+        logger = LoggerUtility.getLogger(ClientHandler.class, userLogin + "_" + userId);
 
         this.tablero = DatabaseManager.getTableroByUserId(userId);
         if (this.tablero == null || this.tablero.isPartidaAcabada()) {
@@ -47,27 +50,22 @@ public class ClientHandler implements Runnable {
                     if (input.available() > 0) {
                         String mensaje = input.readUTF();
                         logger.info("Mensaje recibido del cliente: " + mensaje);
-                        System.out.println(mensaje);
                         procesarMensaje(mensaje);
                         enviarEstadoJuego();
                     }
                 } catch (SocketException e) {
-                    logger.warn("Client connection reset: " + e.getMessage());
-                    System.out.println(e.getMessage());
+                    logger.warn("Conexión con el cliente reiniciada: " + e.getMessage());
                     break;
                 } catch (EOFException e) {
                     logger.info("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
-                    System.out.println(e.getMessage());
                     break;
                 } catch (IOException e) {
                     logger.error("Error en la comunicación con el cliente: " + e.getMessage());
-                    System.out.println(e.getMessage());
                     break;
                 }
             }
         } catch (IOException e) {
-            logger.error("Error setting up client handler: " + e.getMessage());
-            System.out.println(e.getMessage());
+            logger.error("Error al configurar el manejador de clientes: " + e.getMessage());
         } finally {
             logger.info("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
             DatabaseManager.saveScore(user, tablero); // Guardar la puntuación del jugador al desconectarse
@@ -128,8 +126,7 @@ public class ClientHandler implements Runnable {
                 clientSocket.close();
             }
         } catch (IOException e) {
-            logger.error("Error closing resources: " + e.getMessage());
-            System.out.println(e.getMessage());
+            logger.error("Error al cerrar recursos: " + e.getMessage());
         }
     }
 }
