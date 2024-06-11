@@ -6,12 +6,12 @@ public class Tablero {
     private boolean partidaAcabada;
 
     public Tablero(String username, int clientID) {
-        this.etapas = new Etapa[2];
+        this.etapas = new Etapa[5];
         this.jugador = new Jugador(username, 100, 100, 0, 1.0f, 10.0f, 0, 0);
         this.partidaAcabada = false;
 
         for (int i = 0; i < etapas.length; i++) {
-            etapas[i] = new Etapa(i, i+1);
+            etapas[i] = new Etapa(i, i + 1);
         }
     }
 
@@ -44,9 +44,29 @@ public class Tablero {
         if (casillaActual.isAlive()) {
             casillaActual.takeDamage(jugador.getDmg());
             if (casillaActual.getHealth() <= 0) {
-                jugador.setOro(jugador.getOro() + casillaActual.getReward());
+                aplicarRecompensa(casillaActual);
                 avanzar();
             }
+        }
+    }
+
+    private void aplicarRecompensa(Casilla casilla) {
+        switch (casilla.getMode()) {
+            case NORMAL:
+            case REWARD:
+                jugador.setOro(jugador.getOro() + casilla.getReward());
+                break;
+            case RANDOM:
+                if (casilla.getRewardText().contains("salud")) {
+                    jugador.setSalud(Math.min(jugador.getSaludMaxima(), jugador.getSalud() + casilla.getReward()));
+                } else if (casilla.getRewardText().contains("daño")) {
+                    jugador.setDmg(jugador.getDmg() + casilla.getReward());
+                }
+                break;
+            case BOSS:
+                jugador.setDmg(jugador.getDmg() + casilla.getReward());
+                jugador.setVelocidad(jugador.getVelocidad() + casilla.getReward());
+                break;
         }
     }
 

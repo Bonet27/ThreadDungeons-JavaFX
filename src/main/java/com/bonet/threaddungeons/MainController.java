@@ -98,7 +98,12 @@ public class MainController {
             try {
                 OutputStream out = sCliente.getOutputStream();
                 DataOutputStream flujo_salida = new DataOutputStream(out);
-                flujo_salida.writeUTF(mensaje);
+                if (mensaje.equals("actualizarJugador")) {
+                    String jugadorJson = gson.toJson(tablero.getJugador());
+                    flujo_salida.writeUTF(jugadorJson);
+                } else {
+                    flujo_salida.writeUTF(mensaje);
+                }
                 flujo_salida.flush();
                 System.out.println("Mensaje enviado al servidor: " + mensaje);
             } catch (IOException e) {
@@ -120,8 +125,9 @@ public class MainController {
                     System.out.println("Datos recibidos del servidor: " + datosServidor);
                     Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
                     if (newTablero != null) {
-                        Platform.runLater(() -> actualizarInterfaz(newTablero));
-                        Platform.runLater(this::actualizarBotines);
+                        Platform.runLater(() -> {
+                            actualizarInterfaz(newTablero);
+                        });
                     }
                 } catch (EOFException e) {
                     System.out.println("Cliente desconectado del servidor");
@@ -174,14 +180,16 @@ public class MainController {
 
         System.out.println("Interfaz actualizada con nuevo tablero: " + gson.toJson(tablero));
 
-        sliderHealth.setProgress(tablero.getJugador().getSalud() / tablero.getJugador().getSaludMaxima());
-        playerName.setText(tablero.getJugador().getNombre());
-        attackValue.setText(String.valueOf(tablero.getJugador().getDmg()));
-        speedValue.setText(String.valueOf(tablero.getJugador().getVelocidad()));
-        goldText.setText(String.valueOf(tablero.getJugador().getOro()));
+        Jugador jugador = tablero.getJugador();
+        sliderHealth.setProgress(jugador.getSalud() / jugador.getSaludMaxima());
+        playerName.setText(jugador.getNombre());
+        attackValue.setText(String.valueOf(jugador.getDmg()));
+        speedValue.setText(String.valueOf(jugador.getVelocidad()));
+        goldText.setText(String.valueOf(jugador.getOro()));
 
         enemyImages[numCasillaActual].setImage(new Image(casillaActual.getIcon()));
 
+        textEtapa.setText("ETAPA " + jugador.getEtapaActual() + "DE" + tablero.getEtapas().length);
         for (int i = 0; i < casillas.length; i++) {
             niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
         }
@@ -191,7 +199,7 @@ public class MainController {
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
-        if (!tablero.getJugador().isAlive() && !jugadorMuerto) {
+        if (!jugador.isAlive() && !jugadorMuerto) {
             jugadorMuerto = true;
             detenerCombate();
             gameOver();
@@ -203,13 +211,13 @@ public class MainController {
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
             detenerCombate();
             if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
-                aplicarRecompensa(casillaActual);
                 avanzarCasilla();
             }
         }
 
-        //actualizarBotines();
+        actualizarBotines();
     }
+
 
     private void openActualTitledPane(int casillaActual) {
         for (int i = 0; i < niveles.length; i++) {
@@ -280,31 +288,10 @@ public class MainController {
         }
     }
 
-    private void aplicarRecompensa(Casilla casilla) {
-        Jugador jugador = tablero.getJugador();
-        switch (casilla.getMode()) {
-            case NORMAL:
-            case REWARD:
-                jugador.setOro(jugador.getOro() + casilla.getReward());
-                break;
-            case RANDOM:
-                if (casilla.getRewardText().contains("salud")) {
-                    jugador.setSalud(Math.min(jugador.getSaludMaxima(), jugador.getSalud() + casilla.getReward()));
-                } else if (casilla.getRewardText().contains("daño")) {
-                    jugador.setDmg(jugador.getDmg() + casilla.getReward());
-                }
-                break;
-            case BOSS:
-                jugador.setDmg(jugador.getDmg() + casilla.getReward());
-                jugador.setVelocidad(jugador.getVelocidad() + casilla.getReward());
-                break;
-        }
-    }
-
     private void generarCirculo() {
         final Random random = new Random();
-        final int baseDelay = 2000;
-        final int baseLifetime = 1950;
+        final int baseDelay = 1500;
+        final int baseLifetime = 1450;
 
         Casilla casillaActualizada = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
         float speedMultiplier = 1.0f - (tablero.getJugador().getVelocidad() / 100.0f);
@@ -340,9 +327,7 @@ public class MainController {
                     circle.setManaged(false);
 
                     circle.setOnMouseClicked(event -> {
-                        System.out.println("Círculo clicado. Preparando para enviar mensaje de ataque.");
                         enviarMensajeAlServidor("4");
-                        System.out.println("Mensaje de ataque enviado al servidor");
                         currentPane.getChildren().remove(circle);
                         actualizarInterfaz(tablero);
                         generarCirculo();
@@ -356,9 +341,7 @@ public class MainController {
                         public void run() {
                             Platform.runLater(() -> {
                                 if (currentPane.getChildren().contains(circle)) {
-                                    System.out.println("Círculo NO clicado. Dañando al jugador.");
                                     enviarMensajeAlServidor("5");
-                                    System.out.println("Mensaje DAMAGE_RECEIVED enviado al servidor");
                                     currentPane.getChildren().remove(circle);
                                     actualizarInterfaz(tablero);
                                     generarCirculo();

@@ -12,11 +12,11 @@ public class Etapa {
         this.numeroEtapa = numeroEtapa;
 
         // Ajuste del constructor de Casilla para incluir la etapa y el índice de la casilla
-        casillas[0] = new Casilla(Casilla.Mode.NORMAL, dificultMultiplier, numeroEtapa, 0);
-        casillas[4] = new Casilla(Casilla.Mode.BOSS, dificultMultiplier, numeroEtapa, 4);
+        casillas[0] = new Casilla(Casilla.Mode.NORMAL, numeroEtapa, 0);
+        casillas[4] = new Casilla(Casilla.Mode.BOSS, numeroEtapa, 4);
 
         for (int i = 1; i < 4; i++) {
-            casillas[i] = new Casilla(Casilla.Mode.values()[new Random().nextInt(3)], dificultMultiplier, numeroEtapa, i);
+            casillas[i] = new Casilla(Casilla.Mode.values()[new Random().nextInt(3)], numeroEtapa, i);
         }
     }
 

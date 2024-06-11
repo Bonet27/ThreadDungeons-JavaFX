@@ -5,15 +5,18 @@ import java.util.Random;
 public class Casilla {
     protected String icon;
     protected boolean isAlive = true;
+    public float getDificultMultiplier() {
+        return dificultMultiplier;
+    }
     protected enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
     protected Estado estado = Estado.SIN_ATACAR;
     protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
     protected Mode mode = Mode.NORMAL;
-    protected float health = 50f;
-    protected float maxHealth = 50f;
-    protected float dificultMultiplier = 1f;
-    protected float damage = 10f;
-    protected float speed = 12f;
+    protected float health;
+    protected float maxHealth;
+    protected float dificultMultiplier;
+    protected float damage;
+    protected float speed;
     private int reward;
     private String rewardIconUrl;
     private String rewardIconUrl1;
@@ -22,59 +25,57 @@ public class Casilla {
 
     public Casilla() {}
 
-    public Casilla(Mode mode, float dificultMultiplier, int etapa, int casilla) {
+    public Casilla(Mode mode, int etapa, int casilla) {
         this.mode = mode;
-        float rewardMultiplier = 1 + (etapa * 0.05f) + (casilla * 0.01f); // Incremento progresivo
+        this.dificultMultiplier = 1 + (etapa * 0.05f) + (casilla * 0.01f); // Incremento progresivo
         switch (this.mode) {
             case NORMAL:
-                dificultMultiplier = 1;
                 this.icon = "enemy1.png";
-                this.damage *= dificultMultiplier;
-                this.speed *= dificultMultiplier;
-                this.reward = (int) (30 * rewardMultiplier);
+                this.damage = 10 * dificultMultiplier;
+                this.health = 50 * dificultMultiplier;
+                this.maxHealth = this.health;
+                this.speed = Math.round(12 * dificultMultiplier);
+                this.reward = (int) (30 * dificultMultiplier);
                 this.rewardIconUrl = "gold.png";
                 this.rewardText = "+" + this.reward + " oro";
                 break;
             case REWARD:
-                dificultMultiplier = 1.25f;
                 this.icon = "enemy2.png";
-                this.damage *= dificultMultiplier;
-                this.health = health * dificultMultiplier;
+                this.damage = 10 * dificultMultiplier;
+                this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed *= dificultMultiplier;
-                this.reward = (int) ((new Random().nextInt(31) + 30) * rewardMultiplier); // 30 to 60
+                this.speed = Math.round(12 * dificultMultiplier);
+                this.reward = (int) ((new Random().nextInt(31) + 30) * dificultMultiplier); // 30 to 60
                 this.rewardIconUrl = "chest.png";
                 this.rewardText = "+" + this.reward + " oro";
                 break;
             case RANDOM:
-                dificultMultiplier = 1.1f;
                 this.icon = "enemy3.png";
-                this.damage *= dificultMultiplier;
-                this.health = health * dificultMultiplier;
+                this.damage = 10 * dificultMultiplier;
+                this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed *= dificultMultiplier;
+                this.speed = Math.round(12 * dificultMultiplier);
                 if (new Random().nextBoolean()) {
-                    this.reward = (int) (10 * rewardMultiplier);
+                    this.reward = (int) (10 * dificultMultiplier);
                     this.rewardIconUrl = "heart.png";
                     this.rewardText = "+" + this.reward + " salud";
                 } else {
-                    this.reward = (int) (3 * rewardMultiplier);
+                    this.reward = (int) (3 * dificultMultiplier);
                     this.rewardIconUrl = "sword.png";
                     this.rewardText = "+" + this.reward + " daño";
                 }
                 break;
             case BOSS:
-                dificultMultiplier = 1.5f;
                 this.icon = "boss.png";
-                this.damage *= dificultMultiplier;
-                this.health = health * dificultMultiplier;
+                this.damage = Math.round(15 * dificultMultiplier);
+                this.health = Math.round(100 * dificultMultiplier);
                 this.maxHealth = this.health;
-                this.speed *= dificultMultiplier;
-                this.reward = (int) (5 * rewardMultiplier);
+                this.speed = Math.round(10 * dificultMultiplier);
+                this.reward = (int) (5 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
                 this.rewardIconUrl = "sword.png";
                 this.rewardIconUrl1 = "lightning.png";
                 this.rewardText = "+" + this.reward + " daño";
-                this.rewardText1 = "+" + this.reward + " velocidad";
+                this.rewardText1 = "+" + Math.round((float) this.reward/2) + " velocidad";
                 break;
         }
     }

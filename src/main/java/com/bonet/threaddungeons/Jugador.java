@@ -25,9 +25,7 @@ public class Jugador {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public float getSalud() {
-        return salud;
-    }
+    public float getSalud() { return Math.round(salud); }
     public void setSalud(float salud) {
         this.salud = salud;
     }
@@ -41,13 +39,13 @@ public class Jugador {
         return velocidad;
     }
     public void setVelocidad(float velocidad) {
-        this.velocidad = velocidad;
+        this.velocidad = Math.round(velocidad);
     }
     public float getDmg() {
         return dmg;
     }
     public void setDmg(float dmg) {
-        this.dmg = dmg;
+        this.dmg = Math.round(dmg);
     }
     public int getEtapaActual() {
         return etapaActual;
