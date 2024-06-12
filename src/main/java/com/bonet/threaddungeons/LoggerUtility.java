@@ -14,12 +14,12 @@ public class LoggerUtility {
             try {
                 // Configuración para el log en formato HTML
                 HTMLLayout htmlLayout = new HTMLLayout();
-                FileAppender htmlFileAppender = new FileAppender(htmlLayout, ".saves/" + usernameAndId + "/" + clazz.getSimpleName() + ".html", true);
+                FileAppender htmlFileAppender = new FileAppender(htmlLayout, ".logs/" + usernameAndId + "/" + clazz.getSimpleName() + ".html", true);
                 logger.addAppender(htmlFileAppender);
 
                 // Configuración para el log en formato de texto
                 PatternLayout textLayout = new PatternLayout("%d [%t] %-5p %c - %m%n");
-                FileAppender textFileAppender = new FileAppender(textLayout, ".saves/" + usernameAndId + "/" + clazz.getSimpleName() + ".log", true);
+                FileAppender textFileAppender = new FileAppender(textLayout, ".logs/" + usernameAndId + "/" + clazz.getSimpleName() + ".log", true);
                 logger.addAppender(textFileAppender);
             } catch (IOException e) {
                 logger.error("Failed to add appender to logger", e);
@@ -33,7 +33,7 @@ public class LoggerUtility {
         if (!logger.getAllAppenders().hasMoreElements()) {
             try {
                 HTMLLayout layout = new HTMLLayout();
-                FileAppender fileAppender = new FileAppender(layout, ".saves/server.html", true);
+                FileAppender fileAppender = new FileAppender(layout, ".logs/server.html", true);
                 logger.addAppender(fileAppender);
             } catch (IOException e) {
                 logger.error("Failed to add appender to logger", e);

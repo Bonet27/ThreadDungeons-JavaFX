@@ -42,7 +42,7 @@ public class Casilla {
                 break;
             case REWARD:
                 this.icon = "enemy2.png";
-                this.damage = 10 * dificultMultiplier;
+                this.damage = 15 * dificultMultiplier;
                 this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed = Math.round(12 * dificultMultiplier);
@@ -52,8 +52,8 @@ public class Casilla {
                 break;
             case RANDOM:
                 this.icon = "enemy3.png";
-                this.damage = 10 * dificultMultiplier;
-                this.health = 50 * dificultMultiplier;
+                this.damage = 15 * dificultMultiplier;
+                this.health = 75 * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed = Math.round(12 * dificultMultiplier);
                 if (new Random().nextBoolean()) {
@@ -68,8 +68,8 @@ public class Casilla {
                 break;
             case BOSS:
                 this.icon = "boss.png";
-                this.damage = Math.round(15 * dificultMultiplier);
-                this.health = Math.round(100 * dificultMultiplier);
+                this.damage = 20 * dificultMultiplier;
+                this.health = 100 * dificultMultiplier;
                 this.maxHealth = this.health;
                 this.speed = Math.round(10 * dificultMultiplier);
                 this.reward = (int) (5 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
