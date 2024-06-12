@@ -24,20 +24,17 @@ public class LoginController {
     private Text errorMsg;
     private MainApp mainApp;
     private Socket socket;
-    private boolean authenticated;
-    private String serverIp;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 
     public void setServerIp(String serverIp) {
-        this.serverIp = serverIp;
+        mainApp.setServerIp(serverIp);
     }
 
     @FXML
     private void initialize() {
-        authenticated = false;
         btn_login.setOnAction(event -> handleLoginButtonAction());
         btn_register.setOnAction(event -> handleRegisterButtonAction());
     }
@@ -53,10 +50,11 @@ public class LoginController {
         }
 
         try {
-            socket = new Socket(serverIp, 2000);
+            socket = new Socket(mainApp.getServerIp(), 2000);
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
+            output.writeUTF("login");
             output.writeUTF(login);
             output.writeUTF(password);
             output.flush();

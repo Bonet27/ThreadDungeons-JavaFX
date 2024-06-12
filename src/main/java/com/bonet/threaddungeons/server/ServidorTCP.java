@@ -2,11 +2,8 @@ package com.bonet.threaddungeons.server;
 
 import com.bonet.threaddungeons.DatabaseManager;
 import com.bonet.threaddungeons.LoggerUtility;
-import com.bonet.threaddungeons.Usuario;
 import org.apache.log4j.Logger;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -43,27 +40,7 @@ public class ServidorTCP {
                 try {
                     Socket clientSocket = serverSocket.accept();
                     logger.info("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
-
-                    DataInputStream input = new DataInputStream(clientSocket.getInputStream());
-                    DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
-
-                    // Autenticación del usuario
-                    String login = input.readUTF();
-                    String password = input.readUTF();
-
-                    boolean authenticated = DatabaseManager.authenticateUser(login, password);
-                    Usuario usuario = DatabaseManager.getUserByLogin(login);
-
-                    output.writeBoolean(authenticated);
-                    output.flush();
-
-                    if (authenticated && usuario != null) {
-                        logger.info("Usuario autenticado: " + usuario.getLogin());
-                        threadPool.submit(new ClientHandler(clientSocket, usuario.getId(), usuario.getLogin()));
-                    } else {
-                        logger.info("Autenticación fallida para el cliente: " + clientSocket.getInetAddress().getHostAddress());
-                        clientSocket.close();
-                    }
+                    threadPool.submit(new ClientHandler(clientSocket));
                 } catch (IOException e) {
                     if (running.get()) {
                         logger.error("Error en el servidor: " + e.getMessage());

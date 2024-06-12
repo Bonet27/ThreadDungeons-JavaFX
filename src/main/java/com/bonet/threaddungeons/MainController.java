@@ -90,7 +90,7 @@ public class MainController {
 
         btn_attack.setOnAction(event -> iniciarAtaque());
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
-        btn_menu.setOnAction(event -> gameOver());
+        btn_menu.setOnAction(event -> salir());
     }
 
     private void enviarMensajeAlServidor(String mensaje) {
@@ -149,26 +149,22 @@ public class MainController {
         }
     }
 
-    private void gameOver() {
-        enviarMensajeAlServidor("3"); // Marcar partida como terminada
-        detenerCombate();
-        cerrarConexion();
-        Platform.runLater(() -> mainApp.openGameOverView());
+    private void salir() {
+        if (!jugadorMuerto) {
+            jugadorMuerto = true;
+            enviarMensajeAlServidor("3"); // Marcar partida como terminada
+            detenerCombate();
+            Platform.runLater(() -> mainApp.openGameOverView(sCliente)); // Pasar el socket
+        }
     }
 
     private void cerrarConexionYVolverAlLogin() {
-        cerrarConexion();
-        Platform.runLater(() -> mainApp.openLoginView());
-    }
-
-    private void cerrarConexion() {
-        try {
-            if (sCliente != null && !sCliente.isClosed()) {
-                sCliente.close();
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        enviarMensajeAlServidor("3"); // Marcar partida como terminada
+        detenerCombate();
+        Platform.runLater(() -> {
+            mainApp.openGameOverView(sCliente);
+            mainApp.openLoginView();
+        });
     }
 
     public void actualizarInterfaz(Tablero newTablero) {
@@ -202,7 +198,7 @@ public class MainController {
         if ((!jugador.isAlive() && !jugadorMuerto) || tablero.isPartidaAcabada()) {
             jugadorMuerto = true;
             detenerCombate();
-            gameOver();
+            salir();
         }
 
         if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
@@ -212,7 +208,7 @@ public class MainController {
             }
         }
 
-        actualizarBotinActual();
+        actualizarBotines(numCasillaActual);
     }
 
     private void openActualTitledPane(int casillaActual) {
@@ -229,10 +225,8 @@ public class MainController {
         }
     }
 
-    private void actualizarBotinActual() {
-        int casillaActual = tablero.getJugador().getCasillaActual();
+    private void actualizarBotines(int casillaActual) {
         Casilla casilla = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[casillaActual];
-
         switch (casillaActual) {
             case 0:
                 if (casilla.getRewardIconUrl() != null) {
@@ -364,7 +358,6 @@ public class MainController {
 
     private void avanzarCasilla() {
         enviarMensajeAlServidor("2");
-        actualizarBotinActual();
     }
 
     private void iniciarAtaque() {

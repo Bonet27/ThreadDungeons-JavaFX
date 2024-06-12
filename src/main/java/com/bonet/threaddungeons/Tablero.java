@@ -8,7 +8,7 @@ public class Tablero {
     private boolean partidaAcabada;
 
     public Tablero(String username) {
-        this.etapas = new Etapa[10];
+        this.etapas = new Etapa[2];
         this.jugador = new Jugador(username, 100, 100, 0, 1.0f, 10.0f, 0, 0);
         this.partidaAcabada = false;
 

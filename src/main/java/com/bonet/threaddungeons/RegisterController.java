@@ -6,6 +6,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
 public class RegisterController {
     @FXML
     private Button btn_createAcc;
@@ -20,9 +25,14 @@ public class RegisterController {
     @FXML
     private TextField inputUsuario;
     private MainApp mainApp;
+    private Socket socket;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
     }
 
     @FXML
@@ -43,15 +53,28 @@ public class RegisterController {
         }
 
         try {
-            if (DatabaseManager.registerUser(username, password, email)) {
+            socket = new Socket(mainApp.getServerIp(), 2000);
+            DataOutputStream output = new DataOutputStream(socket.getOutputStream());
+            DataInputStream input = new DataInputStream(socket.getInputStream());
+
+            output.writeUTF("register");
+            output.writeUTF(username);
+            output.writeUTF(password);
+            output.writeUTF(email);
+            output.flush();
+
+            boolean registered = input.readBoolean();
+
+            if (registered) {
                 errorMsg.setText("Usuario registrado con éxito.");
                 errorMsg.setVisible(true);
             } else {
                 errorMsg.setText("Error al registrar el usuario. Inténtelo de nuevo.");
                 errorMsg.setVisible(true);
             }
-        } catch (Exception e) {
-            errorMsg.setText("Ocurrió un error inesperado. Inténtelo de nuevo.");
+            socket.close();
+        } catch (IOException e) {
+            errorMsg.setText("Error al conectar con el servidor.");
             errorMsg.setVisible(true);
         }
     }

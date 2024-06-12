@@ -62,7 +62,7 @@
       <build>
         <resources>
           <resource>
-            <directory>D:\ThreadDungeons-JavaFX\ThreadDungeons-JavaFX\src\main\resources</directory>
+            <directory>src/main/resources</directory>
           </resource>
         </resources>
         <finalName>ThreadDungeons-Client</finalName>
@@ -71,14 +71,12 @@
         <dependency>
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-controls</artifactId>
-          <version>17.0.6</version>
-          <scope>compile</scope>
+          <version>${javafx.version}</version>
         </dependency>
         <dependency>
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-fxml</artifactId>
-          <version>17.0.6</version>
-          <scope>compile</scope>
+          <version>${javafx.version}</version>
         </dependency>
       </dependencies>
       <properties>

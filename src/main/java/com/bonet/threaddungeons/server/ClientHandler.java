@@ -7,10 +7,9 @@ import org.apache.log4j.Logger;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.SocketException;
+import java.util.List;
 
 public class ClientHandler implements Runnable {
     private static Logger logger;
@@ -22,19 +21,8 @@ public class ClientHandler implements Runnable {
     private int userId;
     private Usuario user;
 
-    public ClientHandler(Socket clientSocket, int userId, String userLogin) {
+    public ClientHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
-        this.userId = userId;
-        this.user = DatabaseManager.getUserById(userId);
-
-        // Utiliza el nombre de usuario y el ID del usuario para el logger
-        logger = LoggerUtility.getLogger(ClientHandler.class, userLogin + "_" + userId);
-
-        this.tablero = DatabaseManager.getTableroByUserId(userId);
-        if (this.tablero == null || this.tablero.isPartidaAcabada()) {
-            this.tablero = new Tablero(user.getLogin());
-            DatabaseManager.saveTablero(userId, this.tablero);
-        }
     }
 
     @Override
@@ -43,33 +31,98 @@ public class ClientHandler implements Runnable {
             input = new DataInputStream(clientSocket.getInputStream());
             output = new DataOutputStream(clientSocket.getOutputStream());
 
-            enviarEstadoJuego();
+            while (true) {
+                String action = input.readUTF();
+                if (action.equals("register")) {
+                    handleRegister();
+                } else if (action.equals("login")) {
+                    handleLogin();
+                } else if (action.equals("topScores")) {
+                    handleTopScores();
+                }
+            }
+        } catch (IOException e) {
+            logger.error("Error en la comunicación con el cliente: " + e.getMessage());
+        } finally {
+            closeResources();
+        }
+    }
 
-            while (!tablero.isPartidaAcabada() && !clientSocket.isClosed()) {
-                try {
+    private void handleTopScores() {
+        try {
+            List<Score> topScores = DatabaseManager.getTopScores(15);
+            String jsonScores = gson.toJson(topScores); // Usar Gson para convertir a JSON
+            synchronized (output) {
+                output.writeUTF(jsonScores);
+                output.flush();
+            }
+        } catch (IOException e) {
+            logger.error("Error al enviar los top scores al cliente: " + e.getMessage());
+        }
+    }
+
+    private void handleRegister() {
+        try {
+            String login = input.readUTF();
+            String password = input.readUTF();
+            String email = input.readUTF();
+
+            boolean registered = DatabaseManager.registerUser(login, password, email);
+            synchronized (output) {
+                output.writeBoolean(registered);
+                output.flush();
+            }
+
+            if (registered) {
+                logger.info("Usuario registrado: " + login);
+            } else {
+                logger.warn("Fallo en el registro del usuario: " + login);
+            }
+        } catch (IOException e) {
+            logger.error("Error en la comunicación con el cliente durante el registro: " + e.getMessage());
+        }
+    }
+
+    private void handleLogin() {
+        try {
+            String login = input.readUTF();
+            String password = input.readUTF();
+
+            boolean authenticated = DatabaseManager.authenticateUser(login, password);
+            user = DatabaseManager.getUserByLogin(login);
+
+            synchronized (output) {
+                output.writeBoolean(authenticated);
+                output.flush();
+            }
+
+            if (authenticated && user != null) {
+                userId = user.getId();
+                logger = LoggerUtility.getLogger(ClientHandler.class, user.getLogin() + "_" + userId);
+
+                tablero = DatabaseManager.getTableroByUserId(userId);
+                if (tablero == null || tablero.isPartidaAcabada()) {
+                    tablero = new Tablero(user.getLogin());
+                    DatabaseManager.saveTablero(userId, tablero);
+                }
+
+                logger.info("Usuario autenticado: " + user.getLogin());
+                enviarEstadoJuego();
+
+                while (!tablero.isPartidaAcabada() && !clientSocket.isClosed()) {
                     if (input.available() > 0) {
                         String mensaje = input.readUTF();
                         logger.info("Mensaje recibido del cliente: " + mensaje);
                         procesarMensaje(mensaje);
                         enviarEstadoJuego();
                     }
-                } catch (SocketException e) {
-                    logger.warn("Conexión con el cliente reiniciada: " + e.getMessage());
-                    break;
-                } catch (EOFException e) {
-                    logger.info("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
-                    break;
-                } catch (IOException e) {
-                    logger.error("Error en la comunicación con el cliente: " + e.getMessage());
-                    break;
                 }
+            } else {
+                logger.info("Autenticación fallida para el cliente: " + clientSocket.getInetAddress().getHostAddress());
+                clientSocket.close();
             }
         } catch (IOException e) {
-            logger.error("Error al configurar el manejador de clientes: " + e.getMessage());
-        } finally {
-            logger.info("Cliente desconectado: " + clientSocket.getInetAddress().getHostAddress());
-            DatabaseManager.saveScore(user, tablero); // Guardar la puntuación del jugador al desconectarse
-            closeResources();
+            logger.error("Error en la comunicación con el cliente durante el login: " + e.getMessage());
         }
     }
 
@@ -86,7 +139,7 @@ public class ClientHandler implements Runnable {
             case "3":
                 tablero.setPartidaAcabada(true);
                 logger.info("Procesando mensaje de acabar la partida");
-                DatabaseManager.saveScore(user, tablero); // Guardar la puntuación cuando termina la partida
+                DatabaseManager.saveScore(user, tablero);
                 break;
             case "4":
                 logger.info("Procesando mensaje de ataque");
@@ -96,6 +149,9 @@ public class ClientHandler implements Runnable {
                 logger.info("Procesando mensaje de daño recibido");
                 Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
                 tablero.getJugador().takeDamage(casillaActual.getDamage());
+                break;
+            case "topScores":
+                enviarTopScores();
                 break;
             default:
                 logger.warn("Mensaje no válido: " + mensaje);
@@ -107,10 +163,26 @@ public class ClientHandler implements Runnable {
     private void enviarEstadoJuego() {
         try {
             String estadoJuego = gson.toJson(tablero);
-            logger.info("Enviando estado del juego al cliente: " + estadoJuego);
-            output.writeUTF(estadoJuego);
+            synchronized (output) {
+                logger.info("Enviando estado del juego al cliente: " + estadoJuego);
+                output.writeUTF(estadoJuego);
+                output.flush();
+            }
         } catch (IOException e) {
             logger.error("Error al enviar el estado del juego al cliente: " + e.getMessage());
+        }
+    }
+
+    private void enviarTopScores() {
+        try {
+            List<Score> topScores = DatabaseManager.getTopScores(15);
+            String jsonScores = gson.toJson(topScores);
+            synchronized (output) {
+                output.writeUTF(jsonScores);
+                output.flush();
+            }
+        } catch (IOException e) {
+            logger.error("Error al enviar los top scores al cliente: " + e.getMessage());
         }
     }
 
@@ -121,9 +193,6 @@ public class ClientHandler implements Runnable {
             }
             if (output != null) {
                 output.close();
-            }
-            if (clientSocket != null) {
-                clientSocket.close();
             }
         } catch (IOException e) {
             logger.error("Error al cerrar recursos: " + e.getMessage());

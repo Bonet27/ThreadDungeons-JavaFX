@@ -12,6 +12,11 @@ import java.net.Socket;
 
 public class MainApp extends Application {
     private static Stage stage;
+
+    public String getServerIp() {
+        return serverIp;
+    }
+
     private String serverIp = "127.0.0.1"; // Default IP
 
     @Override
@@ -88,12 +93,13 @@ public class MainApp extends Application {
         }
     }
 
-    public void openGameOverView() {
+    public void openGameOverView(Socket socket) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOver-view.fxml"));
             Parent root = loader.load();
             GameOverController gameOverController = loader.getController();
             gameOverController.setMainApp(this);
+            gameOverController.setSocket(socket); // Pasar el socket al controlador
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

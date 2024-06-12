@@ -253,7 +253,6 @@ public class DatabaseManager {
         }
     }
 
-
     public static List<Score> getTopScores(int limit) {
         List<Score> scores = new ArrayList<>();
         String sql = "SELECT * FROM scores ORDER BY oro DESC LIMIT ?";
