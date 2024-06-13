@@ -131,19 +131,18 @@ public class Casilla {
         }
     }
 
-    public boolean isSinAtacar() {
-        return estado == Estado.SIN_ATACAR;
-    }
-
-    public void iniciarCombate() {
-        estado = Estado.EN_COMBATE;
-    }
-
     public boolean isEnCombate() {
         return estado == Estado.EN_COMBATE;
     }
 
     public boolean isMuerto() {
         return estado == Estado.MUERTO;
+    }
+    public boolean isSinAtacar() {
+        return estado == Estado.SIN_ATACAR;
+    }
+
+    public void iniciarCombate() {
+        estado = Estado.EN_COMBATE;
     }
 }

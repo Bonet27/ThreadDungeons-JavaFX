@@ -111,14 +111,4 @@ public class Tablero {
         }
         comprobarFinPartida();
     }
-
-    public boolean isCasillaActualSinAtacar() {
-        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
-        return casillaActual.isSinAtacar();
-    }
-
-    public void iniciarCombateCasillaActual() {
-        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
-        casillaActual.iniciarCombate();
-    }
 }

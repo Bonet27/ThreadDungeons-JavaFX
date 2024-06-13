@@ -120,6 +120,11 @@ public class ClientHandler implements Runnable {
                         enviarEstadoJuego();
                     }
                 }
+
+                if (tablero.isPartidaAcabada()) {
+                    DatabaseManager.saveScore(user, tablero); // Guardar puntaje al finalizar la partida
+                    enviarTopScores();
+                }
             } else {
                 logger.info("Autenticación fallida para el cliente: " + clientSocket.getInetAddress().getHostAddress());
                 clientSocket.close();
@@ -164,6 +169,11 @@ public class ClientHandler implements Runnable {
         }
         tablero.comprobarFinPartida();
         DatabaseManager.saveTablero(userId, tablero);
+
+        if (tablero.isPartidaAcabada()) {
+            DatabaseManager.saveScore(user, tablero); // Guardar puntaje al finalizar la partida
+        }
+
         enviarEstadoJuego();
     }
 

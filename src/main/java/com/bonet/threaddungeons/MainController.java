@@ -196,6 +196,7 @@ public class MainController {
         if ((!jugador.isAlive() && !jugadorMuerto) || tablero.isPartidaAcabada()) {
             jugadorMuerto = true;
             detenerCombate();
+            enviarMensajeAlServidor("3"); // Asegurarse de que el servidor sepa que la partida ha terminado
             salir();
         }
 
