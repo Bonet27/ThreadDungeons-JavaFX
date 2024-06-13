@@ -33,6 +33,10 @@ public class LoginController {
         mainApp.setServerIp(serverIp);
     }
 
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
     @FXML
     private void initialize() {
         btn_login.setOnAction(event -> handleLoginButtonAction());
@@ -51,6 +55,8 @@ public class LoginController {
 
         try {
             socket = new Socket(mainApp.getServerIp(), 2000);
+            mainApp.setSocket(socket);
+
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
@@ -59,15 +65,19 @@ public class LoginController {
             output.writeUTF(password);
             output.flush();
 
-            boolean authenticated = input.readBoolean();
+            String responseType = input.readUTF();
+            if ("LOGIN_RESPONSE".equals(responseType)) {
+                boolean authenticated = input.readBoolean();
 
-            if (authenticated) {
-                mainApp.openMainView(socket);
-            } else {
-                errorMsg.setText("Usuario o contraseña incorrectos.");
-                errorMsg.setVisible(true);
-                socket.close();
+                if (authenticated) {
+                    mainApp.openMainView(socket);
+                } else {
+                    errorMsg.setText("Usuario o contraseña incorrectos.");
+                    errorMsg.setVisible(true);
+                    socket.close();
+                }
             }
+
         } catch (IOException e) {
             errorMsg.setText("Error al conectar con el servidor.");
             errorMsg.setVisible(true);

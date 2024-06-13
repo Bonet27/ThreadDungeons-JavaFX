@@ -2,6 +2,7 @@ package com.bonet.threaddungeons;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -66,27 +67,36 @@ public class GameOverController {
     }
 
     private void loadTopScores() {
-        try (DataOutputStream output = new DataOutputStream(sCliente.getOutputStream());
-             DataInputStream input = new DataInputStream(sCliente.getInputStream())) {
+        new Thread(() -> {
+            try (DataOutputStream output = new DataOutputStream(sCliente.getOutputStream());
+                 DataInputStream input = new DataInputStream(sCliente.getInputStream())) {
 
-            // Enviar solicitud de top scores al servidor
-            output.writeUTF("topScores");
-            output.flush();
+                // Enviar solicitud de top scores al servidor
+                synchronized (output) {
+                    output.writeUTF("topScores");
+                    output.flush();
+                }
 
-            // Leer la respuesta del servidor
-            String jsonScores = input.readUTF();
-            List<Score> topScores = new Gson().fromJson(jsonScores, new TypeToken<List<Score>>() {}.getType());
+                // Leer la respuesta del servidor
+                String messageType = input.readUTF();
+                if ("TOP_SCORES".equals(messageType)) {
+                    String jsonScores = input.readUTF();
+                    List<Score> topScores = new Gson().fromJson(jsonScores, new TypeToken<List<Score>>() {}.getType());
 
-            // Actualizar la tabla con los top scores
-            tableViewTop.getItems().setAll(topScores);
+                    // Actualizar la tabla con los top scores
+                    Platform.runLater(() -> tableViewTop.getItems().setAll(topScores));
+                }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            errorMsg.setText("Error al cargar las puntuaciones.");
-            errorMsg.setVisible(true);
-        } finally {
-            closeSocket();
-        }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Platform.runLater(() -> {
+                    errorMsg.setText("Error al cargar las puntuaciones.");
+                    errorMsg.setVisible(true);
+                });
+            } finally {
+                closeSocket();
+            }
+        }).start();
     }
 
     private void closeSocket() {

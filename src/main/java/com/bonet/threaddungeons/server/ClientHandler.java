@@ -53,6 +53,7 @@ public class ClientHandler implements Runnable {
             List<Score> topScores = DatabaseManager.getTopScores(15);
             String jsonScores = gson.toJson(topScores); // Usar Gson para convertir a JSON
             synchronized (output) {
+                output.writeUTF("TOP_SCORES");
                 output.writeUTF(jsonScores);
                 output.flush();
             }
@@ -69,6 +70,7 @@ public class ClientHandler implements Runnable {
 
             boolean registered = DatabaseManager.registerUser(login, password, email);
             synchronized (output) {
+                output.writeUTF("REGISTER_RESPONSE");
                 output.writeBoolean(registered);
                 output.flush();
             }
@@ -92,6 +94,7 @@ public class ClientHandler implements Runnable {
             user = DatabaseManager.getUserByLogin(login);
 
             synchronized (output) {
+                output.writeUTF("LOGIN_RESPONSE");
                 output.writeBoolean(authenticated);
                 output.flush();
             }
@@ -164,7 +167,7 @@ public class ClientHandler implements Runnable {
         try {
             String estadoJuego = gson.toJson(tablero);
             synchronized (output) {
-                logger.info("Enviando estado del juego al cliente: " + estadoJuego);
+                output.writeUTF("GAME_STATE");
                 output.writeUTF(estadoJuego);
                 output.flush();
             }
@@ -178,6 +181,7 @@ public class ClientHandler implements Runnable {
             List<Score> topScores = DatabaseManager.getTopScores(15);
             String jsonScores = gson.toJson(topScores);
             synchronized (output) {
+                output.writeUTF("TOP_SCORES");
                 output.writeUTF(jsonScores);
                 output.flush();
             }

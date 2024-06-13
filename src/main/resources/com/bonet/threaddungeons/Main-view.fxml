@@ -144,7 +144,7 @@
                   </HBox>
                   <ImageView fx:id="playerImage" fitHeight="350.0" fitWidth="350.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" translateX="15.0" VBox.vgrow="ALWAYS">
                      <image>
-                        <Image url="@../../../hero4.png" />
+                        <Image url="@../../../hero.png" />
                      </image>
                      <VBox.margin>
                         <Insets bottom="50.0" />

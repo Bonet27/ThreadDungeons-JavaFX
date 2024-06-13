@@ -22,7 +22,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainController {
-
     @FXML
     private Button btn_attack, btn_skip, btn_menu;
     @FXML
@@ -98,14 +97,11 @@ public class MainController {
             try {
                 OutputStream out = sCliente.getOutputStream();
                 DataOutputStream flujo_salida = new DataOutputStream(out);
-                if (mensaje.equals("actualizarJugador")) {
-                    String jugadorJson = gson.toJson(tablero.getJugador());
-                    flujo_salida.writeUTF(jugadorJson);
-                } else {
+                synchronized (flujo_salida) {
                     flujo_salida.writeUTF(mensaje);
+                    flujo_salida.flush();
+                    System.out.println("Mensaje enviado al servidor: " + mensaje);
                 }
-                flujo_salida.flush();
-                System.out.println("Mensaje enviado al servidor: " + mensaje);
             } catch (IOException e) {
                 System.out.println("Error al enviar mensaje al servidor: " + e.getMessage());
             }
@@ -121,13 +117,16 @@ public class MainController {
 
             while (!sCliente.isClosed()) {
                 try {
-                    String datosServidor = flujo_entrada.readUTF();
-                    System.out.println("Datos recibidos del servidor: " + datosServidor);
-                    Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
-                    if (newTablero != null) {
-                        Platform.runLater(() -> {
-                            actualizarInterfaz(newTablero);
-                        });
+                    String messageType = flujo_entrada.readUTF();
+                    if ("GAME_STATE".equals(messageType)) {
+                        String datosServidor = flujo_entrada.readUTF();
+                        System.out.println("Datos recibidos del servidor: " + datosServidor);
+                        Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
+                        if (newTablero != null) {
+                            Platform.runLater(() -> {
+                                actualizarInterfaz(newTablero);
+                            });
+                        }
                     }
                 } catch (EOFException e) {
                     System.out.println("Cliente desconectado del servidor");
@@ -154,17 +153,20 @@ public class MainController {
             jugadorMuerto = true;
             enviarMensajeAlServidor("3"); // Marcar partida como terminada
             detenerCombate();
-            Platform.runLater(() -> mainApp.openGameOverView(sCliente)); // Pasar el socket
+            Platform.runLater(() -> mainApp.openGameOverView()); // Pasar el socket
         }
     }
 
     private void cerrarConexionYVolverAlLogin() {
-        enviarMensajeAlServidor("3"); // Marcar partida como terminada
-        detenerCombate();
-        Platform.runLater(() -> {
-            mainApp.openGameOverView(sCliente);
-            mainApp.openLoginView();
-        });
+        if (!jugadorMuerto) {
+            jugadorMuerto = true;
+            enviarMensajeAlServidor("3"); // Marcar partida como terminada
+            detenerCombate();
+            Platform.runLater(() -> {
+                mainApp.openGameOverView();
+                mainApp.openLoginView();
+            });
+        }
     }
 
     public void actualizarInterfaz(Tablero newTablero) {

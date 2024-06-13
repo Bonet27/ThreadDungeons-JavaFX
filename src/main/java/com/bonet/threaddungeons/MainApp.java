@@ -13,6 +13,16 @@ import java.net.Socket;
 public class MainApp extends Application {
     private static Stage stage;
 
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+    private Socket socket; // Socket compartido
+
     public String getServerIp() {
         return serverIp;
     }
@@ -81,6 +91,7 @@ public class MainApp extends Application {
 
     public void openMainView(Socket socket) {
         try {
+            this.socket = socket;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Main-view.fxml"));
             Parent root = loader.load();
             MainController mainController = loader.getController();
@@ -93,13 +104,14 @@ public class MainApp extends Application {
         }
     }
 
-    public void openGameOverView(Socket socket) {
+    public void openGameOverView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOver-view.fxml"));
             Parent root = loader.load();
             GameOverController gameOverController = loader.getController();
             gameOverController.setMainApp(this);
-            gameOverController.setSocket(socket); // Pasar el socket al controlador
+            Socket newSocket = new Socket(serverIp, 2000); // Crear un nuevo socket solo para el GameOverController
+            gameOverController.setSocket(newSocket); // Pasar el nuevo socket al controlador
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

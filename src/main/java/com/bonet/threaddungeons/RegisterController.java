@@ -53,7 +53,7 @@ public class RegisterController {
         }
 
         try {
-            socket = new Socket(mainApp.getServerIp(), 2000);
+            Socket socket = new Socket(mainApp.getServerIp(), 2000);
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
@@ -63,14 +63,17 @@ public class RegisterController {
             output.writeUTF(email);
             output.flush();
 
-            boolean registered = input.readBoolean();
+            String responseType = input.readUTF();
+            if ("REGISTER_RESPONSE".equals(responseType)) {
+                boolean registered = input.readBoolean();
 
-            if (registered) {
-                errorMsg.setText("Usuario registrado con éxito.");
-                errorMsg.setVisible(true);
-            } else {
-                errorMsg.setText("Error al registrar el usuario. Inténtelo de nuevo.");
-                errorMsg.setVisible(true);
+                if (registered) {
+                    errorMsg.setText("Usuario registrado con éxito.");
+                    errorMsg.setVisible(true);
+                } else {
+                    errorMsg.setText("Error al registrar el usuario. Inténtelo de nuevo.");
+                    errorMsg.setVisible(true);
+                }
             }
             socket.close();
         } catch (IOException e) {
