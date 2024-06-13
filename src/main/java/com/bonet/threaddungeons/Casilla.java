@@ -8,8 +8,8 @@ public class Casilla {
     public float getDificultMultiplier() {
         return dificultMultiplier;
     }
-    protected enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
-    protected Estado estado = Estado.SIN_ATACAR;
+    public enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
+    public Estado estado = Estado.SIN_ATACAR;
     protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
     protected Mode mode = Mode.NORMAL;
     protected float health;
@@ -127,7 +127,23 @@ public class Casilla {
         if (health <= 0) {
             health = 0;
             isAlive = false;
-            setEstado(Estado.MUERTO);
+            estado = Estado.MUERTO;
         }
+    }
+
+    public boolean isSinAtacar() {
+        return estado == Estado.SIN_ATACAR;
+    }
+
+    public void iniciarCombate() {
+        estado = Estado.EN_COMBATE;
+    }
+
+    public boolean isEnCombate() {
+        return estado == Estado.EN_COMBATE;
+    }
+
+    public boolean isMuerto() {
+        return estado == Estado.MUERTO;
     }
 }

@@ -87,7 +87,7 @@ public class MainController {
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
         enemyImages = new ImageView[]{enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image};
 
-        btn_attack.setOnAction(event -> iniciarAtaque());
+        btn_attack.setOnAction(event -> enviarMensajeAlServidor("1"));
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
         btn_menu.setOnAction(event -> salir());
     }
@@ -125,6 +125,11 @@ public class MainController {
                         if (newTablero != null) {
                             Platform.runLater(() -> {
                                 actualizarInterfaz(newTablero);
+                                if (newTablero.isPartidaAcabada() && !jugadorMuerto) {
+                                    jugadorMuerto = true;
+                                    detenerCombate();
+                                    mainApp.openGameOverView();
+                                }
                             });
                         }
                     }
@@ -149,24 +154,15 @@ public class MainController {
     }
 
     private void salir() {
-        if (!jugadorMuerto) {
-            jugadorMuerto = true;
-            enviarMensajeAlServidor("3"); // Marcar partida como terminada
-            detenerCombate();
-            Platform.runLater(() -> mainApp.openGameOverView()); // Pasar el socket
-        }
+        enviarMensajeAlServidor("3"); // Marcar partida como terminada
+        detenerCombate();
+        Platform.runLater(() -> mainApp.openGameOverView()); // Pasar el socket
     }
 
     private void cerrarConexionYVolverAlLogin() {
-        if (!jugadorMuerto) {
-            jugadorMuerto = true;
-            enviarMensajeAlServidor("3"); // Marcar partida como terminada
-            detenerCombate();
-            Platform.runLater(() -> {
-                mainApp.openGameOverView();
-                mainApp.openLoginView();
-            });
-        }
+        enviarMensajeAlServidor("3"); // Marcar partida como terminada
+        detenerCombate();
+        Platform.runLater(() -> mainApp.openLoginView());
     }
 
     public void actualizarInterfaz(Tablero newTablero) {
@@ -192,8 +188,8 @@ public class MainController {
             niveles[i].setText("NIVEL " + (i + 1) + " - " + casillas[i].getMode().toString());
         }
 
-        enemyHealthBars[numCasillaActual].setProgress(casillaActual.health / casillaActual.maxHealth);
-        enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.health, casillaActual.maxHealth));
+        enemyHealthBars[numCasillaActual].setProgress(casillaActual.getHealth() / casillaActual.getMaxHealth());
+        enemyHpLabels[numCasillaActual].setText(String.format("%.0f / %.0f", casillaActual.getHealth(), casillaActual.getMaxHealth()));
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
@@ -203,11 +199,14 @@ public class MainController {
             salir();
         }
 
-        if (casillaActual.getEstado() != Casilla.Estado.EN_COMBATE) {
+        if (casillaActual.isMuerto()) {
+            enviarMensajeAlServidor("2");
+        } else if (casillaActual.isEnCombate()) {
+            btn_attack.setDisable(true);
+            btn_skip.setDisable(true);
+            generarCirculo();
+        } else {
             detenerCombate();
-            if (casillaActual.getEstado() == Casilla.Estado.MUERTO) {
-                avanzarCasilla();
-            }
         }
 
         actualizarBotines(numCasillaActual);
@@ -356,17 +355,5 @@ public class MainController {
         }
         btn_attack.setDisable(false);
         btn_skip.setDisable(false);
-    }
-
-    private void avanzarCasilla() {
-        enviarMensajeAlServidor("2");
-    }
-
-    private void iniciarAtaque() {
-        enviarMensajeAlServidor("1");
-        combateTimer = new Timer();
-        btn_attack.setDisable(true);
-        btn_skip.setDisable(true);
-        generarCirculo();
     }
 }

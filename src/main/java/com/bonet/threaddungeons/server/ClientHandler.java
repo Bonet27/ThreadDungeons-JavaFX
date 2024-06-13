@@ -51,7 +51,7 @@ public class ClientHandler implements Runnable {
     private void handleTopScores() {
         try {
             List<Score> topScores = DatabaseManager.getTopScores(15);
-            String jsonScores = gson.toJson(topScores); // Usar Gson para convertir a JSON
+            String jsonScores = gson.toJson(topScores);
             synchronized (output) {
                 output.writeUTF("TOP_SCORES");
                 output.writeUTF(jsonScores);
@@ -132,17 +132,20 @@ public class ClientHandler implements Runnable {
     private void procesarMensaje(String mensaje) {
         switch (mensaje) {
             case "1":
-                tablero.iniciarCombate(tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()]);
+                iniciarCombate();
                 logger.info("Procesando mensaje de iniciar ataque");
                 break;
             case "2":
-                tablero.saltar();
+                boolean saltoExitoso = tablero.saltar();
+                if (!saltoExitoso) {
+                    iniciarCombate();
+                }
                 logger.info("Procesando mensaje de saltar");
                 break;
             case "3":
                 tablero.setPartidaAcabada(true);
                 logger.info("Procesando mensaje de acabar la partida");
-                DatabaseManager.saveScore(user, tablero);
+                DatabaseManager.saveScore(user, tablero); // Guardar puntaje
                 break;
             case "4":
                 logger.info("Procesando mensaje de ataque");
@@ -161,6 +164,17 @@ public class ClientHandler implements Runnable {
         }
         tablero.comprobarFinPartida();
         DatabaseManager.saveTablero(userId, tablero);
+        enviarEstadoJuego();
+    }
+
+    private void iniciarCombate() {
+        Casilla casillaActual = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[tablero.getJugador().getCasillaActual()];
+        if (casillaActual.getEstado() == Casilla.Estado.SIN_ATACAR) {
+            tablero.iniciarCombate(casillaActual);
+            enviarEstadoJuego();
+        } else {
+            logger.info("El combate ya está en progreso para esta casilla.");
+        }
     }
 
     private void enviarEstadoJuego() {

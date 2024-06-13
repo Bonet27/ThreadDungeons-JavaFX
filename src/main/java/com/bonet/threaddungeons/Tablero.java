@@ -37,14 +37,16 @@ public class Tablero {
         casillaActual.setEstado(Casilla.Estado.EN_COMBATE);
     }
 
-    public void saltar() {
+    public boolean saltar() {
         Random rdn = new Random();
-        var num = rdn.nextFloat(0f,1f);
-        if (num < 0.75f) {
+        var num = rdn.nextFloat(0f, 1f);
+        if (num < 0.85f) {
             avanzar();
+            return true;
         } else {
             Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
             iniciarCombate(casillaActual);
+            return false;
         }
     }
 
@@ -82,6 +84,19 @@ public class Tablero {
     public void comprobarFinPartida() {
         if (jugador.getSalud() <= 0) {
             partidaAcabada = true;
+        } else {
+            boolean todasCasillasCompletadas = true;
+            for (Etapa etapa : etapas) {
+                for (Casilla casilla : etapa.getCasillas()) {
+                    if (!casilla.isMuerto()) {
+                        todasCasillasCompletadas = false;
+                        break;
+                    }
+                }
+            }
+            if (todasCasillasCompletadas) {
+                partidaAcabada = true;
+            }
         }
     }
 
@@ -94,5 +109,16 @@ public class Tablero {
         } else {
             partidaAcabada = true;
         }
+        comprobarFinPartida();
+    }
+
+    public boolean isCasillaActualSinAtacar() {
+        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
+        return casillaActual.isSinAtacar();
+    }
+
+    public void iniciarCombateCasillaActual() {
+        Casilla casillaActual = etapas[jugador.getEtapaActual()].getCasillas()[jugador.getCasillaActual()];
+        casillaActual.iniciarCombate();
     }
 }
