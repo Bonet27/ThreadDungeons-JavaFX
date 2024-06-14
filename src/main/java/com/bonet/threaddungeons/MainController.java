@@ -17,9 +17,13 @@ import javafx.scene.text.Text;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MainController {
     @FXML
@@ -56,6 +60,7 @@ public class MainController {
     private ImageView botin1Image, botin2Image, botin3Image, botin4Image, botin5Image1, botin5Image2;
     @FXML
     private Label botin1Label, botin2Label, botin3Label, botin4Label, botin5Label1, botin5Label2;
+
     private Socket sCliente;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
@@ -68,6 +73,8 @@ public class MainController {
     private Timer combateTimer;
     private Timer circleTimer;
     private boolean jugadorMuerto = false;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private Future<?> serverConnectionTask;
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -75,7 +82,9 @@ public class MainController {
 
     public void setSocket(Socket socket) {
         this.sCliente = socket;
-        new Thread(this::connectToServer).start();
+        if (serverConnectionTask == null || serverConnectionTask.isDone()) {
+            serverConnectionTask = executorService.submit(this::connectToServer);
+        }
     }
 
     @FXML

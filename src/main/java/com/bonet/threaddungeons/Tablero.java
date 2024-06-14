@@ -40,7 +40,7 @@ public class Tablero {
     public boolean saltar() {
         Random rdn = new Random();
         var num = rdn.nextFloat(0f, 1f);
-        if (num < 0.85f) {
+        if (num < 0.75f) {
             avanzar();
             return true;
         } else {

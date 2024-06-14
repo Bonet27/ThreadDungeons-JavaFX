@@ -89,6 +89,11 @@ VBox {
     -fx-fill: white;
 }
 
+#enemy1HpLabel, #enemy2HpLabel, #enemy3HpLabel, #enemy4HpLabel, #enemy5HpLabel {
+    -fx-text-fill: black;
+    -fx-fill: black;
+}
+
 #sliderHealth, #enemyHealth1, #enemyHealth2, #enemyHealth3, #enemyHealth4, #enemyHealth5 {
     -fx-accent: red;
 }

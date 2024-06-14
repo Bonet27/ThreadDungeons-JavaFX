@@ -6,6 +6,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -19,6 +20,9 @@
         <VBox.margin>
             <Insets left="100.0" right="100.0" />
         </VBox.margin>
+      <effect>
+         <DropShadow />
+      </effect>
     </Text>
     <VBox alignment="CENTER" maxWidth="600.0" minWidth="400.0" spacing="20.0" VBox.vgrow="ALWAYS">
         <children>
@@ -29,6 +33,9 @@
             <VBox.margin>
                <Insets bottom="50.0" />
             </VBox.margin>
+            <effect>
+               <DropShadow />
+            </effect>
             </Label>
             <TextField fx:id="inputUsuario" promptText="Usuario" VBox.vgrow="ALWAYS">
                 <font>
@@ -37,6 +44,9 @@
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
+            <effect>
+               <DropShadow />
+            </effect>
             </TextField>
             <PasswordField fx:id="inputPassword" promptText="Contraseña" VBox.vgrow="ALWAYS">
                 <font>
@@ -45,15 +55,25 @@
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
+            <effect>
+               <DropShadow />
+            </effect>
             </PasswordField>
-            <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false" VBox.vgrow="ALWAYS">
-                <font>
-                    <Font name="System Bold" size="24.0" />
-                </font>
-                <VBox.margin>
-                    <Insets top="10.0" />
-                </VBox.margin>
-            </Text>
+         <HBox fx:id="vBoxError" alignment="CENTER" maxHeight="40.0" prefHeight="40.0" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+            <children>
+                  <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false">
+                      <font>
+                          <Font name="System Bold" size="24.0" />
+                      </font>
+                  </Text>
+            </children>
+            <effect>
+               <DropShadow />
+            </effect>
+         </HBox>
         </children>
         <VBox.margin>
             <Insets bottom="10.0" />
@@ -68,6 +88,9 @@
                 <HBox.margin>
                     <Insets />
                 </HBox.margin>
+            <effect>
+               <DropShadow />
+            </effect>
             </Button>
             <Button fx:id="btn_register" defaultButton="true" maxWidth="1.7976931348623157E308" text="REGISTRO" textFill="WHITE" HBox.hgrow="ALWAYS">
                 <font>
@@ -76,6 +99,9 @@
                 <HBox.margin>
                     <Insets />
                 </HBox.margin>
+            <effect>
+               <DropShadow />
+            </effect>
             </Button>
         </children>
         <VBox.margin>

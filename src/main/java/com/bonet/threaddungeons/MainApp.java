@@ -5,10 +5,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Objects;
 
 public class MainApp extends Application {
     private static Stage stage;
@@ -27,8 +29,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/gold.png")));
+        primaryStage.getIcons().add(icon);
         stage = primaryStage;
-        primaryStage.setTitle("Thread Dungeons");
+        primaryStage.setTitle("Thread Dungeons - Game");
         primaryStage.setOnCloseRequest(event -> {
             Platform.exit();
             System.exit(0);
@@ -48,7 +52,9 @@ public class MainApp extends Application {
             controller.setMainApp(this);
 
             Stage ipConfigStage = new Stage();
-            ipConfigStage.setTitle("Server IP Configuration");
+            Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/gold.png")));
+            ipConfigStage.getIcons().add(icon);
+            ipConfigStage.setTitle("Thread Dungeons - Server IP Configuration");
             ipConfigStage.setScene(new Scene(root));
             ipConfigStage.showAndWait();
 

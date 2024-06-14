@@ -16,7 +16,6 @@ public class Casilla {
     protected float maxHealth;
     protected float dificultMultiplier;
     protected float damage;
-    protected float speed;
     private int reward;
     private int reward1;
     private String rewardIconUrl;
@@ -35,7 +34,6 @@ public class Casilla {
                 this.damage = 10 * dificultMultiplier;
                 this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed = Math.round(12 * dificultMultiplier);
                 this.reward = (int) (30 * dificultMultiplier);
                 this.rewardIconUrl = "gold.png";
                 this.rewardText = "+" + this.reward + " oro";
@@ -45,7 +43,6 @@ public class Casilla {
                 this.damage = 15 * dificultMultiplier;
                 this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed = Math.round(12 * dificultMultiplier);
                 this.reward = (int) ((new Random().nextInt(31) + 30) * dificultMultiplier); // 30 to 60
                 this.rewardIconUrl = "chest.png";
                 this.rewardText = "+" + this.reward + " oro";
@@ -55,7 +52,6 @@ public class Casilla {
                 this.damage = 15 * dificultMultiplier;
                 this.health = 75 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed = Math.round(12 * dificultMultiplier);
                 if (new Random().nextBoolean()) {
                     this.reward = (int) (10 * dificultMultiplier);
                     this.rewardIconUrl = "heart.png";
@@ -71,7 +67,6 @@ public class Casilla {
                 this.damage = 20 * dificultMultiplier;
                 this.health = 100 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.speed = Math.round(10 * dificultMultiplier);
                 this.reward = (int) (5 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
                 this.reward1 = (int) (2 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
                 this.rewardIconUrl = "sword.png";
@@ -137,12 +132,5 @@ public class Casilla {
 
     public boolean isMuerto() {
         return estado == Estado.MUERTO;
-    }
-    public boolean isSinAtacar() {
-        return estado == Estado.SIN_ATACAR;
-    }
-
-    public void iniciarCombate() {
-        estado = Estado.EN_COMBATE;
     }
 }

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.DataInputStream;
@@ -47,6 +48,7 @@ public class RegisterController {
         String email = inputEmail.getText();
 
         if (username.isEmpty() || password.isEmpty()) {
+            errorMsg.setFill(Color.RED);
             errorMsg.setText("El usuario y la contraseña son obligatorios.");
             errorMsg.setVisible(true);
             return;
@@ -68,15 +70,18 @@ public class RegisterController {
                 boolean registered = input.readBoolean();
 
                 if (registered) {
+                    errorMsg.setFill(Color.GREEN);
                     errorMsg.setText("Usuario registrado con éxito.");
                     errorMsg.setVisible(true);
                 } else {
+                    errorMsg.setFill(Color.RED);
                     errorMsg.setText("Error al registrar el usuario. Inténtelo de nuevo.");
                     errorMsg.setVisible(true);
                 }
             }
             socket.close();
         } catch (IOException e) {
+            errorMsg.setFill(Color.RED);
             errorMsg.setText("Error al conectar con el servidor.");
             errorMsg.setVisible(true);
         }

@@ -169,10 +169,8 @@ public class ClientHandler implements Runnable {
         }
         tablero.comprobarFinPartida();
         DatabaseManager.saveTablero(userId, tablero);
-
-        if (tablero.isPartidaAcabada()) {
+        if (tablero.isPartidaAcabada())
             DatabaseManager.saveScore(user, tablero); // Guardar puntaje al finalizar la partida
-        }
 
         enviarEstadoJuego();
     }
