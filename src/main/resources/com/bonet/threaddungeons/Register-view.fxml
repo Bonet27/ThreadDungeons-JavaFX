@@ -67,14 +67,21 @@
                <DropShadow />
             </effect>
          </TextField>
-            <Text fx:id="errorMsg" fill="RED" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="ERROR: Server refused connection" textAlignment="CENTER" visible="false" VBox.vgrow="ALWAYS">
-                <font>
-                    <Font name="System Bold" size="24.0" />
-                </font>
-                <VBox.margin>
-                    <Insets top="10.0" />
-                </VBox.margin>
-            </Text>
+         <HBox fx:id="vBoxError" alignment="CENTER" maxHeight="40.0" prefHeight="40.0">
+            <children>
+               <Label fx:id="errorMsg" text="ERROR: Server refused connection" textFill="RED" visible="false">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+                  <effect>
+                     <DropShadow />
+                  </effect>
+               </Label>
+            </children>
+            <effect>
+               <DropShadow />
+            </effect>
+         </HBox>
         </children>
         <VBox.margin>
             <Insets bottom="10.0" />
@@ -93,7 +100,7 @@
                <DropShadow />
             </effect>
             </Button>
-         <Button fx:id="btn_back" defaultButton="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="VOLVER" textFill="WHITE">
+         <Button fx:id="btn_back" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="VOLVER" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>

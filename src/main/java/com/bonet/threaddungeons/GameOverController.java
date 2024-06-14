@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -34,7 +35,7 @@ public class GameOverController {
     @FXML
     private TableColumn<Score, Integer> columnOro;
     @FXML
-    private Text errorMsg;
+    private Label errorMsg;
     private MainApp mainApp;
     private Socket sCliente;
     private boolean scoresLoaded = false;

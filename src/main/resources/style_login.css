@@ -21,3 +21,9 @@
 .label {
     -fx-text-fill: #e8ecf1;
 }
+
+#errorMsg
+{
+    -fx-text-fill: red;
+}
+

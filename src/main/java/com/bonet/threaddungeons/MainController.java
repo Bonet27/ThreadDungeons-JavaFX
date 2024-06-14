@@ -31,15 +31,7 @@ public class MainController {
     @FXML
     private TitledPane nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane;
     @FXML
-    private TitledPane tp_money;
-    @FXML
-    private HBox topHbox;
-    @FXML
-    private GridPane mainGridPane;
-    @FXML
     private TitledPane botin1pane, botin2pane, botin3pane, botin4pane, botin5pane;
-    @FXML
-    private Accordion accordion1, accordion2;
     @FXML
     private Label enemy1HpLabel, enemy2HpLabel, enemy3HpLabel, enemy4HpLabel, enemy5HpLabel;
     @FXML
@@ -48,8 +40,6 @@ public class MainController {
     private ProgressBar enemyHealth1, enemyHealth2, enemyHealth3, enemyHealth4, enemyHealth5;
     @FXML
     private ImageView enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image;
-    @FXML
-    private ImageView playerImage, attackIcon, speedIcon;
     @FXML
     private Label goldText;
     @FXML
@@ -60,7 +50,6 @@ public class MainController {
     private ImageView botin1Image, botin2Image, botin3Image, botin4Image, botin5Image1, botin5Image2;
     @FXML
     private Label botin1Label, botin2Label, botin3Label, botin4Label, botin5Label1, botin5Label2;
-
     private Socket sCliente;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private Tablero tablero;
@@ -72,7 +61,6 @@ public class MainController {
     private MainApp mainApp;
     private Timer combateTimer;
     private Timer circleTimer;
-    private boolean jugadorMuerto = false;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private Future<?> serverConnectionTask;
 
@@ -132,14 +120,7 @@ public class MainController {
                         System.out.println("Datos recibidos del servidor: " + datosServidor);
                         Tablero newTablero = gson.fromJson(datosServidor, Tablero.class);
                         if (newTablero != null) {
-                            Platform.runLater(() -> {
-                                actualizarInterfaz(newTablero);
-                                if (newTablero.isPartidaAcabada() && !jugadorMuerto) {
-                                    jugadorMuerto = true;
-                                    detenerCombate();
-                                    mainApp.openGameOverView();
-                                }
-                            });
+                            Platform.runLater(() -> actualizarInterfaz(newTablero));
                         }
                     }
                 } catch (EOFException e) {
@@ -202,8 +183,7 @@ public class MainController {
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
-        if ((!jugador.isAlive() && !jugadorMuerto) || tablero.isPartidaAcabada()) {
-            jugadorMuerto = true;
+        if ((!jugador.isAlive()) || tablero.isPartidaAcabada()) {
             detenerCombate();
             enviarMensajeAlServidor("3"); // Asegurarse de que el servidor sepa que la partida ha terminado
             salir();
@@ -308,7 +288,7 @@ public class MainController {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    if (jugadorMuerto || tablero.isPartidaAcabada()) {
+                    if (tablero.isPartidaAcabada()) {
                         detenerCombate();
                         return;
                     }

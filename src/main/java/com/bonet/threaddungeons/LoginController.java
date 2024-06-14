@@ -1,7 +1,10 @@
 package com.bonet.threaddungeons;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -21,7 +24,7 @@ public class LoginController {
     @FXML
     private Button btn_register;
     @FXML
-    private Text errorMsg;
+    private Label errorMsg;
     private MainApp mainApp;
     private Socket socket;
 
@@ -48,39 +51,65 @@ public class LoginController {
         String password = inputPassword.getText();
 
         if (login.isEmpty() || password.isEmpty()) {
-            errorMsg.setText("El usuario y la contraseña no pueden estar vacíos.");
-            errorMsg.setVisible(true);
+            showError("El usuario y la contraseña no pueden estar vacíos.");
             return;
         }
 
-        try {
-            socket = new Socket(mainApp.getServerIp(), 2000);
-            mainApp.setSocket(socket);
+        // Evitar múltiples inicios de sesión simultáneos
+        btn_login.setDisable(true);
+        errorMsg.setVisible(false);
 
-            DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-            DataInputStream input = new DataInputStream(socket.getInputStream());
+        Task<Void> loginTask = new Task<>() {
+            @Override
+            protected Void call() {
+                try {
+                    socket = new Socket(mainApp.getServerIp(), 2000);
+                    mainApp.setSocket(socket);
 
-            output.writeUTF("login");
-            output.writeUTF(login);
-            output.writeUTF(password);
-            output.flush();
+                    DataOutputStream output = new DataOutputStream(socket.getOutputStream());
+                    DataInputStream input = new DataInputStream(socket.getInputStream());
 
-            String responseType = input.readUTF();
-            if ("LOGIN_RESPONSE".equals(responseType)) {
-                boolean authenticated = input.readBoolean();
+                    output.writeUTF("login");
+                    output.writeUTF(login);
+                    output.writeUTF(password);
+                    output.flush();
 
-                if (authenticated) {
-                    mainApp.openMainView(socket);
-                } else {
-                    errorMsg.setText("Usuario o contraseña incorrectos.");
-                    errorMsg.setVisible(true);
-                    socket.close();
+                    String responseType = input.readUTF();
+                    boolean authenticated = input.readBoolean();
+
+                    Platform.runLater(() -> {
+                        if ("LOGIN_RESPONSE".equals(responseType) && authenticated) {
+                            mainApp.openMainView(socket);
+                        } else {
+                            showError("Usuario o contraseña incorrectos.");
+                            closeSocket();
+                        }
+                        btn_login.setDisable(false);
+                    });
+                } catch (IOException e) {
+                    Platform.runLater(() -> {
+                        showError("Error al conectar con el servidor.");
+                        btn_login.setDisable(false);
+                    });
                 }
+                return null;
             }
+        };
+        new Thread(loginTask).start();
+    }
 
+    private void showError(String message) {
+        errorMsg.setText(message);
+        errorMsg.setVisible(true);
+    }
+
+    private void closeSocket() {
+        try {
+            if (socket != null && !socket.isClosed()) {
+                socket.close();
+            }
         } catch (IOException e) {
-            errorMsg.setText("Error al conectar con el servidor.");
-            errorMsg.setVisible(true);
+            e.printStackTrace();
         }
     }
 
