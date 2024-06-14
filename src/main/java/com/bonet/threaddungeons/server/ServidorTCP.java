@@ -12,46 +12,45 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ServidorTCP {
-    private static final int Puerto = 2000;
-    private static AtomicBoolean running = new AtomicBoolean(true);
-    private static ExecutorService threadPool = Executors.newCachedThreadPool();
-    private static final Logger logger = LoggerUtility.getLogger(ServidorTCP.class, "server");
+    private static final int Puerto = 2000; // Puerto del servidor
+    private static AtomicBoolean running = new AtomicBoolean(true); // Estado del servidor
+    private static ExecutorService threadPool = Executors.newCachedThreadPool(); // Pool de hilos
+    private static final Logger logger = LoggerUtility.getLogger(ServidorTCP.class, "server"); // Logger para el servidor
 
     public static void main(String[] args) {
         DatabaseManager.initializeDatabase(); // Inicializar la base de datos
 
         try (ServerSocket serverSocket = new ServerSocket(Puerto)) {
-            logger.info("Servidor iniciado en el puerto " + Puerto);
+            logger.info("Servidor iniciado en el puerto " + Puerto); // Informar que el servidor ha iniciado
 
             // Manejar el cierre del servidor
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                running.set(false);
+                running.set(false); // Cambiar estado a no corriendo
                 try {
-                    serverSocket.close();
-                    threadPool.shutdownNow();
-                    logger.info("Servidor cerrado");
+                    serverSocket.close(); // Cerrar ServerSocket
+                    threadPool.shutdownNow(); // Apagar pool de hilos
+                    logger.info("Servidor cerrado"); // Informar que el servidor ha cerrado
                 } catch (IOException e) {
-                    logger.error("Error al cerrar el servidor: " + e.getMessage());
+                    logger.error("Error al cerrar el servidor: " + e.getMessage()); // Registrar error
                 }
             }));
 
             // Esperar conexiones de clientes
             while (running.get()) {
                 try {
-                    Socket clientSocket = serverSocket.accept();
-                    logger.info("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
-                    threadPool.submit(new ClientHandler(clientSocket));
+                    Socket clientSocket = serverSocket.accept(); // Aceptar conexión de cliente
+                    logger.info("Nuevo cliente conectado: " + clientSocket.getInetAddress().getHostAddress()); // Informar de nueva conexión
+                    threadPool.submit(new ClientHandler(clientSocket)); // Manejar cliente en un nuevo hilo
                 } catch (IOException e) {
                     if (running.get()) {
-                        logger.error("Error en el servidor: " + e.getMessage());
+                        logger.error("Error en el servidor: " + e.getMessage()); // Registrar error
                     }
                 }
             }
         } catch (IOException e) {
-            logger.error("Error en el servidor: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Error en el servidor: " + e.getMessage()); // Registrar error
         } finally {
-            threadPool.shutdown();
+            threadPool.shutdown(); // Apagar pool de hilos
         }
     }
 }

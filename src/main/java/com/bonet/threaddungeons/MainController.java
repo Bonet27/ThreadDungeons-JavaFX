@@ -9,15 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +23,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class MainController {
+    // Elementos de la interfaz de usuario (FXML)
     @FXML
     private Button btn_attack, btn_skip, btn_menu;
     @FXML
@@ -50,9 +48,11 @@ public class MainController {
     private ImageView botin1Image, botin2Image, botin3Image, botin4Image, botin5Image1, botin5Image2;
     @FXML
     private Label botin1Label, botin2Label, botin3Label, botin4Label, botin5Label1, botin5Label2;
+
+    // Socket de conexión al servidor
     private Socket sCliente;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private Tablero tablero;
+    private Tablero tablero; // Estado del juego
     private ProgressBar[] enemyHealthBars;
     private ImageView[] enemyImages;
     private Label[] enemyHpLabels;
@@ -64,10 +64,12 @@ public class MainController {
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private Future<?> serverConnectionTask;
 
+    // Establecer la referencia a la aplicación principal
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 
+    // Establecer el socket de conexión al servidor
     public void setSocket(Socket socket) {
         this.sCliente = socket;
         if (serverConnectionTask == null || serverConnectionTask.isDone()) {
@@ -75,6 +77,7 @@ public class MainController {
         }
     }
 
+    // Inicializar los elementos de la interfaz
     @FXML
     private void initialize() {
         niveles = new TitledPane[]{nivel1pane, nivel2pane, nivel3pane, nivel4pane, nivel5pane};
@@ -84,11 +87,13 @@ public class MainController {
         nivelContents = new AnchorPane[]{nivel1content, nivel2content, nivel3content, nivel4content, nivel5content};
         enemyImages = new ImageView[]{enemy1Image, enemy2Image, enemy3Image, enemy4Image, enemy5Image};
 
+        // Configurar acciones de los botones
         btn_attack.setOnAction(event -> enviarMensajeAlServidor("1"));
         btn_skip.setOnAction(event -> enviarMensajeAlServidor("2"));
         btn_menu.setOnAction(event -> salir());
     }
 
+    // Enviar un mensaje al servidor
     private void enviarMensajeAlServidor(String mensaje) {
         if (sCliente != null && !sCliente.isClosed() && !sCliente.isOutputShutdown()) {
             try {
@@ -107,6 +112,7 @@ public class MainController {
         }
     }
 
+    // Conectar al servidor y escuchar mensajes
     private void connectToServer() {
         try {
             InputStream in = sCliente.getInputStream();
@@ -143,18 +149,21 @@ public class MainController {
         }
     }
 
+    // Manejar la acción de salir del juego
     private void salir() {
         enviarMensajeAlServidor("3"); // Marcar partida como terminada
         detenerCombate();
         Platform.runLater(() -> mainApp.openGameOverView()); // Pasar el socket
     }
 
+    // Cerrar la conexión y volver a la vista de login
     private void cerrarConexionYVolverAlLogin() {
         enviarMensajeAlServidor("3"); // Marcar partida como terminada
         detenerCombate();
         Platform.runLater(() -> mainApp.openLoginView());
     }
 
+    // Actualizar la interfaz de usuario con el nuevo estado del tablero
     public void actualizarInterfaz(Tablero newTablero) {
         this.tablero = newTablero;
 
@@ -183,12 +192,14 @@ public class MainController {
         openActualTitledPane(numCasillaActual);
         openBotinTitledPane(numCasillaActual);
 
+        // Verificar si el jugador está vivo o si la partida ha terminado
         if ((!jugador.isAlive()) || tablero.isPartidaAcabada()) {
             detenerCombate();
             enviarMensajeAlServidor("3"); // Asegurarse de que el servidor sepa que la partida ha terminado
             salir();
         }
 
+        // Manejar diferentes estados de la casilla actual
         if (casillaActual.isMuerto()) {
             enviarMensajeAlServidor("2");
         } else if (casillaActual.isEnCombate()) {
@@ -202,6 +213,7 @@ public class MainController {
         actualizarBotines(numCasillaActual);
     }
 
+    // Expandir el panel titulado de la casilla actual
     private void openActualTitledPane(int casillaActual) {
         for (int i = 0; i < niveles.length; i++) {
             niveles[i].setExpanded(i == casillaActual);
@@ -209,6 +221,7 @@ public class MainController {
         }
     }
 
+    // Expandir el panel titulado de botín de la casilla actual
     private void openBotinTitledPane(int casillaActual) {
         for (int i = 0; i < botines.length; i++) {
             botines[i].setExpanded(i == casillaActual);
@@ -216,6 +229,7 @@ public class MainController {
         }
     }
 
+    // Actualizar la información de los botines en la interfaz
     private void actualizarBotines(int casillaActual) {
         Casilla casilla = tablero.getEtapas()[tablero.getJugador().getEtapaActual()].getCasillas()[casillaActual];
         switch (casillaActual) {
@@ -268,6 +282,7 @@ public class MainController {
         }
     }
 
+    // Generar un círculo en una ubicación aleatoria
     private void generarCirculo() {
         final Random random = new Random();
         final int baseDelay = 1500;
@@ -334,6 +349,7 @@ public class MainController {
         }, delayBetweenCircles);
     }
 
+    // Detener el combate y cancelar los temporizadores
     private void detenerCombate() {
         if (combateTimer != null) {
             combateTimer.cancel();

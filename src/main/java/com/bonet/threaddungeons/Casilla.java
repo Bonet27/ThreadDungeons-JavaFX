@@ -3,31 +3,29 @@ package com.bonet.threaddungeons;
 import java.util.Random;
 
 public class Casilla {
-    protected String icon;
-    protected boolean isAlive = true;
-    public float getDificultMultiplier() {
-        return dificultMultiplier;
-    }
-    public enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO }
-    public Estado estado = Estado.SIN_ATACAR;
-    protected enum Mode { NORMAL, REWARD, RANDOM, BOSS }
-    protected Mode mode = Mode.NORMAL;
-    protected float health;
-    protected float maxHealth;
-    protected float dificultMultiplier;
-    protected float damage;
-    private int reward;
-    private int reward1;
-    private String rewardIconUrl;
-    private String rewardIconUrl1;
-    private String rewardText;
-    private String rewardText1;
+    protected String icon; // Icono de la casilla
+    protected boolean isAlive = true; // Estado de vida de la casilla
+    public float getDificultMultiplier() { return dificultMultiplier; }
+    public enum Estado { SIN_ATACAR, EN_COMBATE, MUERTO } // Estados posibles de la casilla
+    public Estado estado = Estado.SIN_ATACAR; // Estado actual de la casilla
+    protected enum Mode { NORMAL, REWARD, RANDOM, BOSS } // Modos posibles de la casilla
+    protected Mode mode = Mode.NORMAL; // Modo actual de la casilla
+    protected float health; // Salud actual de la casilla
+    protected float maxHealth; // Salud máxima de la casilla
+    protected float dificultMultiplier; // Multiplicador de dificultad
+    protected float damage; // Daño de la casilla
+    private int reward; // Recompensa de la casilla
+    private int reward1; // Recompensa adicional para el modo BOSS
+    private String rewardIconUrl; // URL del icono de la recompensa
+    private String rewardIconUrl1; // URL del icono de la segunda recompensa
+    private String rewardText; // Texto de la recompensa
+    private String rewardText1; // Texto de la segunda recompensa
 
     public Casilla() {}
 
     public Casilla(Mode mode, int etapa, int casilla) {
         this.mode = mode;
-        this.dificultMultiplier = 1 + (etapa * 0.05f) + (casilla * 0.01f); // Incremento progresivo
+        this.dificultMultiplier = 1 + (etapa * 0.05f) + (casilla * 0.01f); // Incremento progresivo de dificultad
         switch (this.mode) {
             case NORMAL:
                 this.icon = "enemy1.png";
@@ -43,7 +41,7 @@ public class Casilla {
                 this.damage = 15 * dificultMultiplier;
                 this.health = 50 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.reward = (int) ((new Random().nextInt(31) + 30) * dificultMultiplier); // 30 to 60
+                this.reward = (int) ((new Random().nextInt(31) + 30) * dificultMultiplier); // Recompensa entre 30 y 60
                 this.rewardIconUrl = "chest.png";
                 this.rewardText = "+" + this.reward + " oro";
                 break;
@@ -67,8 +65,8 @@ public class Casilla {
                 this.damage = 20 * dificultMultiplier;
                 this.health = 100 * dificultMultiplier;
                 this.maxHealth = this.health;
-                this.reward = (int) (5 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
-                this.reward1 = (int) (2 * dificultMultiplier); // Aquí, la recompensa real es el valor de daño y velocidad, no oro
+                this.reward = (int) (5 * dificultMultiplier); // Recompensa de daño
+                this.reward1 = (int) (2 * dificultMultiplier); // Recompensa de velocidad
                 this.rewardIconUrl = "sword.png";
                 this.rewardIconUrl1 = "lightning.png";
                 this.rewardText = "+" + this.reward + " daño";

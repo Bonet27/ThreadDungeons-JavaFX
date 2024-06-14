@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-    private static final String DB_URL = "jdbc:sqlite:threaddungeons.db";
-    private static final String USERS_JSON = "/usuarios.json"; // Ruta del classpath
+    private static final String DB_URL = "jdbc:sqlite:threaddungeons.db"; // URL de la base de datos SQLite
+    private static final String USERS_JSON = "/usuarios.json"; // Ruta del archivo JSON de usuarios
 
     public static void initializeDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
             if (conn != null) {
                 Statement stmt = conn.createStatement();
-                // Crear tablas si no existen
+                // Crear tabla de usuarios si no existe
                 String createUsuariosTableSQL = "CREATE TABLE IF NOT EXISTS usuarios (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "login TEXT NOT NULL UNIQUE," +
@@ -25,11 +25,13 @@ public class DatabaseManager {
                         "email TEXT)";
                 stmt.execute(createUsuariosTableSQL);
 
+                // Crear tabla de tableros si no existe
                 String createTablerosTableSQL = "CREATE TABLE IF NOT EXISTS tableros (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "estado TEXT NOT NULL)";
                 stmt.execute(createTablerosTableSQL);
 
+                // Crear tabla de relación usuarios-tableros si no existe
                 String createUsuariosTablerosTableSQL = "CREATE TABLE IF NOT EXISTS usuarios_tableros (" +
                         "usuario_id INTEGER," +
                         "tablero_id INTEGER," +
@@ -37,6 +39,7 @@ public class DatabaseManager {
                         "FOREIGN KEY (tablero_id) REFERENCES tableros(id))";
                 stmt.execute(createUsuariosTablerosTableSQL);
 
+                // Crear tabla de puntuaciones si no existe
                 String createScoresTableSQL = "CREATE TABLE IF NOT EXISTS scores (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "user_id INTEGER," +
@@ -63,6 +66,7 @@ public class DatabaseManager {
             Type userListType = new TypeToken<List<Usuario>>() {}.getType();
             List<Usuario> usuarios = gson.fromJson(reader, userListType);
 
+            // Insertar usuarios en la base de datos si no existen
             String insertSQL = "INSERT OR IGNORE INTO usuarios (login, password, email) VALUES (?, ?, ?)";
             try (PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
                 for (Usuario usuario : usuarios) {
